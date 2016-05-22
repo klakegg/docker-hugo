@@ -1,13 +1,13 @@
 # Hugo
 
-Image for [Hugo](http://gohugo.io/).
+Docker image for [Hugo](http://gohugo.io/).
 
 
 ## Using image
 
 ### Ordinary use
 
-```docker run --rm -it -v `pwd`:/srv/src klakegg/hugo:0.15 [parameters]```
+```docker run --rm -it -v `pwd`:/srv/src klakegg/hugo:0.15 [arguments]```
 
 
 ## Configuration
