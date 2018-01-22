@@ -7,12 +7,15 @@ RUN tar -zxvf hugo.tar.gz
 
 FROM busybox:1.28
 
-COPY --from=fetch /hugo /hugo
+ENV HUGO_BIND="0.0.0.0" \
+    HUGO_DESTINATION="/target"
+
+COPY --from=fetch /hugo /bin/hugo
+ADD run.sh /run.sh
 
 EXPOSE 1313
 
 VOLUME /src /target
 WORKDIR /src
 
-ENTRYPOINT ["/hugo"]
-CMD ["-h"]
+ENTRYPOINT ["sh", "/run.sh"]
