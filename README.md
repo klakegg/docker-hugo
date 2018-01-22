@@ -7,14 +7,14 @@ Docker image for [Hugo](http://gohugo.io/).
 
 ### Ordinary use
 
-```docker run --rm -it -v `pwd`:/srv/src klakegg/hugo:0.15 [arguments]```
+```docker run --rm -it -v `pwd`:/src klakegg/hugo:0.34 [arguments]```
 
 
 ## Configuration
 
 Folders:
-* ```/srv/src``` - Source folder and workdir
-* ```/srv/target``` - Target folder
+* ```/src``` - Source folder and workdir
+* ```/target``` - Target folder
 
 Exposed:
 * Port 1313

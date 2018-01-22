@@ -1,16 +1,18 @@
-FROM busybox:latest
+FROM busybox:1.28 AS fetch
 
-MAINTAINER Erlend Klakegg Bergheim
+ADD https://github.com/gohugoio/hugo/releases/download/v0.34/hugo_0.34_Linux-64bit.tar.gz /hugo.tar.gz
+RUN tar -zxvf hugo.tar.gz
+
+
+
+FROM busybox:1.28
+
+COPY --from=fetch /hugo /hugo
 
 EXPOSE 1313
 
-ADD . /srv/build
-ADD https://github.com/spf13/hugo/releases/download/v0.15/hugo_0.15_linux_amd64.tar.gz /hugo.tar.gz
+VOLUME /src /target
+WORKDIR /src
 
-RUN sh /srv/build/install.sh
-
-WORKDIR /srv/src
-
-VOLUME /srv/src /srv/target
-
-ENTRYPOINT ["sh", "/srv/build/run.sh"]
+ENTRYPOINT ["/hugo"]
+CMD ["-h"]
