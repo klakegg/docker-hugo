@@ -1,16 +1,20 @@
 # Hugo
 
-Minimal docker image for [Hugo](http://gohugo.io/). 
-The image sets `destination` during build and `bind` when started as server, otherwise no magic.
+[![](https://images.microbadger.com/badges/image/klakegg/hugo.svg)](https://microbadger.com/images/klakegg/hugo "Get your own image badge on microbadger.com")
+
+Minimal docker image for [Hugo](http://gohugo.io/). This image sets `destination` during build and `bind` when started as server, otherwise no magic.
 
 
 ## Available tags
 
-Default minimal image based upon busybox:
-* Hugo 0.34: `busybox`, `0.34-busybox`, `0.34`, `latest` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.34/Dockerfile))
+Default minimal image based upon [Busybox](https://hub.docker.com/r/_/busybox/):
+* Hugo 0.34: `0.34-busybox`, `busybox`, `0.34`, `latest` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.34/Dockerfile))
 
-Minimal image based upon alpine:
-* Hugo 0.34: `alpine`, `0.34-alpine` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.34/Dockerfile-alpine))
+Minimal image based upon [Alpine](https://hub.docker.com/r/_/alpine/):
+* Hugo 0.34: `0.34-alpine`, `alpine` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.34/Dockerfile-alpine))
+
+Minimal image based upon [Alpine](https://hub.docker.com/r/_/alpine/) with [Asciidoctor](http://asciidoctor.org/) installed:
+* Hugo 0.34: `0.34-asciidoctor`, `asciidoctor` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.34/Dockerfile-asciidoctor))
 
 
 ## Using image
