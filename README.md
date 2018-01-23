@@ -4,6 +4,15 @@ Minimal docker image for [Hugo](http://gohugo.io/).
 The image sets `destination` during build and `bind` when started as server, otherwise no magic.
 
 
+## Available tags
+
+Default minimal image based upon busybox:
+* Hugo 0.34: `busybox`, `0.34-busybox`, `0.34`, `latest` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.34/Dockerfile))
+
+Minimal image based upon alpine:
+* Hugo 0.34: `alpine`, `0.34-alpine` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.34/Dockerfile-alpine))
+
+
 ## Using image
 
 This image does not try to do any fancy. Users may use Hugo just as they are used to.
