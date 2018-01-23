@@ -8,13 +8,15 @@ RUN tar -zxvf hugo.tar.gz
 
 
 
-FROM busybox:1.28
+FROM alpine:3.7
 
 ENV HUGO_BIND="0.0.0.0" \
     HUGO_DESTINATION="/target"
 
 COPY --from=fetch /hugo /bin/hugo
 ADD run.sh /run.sh
+
+RUN apk --no-cache add asciidoctor
 
 EXPOSE 1313
 

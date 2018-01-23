@@ -1,3 +1,32 @@
 #!/bin/bash
 
 env
+
+if [ "$SOURCE_BRANCH" = "master" ]; then
+    exit
+fi
+
+case "$DOCKER_TAG" in
+
+    "busybox")
+        docker tag $IMAGE_NAME $DOCKER_REPO:latest
+        docker push $DOCKER_REPO:latest
+
+        docker tag $IMAGE_NAME $DOCKER_REPO:$SOURCE_BRANCH
+        docker push $DOCKER_REPO:$SOURCE_BRANCH
+
+        docker tag $IMAGE_NAME $DOCKER_REPO:$SOURCE_BRANCH-busybox
+        docker push $DOCKER_REPO:$SOURCE_BRANCH-busybox
+    ;;
+
+    "alpine")
+        docker tag $IMAGE_NAME $DOCKER_REPO:$SOURCE_BRANCH-alpine
+        docker push $DOCKER_REPO:$SOURCE_BRANCH-alpine
+    ;;
+
+    "asciidoctor")
+        docker tag $IMAGE_NAME $DOCKER_REPO:$SOURCE_BRANCH-asciidoctor
+        docker push $DOCKER_REPO:$SOURCE_BRANCH-asciidoctor
+    ;;
+
+esac
