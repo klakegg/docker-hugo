@@ -22,6 +22,15 @@ case "$DOCKER_TAG" in
     "alpine")
         docker tag $IMAGE_NAME $DOCKER_REPO:$SOURCE_BRANCH-alpine
         docker push $DOCKER_REPO:$SOURCE_BRANCH-alpine
+
+        # Generate image for Asciidoctor
+
+        docker tag $IMAGE_NAME klakegg/hugo:alpine
+        docker build -t $DOCKER_REPO:asciidoctor -f Dockerfile-asciidoctor .
+        docker push $DOCKER_REPO:asciidoctor
+
+        docker tag $DOCKER_REPO:asciidoctor $DOCKER_REPO:$SOURCE_BRANCH-asciidoctor
+        docker push $DOCKER_REPO:$SOURCE_BRANCH-asciidoctor
     ;;
 
     "asciidoctor")
