@@ -1,6 +1,6 @@
 FROM busybox:1.28 AS fetch
 
-ARG VERSION=0.37.1
+ARG VERSION=0.38
 
 RUN echo "Version: ${VERSION}"
 ADD https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_${VERSION}_Linux-64bit.tar.gz /hugo.tar.gz
