@@ -8,7 +8,8 @@ Minimal docker image for [Hugo](http://gohugo.io/). This image sets `destination
 ## Available tags
 
 Default minimal image based upon [Busybox](https://hub.docker.com/r/_/busybox/):
-* Hugo 0.40.2: `0.40.2-busybox`, `busybox`, `0.40.2`, `latest` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40.2/Dockerfile))
+* Hugo 0.40.3: `0.40.3-busybox`, `busybox`, `0.40.3`, `latest` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40.3/Dockerfile))
+* Hugo 0.40.2: `0.40.2-busybox`, `0.40.2` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40.2/Dockerfile))
 * Hugo 0.40.1: `0.40.1-busybox`, `0.40.1` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40.1/Dockerfile))
 * Hugo 0.40: `0.40-busybox`, `0.40` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40/Dockerfile))
 * Hugo 0.39: `0.39-busybox`, `0.39` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.39/Dockerfile))
@@ -23,7 +24,8 @@ Default minimal image based upon [Busybox](https://hub.docker.com/r/_/busybox/):
 * Hugo 0.34: `0.34-busybox`, `0.34` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.34/Dockerfile))
 
 Minimal image based upon [Alpine](https://hub.docker.com/r/_/alpine/):
-* Hugo 0.40.2: `0.40.2-alpine`, `alpine` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40.2/Dockerfile-alpine))
+* Hugo 0.40.3: `0.40.3-alpine`, `alpine` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40.3/Dockerfile-alpine))
+* Hugo 0.40.2: `0.40.2-alpine` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40.2/Dockerfile-alpine))
 * Hugo 0.40.1: `0.40.1-alpine` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40.1/Dockerfile-alpine))
 * Hugo 0.40: `0.40-alpine` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40/Dockerfile-alpine))
 * Hugo 0.39: `0.39-alpine` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.39/Dockerfile-alpine))
@@ -38,7 +40,8 @@ Minimal image based upon [Alpine](https://hub.docker.com/r/_/alpine/):
 * Hugo 0.34: `0.34-alpine` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.34/Dockerfile-alpine))
 
 Minimal image based upon [Alpine](https://hub.docker.com/r/_/alpine/) with [Asciidoctor](http://asciidoctor.org/) installed:
-* Hugo 0.40.2: `0.40.2-asciidoctor`, `asciidoctor` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40.2/Dockerfile-asciidoctor))
+* Hugo 0.40.3: `0.40.3-asciidoctor`, `asciidoctor` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40.3/Dockerfile-asciidoctor))
+* Hugo 0.40.2: `0.40.2-asciidoctor` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40.2/Dockerfile-asciidoctor))
 * Hugo 0.40.1: `0.40.1-asciidoctor` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40.1/Dockerfile-asciidoctor))
 * Hugo 0.40: `0.40-asciidoctor` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40/Dockerfile-asciidoctor))
 * Hugo 0.39: `0.39-asciidoctor` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.39/Dockerfile-asciidoctor))
@@ -64,11 +67,11 @@ The good practice of having a separate output folder is part of the image.
 
 Normal build:
 
-```docker run --rm -it -v $(pwd):/src -v $(pwd)/output:/target klakegg/hugo:0.40.2```
+```docker run --rm -it -v $(pwd):/src -v $(pwd)/output:/target klakegg/hugo:0.40.3```
 
 Run server:
 
-```docker run --rm -it -v $(pwd):/src -p 1313:1313 klakegg/hugo:0.40.2 server```
+```docker run --rm -it -v $(pwd):/src -p 1313:1313 klakegg/hugo:0.40.3 server```
 
 
 ### docker-compose
@@ -77,7 +80,7 @@ Normal build:
 
 ```
   build:
-    image: klakegg/hugo:0.40.2
+    image: klakegg/hugo:0.40.3
     volumes:
       - .:/src
       - ./output:/target
@@ -87,7 +90,7 @@ Run server:
 
 ```
   server:
-    image: klakegg/hugo:0.40.2
+    image: klakegg/hugo:0.40.3
     command: server
     volumes:
       - .:/src
@@ -102,13 +105,13 @@ Those wanting to override entrypoint in the image may easily do so.
 
 On command line using `--entrypoint`:
 
-```docker run --rm -it -v $(pwd):/src -v $(pwd)/output:/target --entrypoint hugo klakegg/hugo:0.40.2```
+```docker run --rm -it -v $(pwd):/src -v $(pwd)/output:/target --entrypoint hugo klakegg/hugo:0.40.3```
 
 In docker-compose using `entrypoint`:
 
 ```
   build:
-    image: klakegg/hugo:0.40.2
+    image: klakegg/hugo:0.40.3
     entrypoint: hugo
     volumes:
       - .:/src
