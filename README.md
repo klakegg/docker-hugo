@@ -8,21 +8,11 @@ Minimal docker image for [Hugo](http://gohugo.io/). This image sets `destination
 ## Available tags
 
 Default minimal image based upon [Busybox](https://hub.docker.com/r/_/busybox/):
-* Hugo 0.41: `0.41-busybox`, `busybox`, `0.41`, `latest`, `0.41-busybox-onbuild`, `0.41-onbuild`, `busybox-onbuild`, `onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.41/Dockerfile))
+* Hugo 0.41: `0.41-busybox`, `busybox`, `0.41`, `latest`, `0.41-busybox-onbuild`, `0.41-onbuild`, `busybox-onbuild`, `onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.41/Dockerfile-busybox))
 * Hugo 0.40.3: `0.40.3-busybox`, `0.40.3` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40.3/Dockerfile))
 * Hugo 0.40.2: `0.40.2-busybox`, `0.40.2` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40.2/Dockerfile))
 * Hugo 0.40.1: `0.40.1-busybox`, `0.40.1` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40.1/Dockerfile))
 * Hugo 0.40: `0.40-busybox`, `0.40` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40/Dockerfile))
-* Hugo 0.39: `0.39-busybox`, `0.39` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.39/Dockerfile))
-* Hugo 0.38.2: `0.38.2-busybox`, `0.38.2` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.38.2/Dockerfile))
-* Hugo 0.38.1: `0.38.1-busybox`, `0.38.1` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.38.1/Dockerfile))
-* Hugo 0.38: `0.38-busybox`, `0.38` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.38/Dockerfile))
-* Hugo 0.37.1: `0.37.1-busybox`, `0.37.1` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.37.1/Dockerfile))
-* Hugo 0.37: `0.37-busybox`, `0.37` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.37/Dockerfile))
-* Hugo 0.36.1: `0.36.1-busybox`, `0.36.1` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.36.1/Dockerfile))
-* Hugo 0.36: `0.36-busybox`, `0.36` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.36/Dockerfile))
-* Hugo 0.35: `0.35-busybox`, `0.35` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.35/Dockerfile))
-* Hugo 0.34: `0.34-busybox`, `0.34` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.34/Dockerfile))
 
 Minimal image based upon [Alpine](https://hub.docker.com/r/_/alpine/):
 * Hugo 0.41: `0.41-alpine`, `alpine`, `0.41-alpine-onbuild`, `alpine-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.41/Dockerfile-alpine))
@@ -30,16 +20,6 @@ Minimal image based upon [Alpine](https://hub.docker.com/r/_/alpine/):
 * Hugo 0.40.2: `0.40.2-alpine` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40.2/Dockerfile-alpine))
 * Hugo 0.40.1: `0.40.1-alpine` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40.1/Dockerfile-alpine))
 * Hugo 0.40: `0.40-alpine` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40/Dockerfile-alpine))
-* Hugo 0.39: `0.39-alpine` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.39/Dockerfile-alpine))
-* Hugo 0.38.2: `0.38.2-alpine` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.38.2/Dockerfile-alpine))
-* Hugo 0.38.1: `0.38.1-alpine` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.38.1/Dockerfile-alpine))
-* Hugo 0.38: `0.38-alpine` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.38/Dockerfile-alpine))
-* Hugo 0.37.1: `0.37.1-alpine` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.37.1/Dockerfile-alpine))
-* Hugo 0.37: `0.37-alpine` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.37/Dockerfile-alpine))
-* Hugo 0.36.1: `0.36.1-alpine` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.36.1/Dockerfile-alpine))
-* Hugo 0.36: `0.36-alpine` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.36/Dockerfile-alpine))
-* Hugo 0.35: `0.35-alpine` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.35/Dockerfile-alpine))
-* Hugo 0.34: `0.34-alpine` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.34/Dockerfile-alpine))
 
 Minimal image based upon [Alpine](https://hub.docker.com/r/_/alpine/) with [Asciidoctor](http://asciidoctor.org/) installed:
 * Hugo 0.41: `0.41-asciidoctor`, `asciidoctor`, `0.41-asciidoctor-onbuild`, `asciidoctor-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.41/Dockerfile-asciidoctor))
@@ -47,16 +27,8 @@ Minimal image based upon [Alpine](https://hub.docker.com/r/_/alpine/) with [Asci
 * Hugo 0.40.2: `0.40.2-asciidoctor` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40.2/Dockerfile-asciidoctor))
 * Hugo 0.40.1: `0.40.1-asciidoctor` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40.1/Dockerfile-asciidoctor))
 * Hugo 0.40: `0.40-asciidoctor` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40/Dockerfile-asciidoctor))
-* Hugo 0.39: `0.39-asciidoctor` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.39/Dockerfile-asciidoctor))
-* Hugo 0.38.2: `0.38.2-asciidoctor` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.38.2/Dockerfile-asciidoctor))
-* Hugo 0.38.1: `0.38.1-asciidoctor` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.38.1/Dockerfile-asciidoctor))
-* Hugo 0.38: `0.38-asciidoctor` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.38/Dockerfile-asciidoctor))
-* Hugo 0.37.1: `0.37.1-asciidoctor` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.37.1/Dockerfile-asciidoctor))
-* Hugo 0.37: `0.37-asciidoctor` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.37/Dockerfile-asciidoctor))
-* Hugo 0.36.1: `0.36.1-asciidoctor` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.36.1/Dockerfile-asciidoctor))
-* Hugo 0.36: `0.36-asciidoctor` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.36/Dockerfile-asciidoctor))
-* Hugo 0.35: `0.35-asciidoctor` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.35/Dockerfile-asciidoctor))
-* Hugo 0.34: `0.34-asciidoctor` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.34/Dockerfile-asciidoctor))
+
+Looking for older tags? Please see the [complete list of tags](https://github.com/klakegg/docker-hugo/blob/master/tags.md).
 
 
 ## Using image
@@ -122,7 +94,7 @@ Those wanting to override entrypoint in the image may easily do so.
 
 On command line using `--entrypoint`:
 
-```docker run --rm -it -v $(pwd):/src -v $(pwd)/output:/target --entrypoint hugo klakegg/hugo:0.41```
+```docker run --rm -it -v $(pwd):/src -v $(pwd)/output:/src/public --entrypoint hugo klakegg/hugo:0.41```
 
 In docker-compose using `entrypoint`:
 
@@ -132,7 +104,7 @@ In docker-compose using `entrypoint`:
     entrypoint: hugo
     volumes:
       - .:/src
-      - ./output:/target
+      - ./output:/src/public
 ```
 
 
