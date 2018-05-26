@@ -1,7 +1,5 @@
 #!/bin/bash
 
-env
-
 if [ "$SOURCE_BRANCH" = "master" ]; then
     exit
 fi
@@ -17,6 +15,20 @@ case "$DOCKER_TAG" in
 
         docker tag $IMAGE_NAME $DOCKER_REPO:$SOURCE_BRANCH-busybox
         docker push $DOCKER_REPO:$SOURCE_BRANCH-busybox
+
+        # Generate Busybox onbuild image
+
+        docker build -t $DOCKER_REPO:busybox-onbuild -f Dockerfile-busybox-onbuild .
+        docker push $DOCKER_REPO:busybox-onbuild
+
+        docker tag $DOCKER_REPO:busybox-onbuild $DOCKER_REPO:$SOURCE_BRANCH-busybox-onbuild
+        docker push $DOCKER_REPO:$SOURCE_BRANCH-busybox-onbuild
+
+        docker tag $DOCKER_REPO:busybox-onbuild $DOCKER_REPO:$SOURCE_BRANCH-onbuild
+        docker push $DOCKER_REPO:$SOURCE_BRANCH-onbuild
+
+        docker tag $DOCKER_REPO:busybox-onbuild $DOCKER_REPO:onbuild
+        docker push $DOCKER_REPO:onbuild
     ;;
 
     "alpine")
@@ -25,6 +37,14 @@ case "$DOCKER_TAG" in
         docker tag $IMAGE_NAME $DOCKER_REPO:$SOURCE_BRANCH-alpine
         docker push $DOCKER_REPO:$SOURCE_BRANCH-alpine
 
+        # Generate Alpine onbuild image
+
+        docker build -t $DOCKER_REPO:alpine-onbuild -f Dockerfile-alpine-onbuild .
+        docker push $DOCKER_REPO:alpine-onbuild
+
+        docker tag $DOCKER_REPO:alpine-onbuild $DOCKER_REPO:$SOURCE_BRANCH-alpine-onbuild
+        docker push $DOCKER_REPO:$SOURCE_BRANCH-alpine-onbuild
+
         # Generate image for Asciidoctor
 
         docker build -t $DOCKER_REPO:asciidoctor -f Dockerfile-asciidoctor .
@@ -32,6 +52,15 @@ case "$DOCKER_TAG" in
 
         docker tag $DOCKER_REPO:asciidoctor $DOCKER_REPO:$SOURCE_BRANCH-asciidoctor
         docker push $DOCKER_REPO:$SOURCE_BRANCH-asciidoctor
+
+        # Generate Asciidoctor onbuild image
+
+        docker build -t $DOCKER_REPO:asciidoctor-onbuild -f Dockerfile-asciidoctor-onbuild .
+        docker push $DOCKER_REPO:asciidoctor-onbuild
+
+        docker tag $DOCKER_REPO:asciidoctor-onbuild $DOCKER_REPO:$SOURCE_BRANCH-asciidoctor-onbuild
+        docker push $DOCKER_REPO:$SOURCE_BRANCH-asciidoctor-onbuild
+
     ;;
 
 esac

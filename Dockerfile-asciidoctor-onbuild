@@ -1,0 +1,4 @@
+FROM klakegg/hugo:asciidoctor
+
+ONBUILD COPY . /src
+ONBUILD RUN hugo --destination=/onbuild
