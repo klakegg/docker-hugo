@@ -1,0 +1,36 @@
+#!/bin/bash
+
+if [ "$SOURCE_BRANCH" = "master" ]; then
+    exit
+fi
+
+# Tag: latest
+docker tag $IMAGE_NAME $DOCKER_REPO:latest
+docker push $DOCKER_REPO:latest
+
+# Tag: [version]
+docker tag $IMAGE_NAME $DOCKER_REPO:$SOURCE_BRANCH
+docker push $DOCKER_REPO:$SOURCE_BRANCH
+
+# Tag: [version]-busybox
+docker tag $IMAGE_NAME $DOCKER_REPO:$SOURCE_BRANCH-busybox
+docker push $DOCKER_REPO:$SOURCE_BRANCH-busybox
+
+
+# Generate Busybox onbuild image
+
+# Tag: busybox-onbuild
+docker build -t $DOCKER_REPO:busybox-onbuild -f Dockerfile-busybox-onbuild .
+docker push $DOCKER_REPO:busybox-onbuild
+
+# Tag: [version]-busybox-onbuild
+docker tag $DOCKER_REPO:busybox-onbuild $DOCKER_REPO:$SOURCE_BRANCH-busybox-onbuild
+docker push $DOCKER_REPO:$SOURCE_BRANCH-busybox-onbuild
+
+# Tag: [version]-onbuild
+docker tag $DOCKER_REPO:busybox-onbuild $DOCKER_REPO:$SOURCE_BRANCH-onbuild
+docker push $DOCKER_REPO:$SOURCE_BRANCH-onbuild
+
+# Tag: onbuild
+docker tag $DOCKER_REPO:busybox-onbuild $DOCKER_REPO:onbuild
+docker push $DOCKER_REPO:onbuild

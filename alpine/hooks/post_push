@@ -1,0 +1,45 @@
+#!/bin/bash
+
+if [ "$SOURCE_BRANCH" = "master" ]; then
+    exit
+fi
+
+# Tag: alpine
+docker tag $IMAGE_NAME klakegg/hugo:alpine
+
+# Tag: [version]-alpine
+docker tag $IMAGE_NAME $DOCKER_REPO:$SOURCE_BRANCH-alpine
+docker push $DOCKER_REPO:$SOURCE_BRANCH-alpine
+
+
+# Generate Alpine onbuild image
+
+# Tag: alpine-onbuild
+docker build -t $DOCKER_REPO:alpine-onbuild -f Dockerfile-alpine-onbuild .
+docker push $DOCKER_REPO:alpine-onbuild
+
+# Tag: [version]-alpine-onbuild
+docker tag $DOCKER_REPO:alpine-onbuild $DOCKER_REPO:$SOURCE_BRANCH-alpine-onbuild
+docker push $DOCKER_REPO:$SOURCE_BRANCH-alpine-onbuild
+
+
+# Generate image for Asciidoctor
+
+# Tag: asciidoctor
+docker build -t $DOCKER_REPO:asciidoctor -f Dockerfile-asciidoctor .
+docker push $DOCKER_REPO:asciidoctor
+
+# Tag: [version]-asciidoctor
+docker tag $DOCKER_REPO:asciidoctor $DOCKER_REPO:$SOURCE_BRANCH-asciidoctor
+docker push $DOCKER_REPO:$SOURCE_BRANCH-asciidoctor
+
+
+# Generate Asciidoctor onbuild image
+
+# Tag: asciidoctor-onbuild
+docker build -t $DOCKER_REPO:asciidoctor-onbuild -f Dockerfile-asciidoctor-onbuild .
+docker push $DOCKER_REPO:asciidoctor-onbuild
+
+# Tag: [version]-asciidoctor-onbuild
+docker tag $DOCKER_REPO:asciidoctor-onbuild $DOCKER_REPO:$SOURCE_BRANCH-asciidoctor-onbuild
+docker push $DOCKER_REPO:$SOURCE_BRANCH-asciidoctor-onbuild

@@ -33,7 +33,8 @@ Looking for older tags? Please see the [complete list of tags](https://github.co
 
 ## Using image
 
-This image does not try to do any fancy. Users may use Hugo just as they are used to.
+This image does not try to do any fancy.
+Users may use Hugo just as they are used to.
 
 The good practice of having a separate output folder is part of the image.
 
@@ -42,18 +43,22 @@ The good practice of having a separate output folder is part of the image.
 
 Normal build:
 
-```docker run --rm -it -v $(pwd):/src -v $(pwd)/output:/target klakegg/hugo:0.41```
+```
+docker run --rm -it -v $(pwd):/src -v $(pwd)/output:/target klakegg/hugo:0.41
+```
 
 Run server:
 
-```docker run --rm -it -v $(pwd):/src -p 1313:1313 klakegg/hugo:0.41 server```
+```
+docker run --rm -it -v $(pwd):/src -p 1313:1313 klakegg/hugo:0.41 server
+```
 
 
 ### docker-compose
 
 Normal build:
 
-```
+```yaml
   build:
     image: klakegg/hugo:0.41
     volumes:
@@ -63,7 +68,7 @@ Normal build:
 
 Run server:
 
-```
+```yaml
   server:
     image: klakegg/hugo:0.41
     command: server
@@ -74,14 +79,26 @@ Run server:
 ```
 
 
+## Hugo shell
+
+A Hugo shell is made available in the Alpine images (including Asciidoctor image).
+Initiating the shell will trigger installation of bash and configuration of autocomplete with Hugo support.
+
+To get into a shell for your site:
+
+```
+docker run --rm -it -v $(pwd):/src klakegg/hugo:0.41-alpine shell
+```
+
+
 ## Using a ONBUILD image
 
 The onbuild images adds content of the folder of your Dockerfile into `/src` and builds to the `/onbuild` folder.
 
 Example Dockerfile for your project where the site is made into a nginx image (Docker 17.05-ce or newer):
 
-```
-FROM klakegg/hugo:onbuild AS hugo
+```Dockerfile
+FROM klakegg/hugo:0.41-onbuild AS hugo
 
 FROM nginx
 COPY --from=hugo /onbuild /usr/share/nginx/html
@@ -94,11 +111,13 @@ Those wanting to override entrypoint in the image may easily do so.
 
 On command line using `--entrypoint`:
 
-```docker run --rm -it -v $(pwd):/src -v $(pwd)/output:/src/public --entrypoint hugo klakegg/hugo:0.41```
+```
+docker run --rm -it -v $(pwd):/src -v $(pwd)/output:/src/public --entrypoint hugo klakegg/hugo:0.41
+```
 
 In docker-compose using `entrypoint`:
 
-```
+```yaml
   build:
     image: klakegg/hugo:0.41
     entrypoint: hugo

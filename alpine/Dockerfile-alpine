@@ -14,7 +14,7 @@ ENV HUGO_BIND="0.0.0.0" \
     HUGO_DESTINATION="/target"
 
 COPY --from=fetch /hugo /bin/hugo
-COPY run.sh /run.sh
+COPY files /
 
 EXPOSE 1313
 
