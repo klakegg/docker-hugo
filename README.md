@@ -2,7 +2,8 @@
 
 [![](https://images.microbadger.com/badges/image/klakegg/hugo.svg)](https://microbadger.com/images/klakegg/hugo "Get your own image badge on microbadger.com")
 
-Minimal docker image for [Hugo](http://gohugo.io/). This image sets `destination` during build and `bind` when started as server, otherwise no magic.
+Truly minimal Docker images for [Hugo](http://gohugo.io/) with batteries included.
+These images sets `destination` during build and `bind` when started as server, otherwise no magic.
 
 
 ## Available tags
@@ -79,10 +80,10 @@ Run server:
 ```
 
 
-## Hugo shell
+## Hugo shell (new as of 0.41)
 
 A Hugo shell is made available in the Alpine images (including Asciidoctor image).
-Initiating the shell will trigger installation of bash and configuration of autocomplete with Hugo support.
+Initiating the shell will trigger installation of bash and configuration of autocompletion with Hugo support.
 
 To get into a shell for your site:
 
@@ -91,11 +92,11 @@ docker run --rm -it -v $(pwd):/src klakegg/hugo:0.41-alpine shell
 ```
 
 
-## Using a ONBUILD image
+## Using an ONBUILD image
 
 The onbuild images adds content of the folder of your Dockerfile into `/src` and builds to the `/onbuild` folder.
 
-Example Dockerfile for your project where the site is made into a nginx image (Docker 17.05-ce or newer):
+Example Dockerfile for your project where the site is made into an nginx image (Docker 17.05-ce or newer):
 
 ```Dockerfile
 FROM klakegg/hugo:0.41-onbuild AS hugo
@@ -133,9 +134,9 @@ Environment variables:
 * HUGO_BIND - Bind address for server. Default: `0.0.0.0`
 * HUGO_DESTINATION - Location of output folder. Default: `/target`
 
-Folders:
+Volumes:
 * ```/src``` - Source folder and workdir
 * ```/target``` - Target folder
 
 Ports:
-* Port 1313
+* 1313/tcp
