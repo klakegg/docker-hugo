@@ -1,6 +1,6 @@
 FROM busybox:1.28 AS fetch
 
-ARG VERSION=0.41
+ARG VERSION=0.42
 
 ADD https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_${VERSION}_Linux-64bit.tar.gz /hugo.tar.gz
 RUN tar -zxvf hugo.tar.gz

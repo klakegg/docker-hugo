@@ -1,7 +1,8 @@
 # All tags
 
 Default minimal image based upon [Busybox](https://hub.docker.com/r/_/busybox/):
-* Hugo 0.41: `0.41-busybox`, `busybox`, `0.41`, `latest`, `0.41-busybox-onbuild`, `0.41-onbuild`, `busybox-onbuild`, `onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.41/busybox/Dockerfile-busybox))
+* Hugo 0.42: `0.42-busybox`, `busybox`, `0.42`, `latest`, `0.42-busybox-onbuild`, `0.42-onbuild`, `busybox-onbuild`, `onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.42/busybox/Dockerfile-busybox))
+* Hugo 0.41: `0.41-busybox`, `0.41`, `0.41-busybox-onbuild`, `0.41-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.41/busybox/Dockerfile-busybox))
 * Hugo 0.40.3: `0.40.3-busybox`, `0.40.3` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40.3/Dockerfile))
 * Hugo 0.40.2: `0.40.2-busybox`, `0.40.2` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40.2/Dockerfile))
 * Hugo 0.40.1: `0.40.1-busybox`, `0.40.1` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40.1/Dockerfile))
@@ -18,7 +19,8 @@ Default minimal image based upon [Busybox](https://hub.docker.com/r/_/busybox/):
 * Hugo 0.34: `0.34-busybox`, `0.34` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.34/Dockerfile))
 
 Minimal image based upon [Alpine](https://hub.docker.com/r/_/alpine/):
-* Hugo 0.41: `0.41-alpine`, `alpine`, `0.41-alpine-onbuild`, `alpine-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.41/alpine/Dockerfile-alpine))
+* Hugo 0.42: `0.42-alpine`, `alpine`, `0.42-alpine-onbuild`, `alpine-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.42/alpine/Dockerfile-alpine))
+* Hugo 0.41: `0.41-alpine`, `0.41-alpine-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.41/alpine/Dockerfile-alpine))
 * Hugo 0.40.3: `0.40.3-alpine` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40.3/Dockerfile-alpine))
 * Hugo 0.40.2: `0.40.2-alpine` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40.2/Dockerfile-alpine))
 * Hugo 0.40.1: `0.40.1-alpine` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40.1/Dockerfile-alpine))
@@ -35,7 +37,8 @@ Minimal image based upon [Alpine](https://hub.docker.com/r/_/alpine/):
 * Hugo 0.34: `0.34-alpine` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.34/Dockerfile-alpine))
 
 Minimal image based upon [Alpine](https://hub.docker.com/r/_/alpine/) with [Asciidoctor](http://asciidoctor.org/) installed:
-* Hugo 0.41: `0.41-asciidoctor`, `asciidoctor`, `0.41-asciidoctor-onbuild`, `asciidoctor-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.41/alpine/Dockerfile-asciidoctor))
+* Hugo 0.42: `0.42-asciidoctor`, `asciidoctor`, `0.42-asciidoctor-onbuild`, `asciidoctor-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.42/alpine/Dockerfile-asciidoctor))
+* Hugo 0.41: `0.41-asciidoctor`, `0.41-asciidoctor-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.41/alpine/Dockerfile-asciidoctor))
 * Hugo 0.40.3: `0.40.3-asciidoctor` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40.3/Dockerfile-asciidoctor))
 * Hugo 0.40.2: `0.40.2-asciidoctor` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40.2/Dockerfile-asciidoctor))
 * Hugo 0.40.1: `0.40.1-asciidoctor` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40.1/Dockerfile-asciidoctor))
