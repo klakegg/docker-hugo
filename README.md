@@ -9,7 +9,8 @@ These images sets `destination` during build and `bind` when started as server, 
 ## Available tags
 
 Default minimal image based upon [Busybox](https://hub.docker.com/r/_/busybox/):
-* Hugo 0.42: `0.42-busybox`, `busybox`, `0.42`, `latest`, `0.42-busybox-onbuild`, `0.42-onbuild`, `busybox-onbuild`, `onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.42/busybox/Dockerfile-busybox))
+* Hugo 0.42.1: `0.42.1-busybox`, `busybox`, `0.42.1`, `latest`, `0.42.1-busybox-onbuild`, `0.42.1-onbuild`, `busybox-onbuild`, `onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.42.1/busybox/Dockerfile-busybox))
+* Hugo 0.42: `0.42-busybox`, `0.42`, `0.42-busybox-onbuild`, `0.42-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.42/busybox/Dockerfile-busybox))
 * Hugo 0.41: `0.41-busybox`, `0.41`, `0.41-busybox-onbuild`, `0.41-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.41/busybox/Dockerfile-busybox))
 * Hugo 0.40.3: `0.40.3-busybox`, `0.40.3` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40.3/Dockerfile))
 * Hugo 0.40.2: `0.40.2-busybox`, `0.40.2` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40.2/Dockerfile))
@@ -17,7 +18,8 @@ Default minimal image based upon [Busybox](https://hub.docker.com/r/_/busybox/):
 * Hugo 0.40: `0.40-busybox`, `0.40` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40/Dockerfile))
 
 Minimal image based upon [Alpine](https://hub.docker.com/r/_/alpine/):
-* Hugo 0.42: `0.42-alpine`, `alpine`, `0.42-alpine-onbuild`, `alpine-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.42/alpine/Dockerfile-alpine))
+* Hugo 0.42.1: `0.42.1-alpine`, `alpine`, `0.42.1-alpine-onbuild`, `alpine-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.42.1/alpine/Dockerfile-alpine))
+* Hugo 0.42: `0.42-alpine`, `0.42-alpine-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.42/alpine/Dockerfile-alpine))
 * Hugo 0.41: `0.41-alpine`, `0.41-alpine-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.41/alpine/Dockerfile-alpine))
 * Hugo 0.40.3: `0.40.3-alpine` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40.3/Dockerfile-alpine))
 * Hugo 0.40.2: `0.40.2-alpine` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40.2/Dockerfile-alpine))
@@ -25,7 +27,8 @@ Minimal image based upon [Alpine](https://hub.docker.com/r/_/alpine/):
 * Hugo 0.40: `0.40-alpine` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40/Dockerfile-alpine))
 
 Minimal image based upon [Alpine](https://hub.docker.com/r/_/alpine/) with [Asciidoctor](http://asciidoctor.org/) installed:
-* Hugo 0.42: `0.42-asciidoctor`, `asciidoctor`, `0.42-asciidoctor-onbuild`, `asciidoctor-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.42/alpine/Dockerfile-asciidoctor))
+* Hugo 0.42.1: `0.42.1-asciidoctor`, `asciidoctor`, `0.42.1-asciidoctor-onbuild`, `asciidoctor-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.42.1/alpine/Dockerfile-asciidoctor))
+* Hugo 0.42: `0.42-asciidoctor`, `0.42-asciidoctor-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.42/alpine/Dockerfile-asciidoctor))
 * Hugo 0.41: `0.41-asciidoctor`, `0.41-asciidoctor-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.41/alpine/Dockerfile-asciidoctor))
 * Hugo 0.40.3: `0.40.3-asciidoctor` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40.3/Dockerfile-asciidoctor))
 * Hugo 0.40.2: `0.40.2-asciidoctor` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.40.2/Dockerfile-asciidoctor))
@@ -48,13 +51,13 @@ The good practice of having a separate output folder is part of the image.
 Normal build:
 
 ```
-docker run --rm -it -v $(pwd):/src -v $(pwd)/output:/target klakegg/hugo:0.42
+docker run --rm -it -v $(pwd):/src -v $(pwd)/output:/target klakegg/hugo:0.42.1
 ```
 
 Run server:
 
 ```
-docker run --rm -it -v $(pwd):/src -p 1313:1313 klakegg/hugo:0.42 server
+docker run --rm -it -v $(pwd):/src -p 1313:1313 klakegg/hugo:0.42.1 server
 ```
 
 
@@ -64,7 +67,7 @@ Normal build:
 
 ```yaml
   build:
-    image: klakegg/hugo:0.42
+    image: klakegg/hugo:0.42.1
     volumes:
       - .:/src
       - ./output:/target
@@ -74,7 +77,7 @@ Run server:
 
 ```yaml
   server:
-    image: klakegg/hugo:0.42
+    image: klakegg/hugo:0.42.1
     command: server
     volumes:
       - .:/src
@@ -91,7 +94,7 @@ Initiating the shell will trigger installation of bash and configuration of auto
 To get into a shell for your site:
 
 ```
-docker run --rm -it -v $(pwd):/src klakegg/hugo:0.42-alpine shell
+docker run --rm -it -v $(pwd):/src klakegg/hugo:0.42.1-alpine shell
 ```
 
 
@@ -102,7 +105,7 @@ The onbuild images adds content of the folder of your Dockerfile into `/src` and
 Example Dockerfile for your project where the site is made into an nginx image (Docker 17.05-ce or newer):
 
 ```Dockerfile
-FROM klakegg/hugo:0.42-onbuild AS hugo
+FROM klakegg/hugo:0.42.1-onbuild AS hugo
 
 FROM nginx
 COPY --from=hugo /onbuild /usr/share/nginx/html
@@ -116,14 +119,14 @@ Those wanting to override entrypoint in the image may easily do so.
 On command line using `--entrypoint`:
 
 ```
-docker run --rm -it -v $(pwd):/src -v $(pwd)/output:/src/public --entrypoint hugo klakegg/hugo:0.42
+docker run --rm -it -v $(pwd):/src -v $(pwd)/output:/src/public --entrypoint hugo klakegg/hugo:0.42.1
 ```
 
 In docker-compose using `entrypoint`:
 
 ```yaml
   build:
-    image: klakegg/hugo:0.42
+    image: klakegg/hugo:0.42.1
     entrypoint: hugo
     volumes:
       - .:/src
