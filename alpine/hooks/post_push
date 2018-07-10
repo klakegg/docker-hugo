@@ -1,45 +1,56 @@
 #!/bin/bash
 
+function tag {
+  echo "Tag: $1 => $2"
+  docker tag $1 $2
+  docker push $2 > /dev/null
+}
+
+function build {
+  echo "Build: $2 => $1"
+  docker build -t $1 -f $2 . > /dev/null
+  docker push $1 > /dev/null
+}
+
 if [ "$SOURCE_BRANCH" = "master" ]; then
     exit
 fi
 
-# Tag: alpine
-docker tag $IMAGE_NAME klakegg/hugo:alpine
 
-# Tag: [version]-alpine
-docker tag $IMAGE_NAME $DOCKER_REPO:$SOURCE_BRANCH-alpine
-docker push $DOCKER_REPO:$SOURCE_BRANCH-alpine
+# Generate normal edition
+
+#build $DOCKER_REPO:alpine Dockerfile-alpine # Tag: alpine
+tag   $DOCKER_REPO:alpine $DOCKER_REPO:$SOURCE_BRANCH-alpine # Tag: [version]-alpine
+
+
+# Generate extended edition
+
+build $DOCKER_REPO:ext-alpine Dockerfile-ext-alpine # Tag: ext-alpine
+tag   $DOCKER_REPO:ext-alpine $DOCKER_REPO:$SOURCE_BRANCH-ext-alpine # Tag: [version]-ext-alpine
 
 
 # Generate Alpine onbuild image
 
-# Tag: alpine-onbuild
-docker build -t $DOCKER_REPO:alpine-onbuild -f Dockerfile-alpine-onbuild .
-docker push $DOCKER_REPO:alpine-onbuild
+build $DOCKER_REPO:alpine-onbuild Dockerfile-alpine-onbuild # Tag: alpine-onbuild
+tag   $DOCKER_REPO:alpine-onbuild $DOCKER_REPO:$SOURCE_BRANCH-alpine-onbuild # Tag: [version]-alpine-onbuild
 
-# Tag: [version]-alpine-onbuild
-docker tag $DOCKER_REPO:alpine-onbuild $DOCKER_REPO:$SOURCE_BRANCH-alpine-onbuild
-docker push $DOCKER_REPO:$SOURCE_BRANCH-alpine-onbuild
+build $DOCKER_REPO:ext-alpine-onbuild Dockerfile-ext-alpine-onbuild # Tag: ext-alpine-onbuild
+tag   $DOCKER_REPO:ext-alpine-onbuild $DOCKER_REPO:$SOURCE_BRANCH-ext-alpine-onbuild # Tag: [version]-ext-alpine-onbuild
 
 
 # Generate image for Asciidoctor
 
-# Tag: asciidoctor
-docker build -t $DOCKER_REPO:asciidoctor -f Dockerfile-asciidoctor .
-docker push $DOCKER_REPO:asciidoctor
+build $DOCKER_REPO:asciidoctor Dockerfile-asciidoctor # Tag: asciidoctor
+tag   $DOCKER_REPO:asciidoctor $DOCKER_REPO:$SOURCE_BRANCH-asciidoctor # Tag: [version]-asciidoctor
 
-# Tag: [version]-asciidoctor
-docker tag $DOCKER_REPO:asciidoctor $DOCKER_REPO:$SOURCE_BRANCH-asciidoctor
-docker push $DOCKER_REPO:$SOURCE_BRANCH-asciidoctor
+build $DOCKER_REPO:ext-asciidoctor Dockerfile-ext-asciidoctor . # Tag: ext-asciidoctor
+tag   $DOCKER_REPO:ext-asciidoctor $DOCKER_REPO:$SOURCE_BRANCH-ext-asciidoctor # Tag: [version]-ext-asciidoctor
 
 
 # Generate Asciidoctor onbuild image
 
-# Tag: asciidoctor-onbuild
-docker build -t $DOCKER_REPO:asciidoctor-onbuild -f Dockerfile-asciidoctor-onbuild .
-docker push $DOCKER_REPO:asciidoctor-onbuild
+build $DOCKER_REPO:asciidoctor-onbuild Dockerfile-asciidoctor-onbuild # Tag: asciidoctor-onbuild
+tag   $DOCKER_REPO:asciidoctor-onbuild $DOCKER_REPO:$SOURCE_BRANCH-asciidoctor-onbuild # Tag: [version]-asciidoctor-onbuild
 
-# Tag: [version]-asciidoctor-onbuild
-docker tag $DOCKER_REPO:asciidoctor-onbuild $DOCKER_REPO:$SOURCE_BRANCH-asciidoctor-onbuild
-docker push $DOCKER_REPO:$SOURCE_BRANCH-asciidoctor-onbuild
+build $DOCKER_REPO:ext-asciidoctor-onbuild Dockerfile-ext-asciidoctor-onbuild # Tag: ext-asciidoctor-onbuild
+tag   $DOCKER_REPO:ext-asciidoctor-onbuild $DOCKER_REPO:$SOURCE_BRANCH-ext-asciidoctor-onbuild # Tag: [version]-ext-asciidoctor-onbuild

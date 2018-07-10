@@ -1,0 +1,4 @@
+FROM klakegg/hugo:ext-alpine
+
+ONBUILD COPY . /src
+ONBUILD RUN hugo --destination=/onbuild
