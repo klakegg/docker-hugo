@@ -12,12 +12,8 @@ tag   ubuntu-onbuild "[version]-ubuntu-onbuild"
 
 # Ubuntu + Hugo extended
 build ext-ubuntu Dockerfile-ext-ubuntu
-tag   ext-ubuntu "ext"
-tag   ext-ubuntu "ext-latest"
 tag   ext-ubuntu "[version]-ext-ubuntu"
 
 # Ubuntu + Hugo extended + Onbuild
 build ext-ubuntu-onbuild Dockerfile-ext-ubuntu-onbuild
 tag   ext-ubuntu-onbuild "[version]-ext-ubuntu-onbuild"
-tag   ext-ubuntu-onbuild "[version]-ext-onbuild"
-tag   ext-ubuntu-onbuild "ext-onbuild"

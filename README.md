@@ -29,6 +29,9 @@ Minimal image based upon [Alpine](https://hub.docker.com/r/_/alpine/) with [Asci
 * Hugo 0.42: `0.42-asciidoctor`, `0.42-asciidoctor-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.42/alpine/Dockerfile-asciidoctor))
 * Hugo 0.41: `0.41-asciidoctor`, `0.41-asciidoctor-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.41/alpine/Dockerfile-asciidoctor))
 
+Image based upon [Debian](https://hub.docker.com/r/_/debian/):
+* Hugo 0.43: `0.43-debian`, `debian`, `0.43-debian-onbuild`, `debian-onbuild`, `0.43-ext-debian`, `ext-debian`, `0.43-ext-debian-onbuild`, `ext-debian-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.43/debian/Dockerfile-debian))
+
 Image based upon [Ubuntu](https://hub.docker.com/r/_/ubuntu/):
 * Hugo 0.43: `0.43-ubuntu`, `ubuntu`, `0.43-ubuntu-onbuild`, `ubuntu-onbuild`, `0.43-ext-ubuntu`, `ext-ubuntu`, `0.43-ext-ubuntu-onbuild`, `ext-ubuntu-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.43/ubuntu/Dockerfile-ubuntu))
 
