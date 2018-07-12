@@ -1,46 +1,27 @@
 #!/bin/bash
 
-function tag {
-  echo "Tag: $1 => $2"
-  docker tag $1 $2
-  docker push $2 > /dev/null
-}
+source ../tools/docker_hub.sh
 
-function build {
-  echo "Build: $2 => $1"
-  docker build -t $1 -f $2 . > /dev/null
-  docker push $1 > /dev/null
-}
+# Busybox + Hugo
+#build busybox Dockerfile-busybox
+tag   busybox "latest"
+tag   busybox "[version]"
+tag   busybox "[version]-busybox"
 
-if [ "$SOURCE_BRANCH" = "master" ]; then
-    exit
-fi
+# Busybox + Hugo + Onbuild
+build busybox-onbuild Dockerfile-busybox-onbuild
+tag   busybox-onbuild "[version]-busybox-onbuild"
+tag   busybox-onbuild "[version]-onbuild"
+tag   busybox-onbuild "onbuild"
 
+# Busybox + Hugo extended
+build ext-busybox Dockerfile-ext-busybox
+tag   ext-busybox "ext"
+tag   ext-busybox "ext-latest"
+tag   ext-busybox "[version]-ext-busybox"
 
-# Generate normal edition
-
-#build $DOCKER_REPO:busybox Dockerfile-busybox # Tag: busybox
-tag   $DOCKER_REPO:busybox $DOCKER_REPO:latest # Tag: latest
-tag   $DOCKER_REPO:busybox $DOCKER_REPO:$SOURCE_BRANCH # Tag: [version]
-tag   $DOCKER_REPO:busybox $DOCKER_REPO:$SOURCE_BRANCH-busybox # Tag: [version]-busybox
-
-
-# Generate extended edition
-
-build $DOCKER_REPO:ext-busybox Dockerfile-ext-busybox # Tag: ext-busybox
-tag   $DOCKER_REPO:ext-busybox $DOCKER_REPO:ext # Tag: ext
-tag   $DOCKER_REPO:ext-busybox $DOCKER_REPO:ext-latest # Tag: ext-latest
-tag   $DOCKER_REPO:ext-busybox $DOCKER_REPO:$SOURCE_BRANCH-ext-busybox # Tag: [version]-ext-busybox
-
-
-# Generate Busybox onbuild image
-
-build $DOCKER_REPO:busybox-onbuild Dockerfile-busybox-onbuild # Tag: busybox-onbuild
-tag   $DOCKER_REPO:busybox-onbuild $DOCKER_REPO:$SOURCE_BRANCH-busybox-onbuild # Tag: [version]-busybox-onbuild
-tag   $DOCKER_REPO:busybox-onbuild $DOCKER_REPO:$SOURCE_BRANCH-onbuild # Tag: [version]-onbuild
-tag   $DOCKER_REPO:busybox-onbuild $DOCKER_REPO:onbuild # Tag: onbuild
-
-build $DOCKER_REPO:ext-busybox-onbuild Dockerfile-ext-busybox-onbuild # Tag: ext-busybox-onbuild
-tag   $DOCKER_REPO:ext-busybox-onbuild $DOCKER_REPO:$SOURCE_BRANCH-ext-busybox-onbuild # Tag: [version]-ext-busybox-onbuild
-tag   $DOCKER_REPO:ext-busybox-onbuild $DOCKER_REPO:$SOURCE_BRANCH-ext-onbuild # Tag: [version]-ext-onbuild
-tag   $DOCKER_REPO:ext-busybox-onbuild $DOCKER_REPO:ext-onbuild # Tag: ext-onbuild
+# Busybox + Hugo extended + Onbuild
+build ext-busybox-onbuild Dockerfile-ext-busybox-onbuild
+tag   ext-busybox-onbuild "[version]-ext-busybox-onbuild"
+tag   ext-busybox-onbuild "[version]-ext-onbuild"
+tag   ext-busybox-onbuild "ext-onbuild"

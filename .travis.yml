@@ -1,0 +1,11 @@
+sudo: required
+
+services:
+  - docker
+
+env:
+  - VARIANT=alpine
+  - VARIANT=busybox
+
+script:
+  - sh tools/travis.sh
