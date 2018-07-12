@@ -1,4 +1,4 @@
-FROM busybox:1.28 AS fetch
+FROM alpine:3.7 AS fetch
 
 ARG VERSION=0.43
 
