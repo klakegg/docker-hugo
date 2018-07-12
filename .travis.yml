@@ -6,6 +6,7 @@ services:
 env:
   - VARIANT=alpine
   - VARIANT=busybox
+  - VARIANT=ubuntu
 
 script:
   - sh tools/travis.sh

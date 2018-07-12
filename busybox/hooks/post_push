@@ -15,13 +15,13 @@ tag   busybox-onbuild "[version]-onbuild"
 tag   busybox-onbuild "onbuild"
 
 # Busybox + Hugo extended
-build ext-busybox Dockerfile-ext-busybox
-tag   ext-busybox "ext"
-tag   ext-busybox "ext-latest"
-tag   ext-busybox "[version]-ext-busybox"
+#build ext-busybox Dockerfile-ext-busybox
+#tag   ext-busybox "ext"
+#tag   ext-busybox "ext-latest"
+#tag   ext-busybox "[version]-ext-busybox"
 
 # Busybox + Hugo extended + Onbuild
-build ext-busybox-onbuild Dockerfile-ext-busybox-onbuild
-tag   ext-busybox-onbuild "[version]-ext-busybox-onbuild"
-tag   ext-busybox-onbuild "[version]-ext-onbuild"
-tag   ext-busybox-onbuild "ext-onbuild"
+#build ext-busybox-onbuild Dockerfile-ext-busybox-onbuild
+#tag   ext-busybox-onbuild "[version]-ext-busybox-onbuild"
+#tag   ext-busybox-onbuild "[version]-ext-onbuild"
+#tag   ext-busybox-onbuild "ext-onbuild"
