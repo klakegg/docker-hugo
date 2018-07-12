@@ -1,9 +1,7 @@
 #!/bin/bash
 
-source ../tools/docker_hub.sh
-
 # Alpine + Hugo
-#build alpine Dockerfile-alpine
+build alpine Dockerfile-alpine
 tag   alpine "[version]-alpine"
 
 # Alpine + Hugo + Onbuild

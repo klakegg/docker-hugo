@@ -1,17 +1,15 @@
-#!/bin/sh
+#!/bin/bash
 
-# Move to variant folder
-cd $VARIANT
+export DOCKER_REPO="klakegg/hugo"
+export SOURCE_BRANCH="0.xx"
+export CI="true"
 
 # Build initial image as done by Docker Hub
-docker build -t klakegg/hugo:$VARIANT -f Dockerfile-$VARIANT .
+docker build -t klakegg/hugo:base -f Dockerfile-base .
 echo
 
-# Trigger hooks
-chmod a+x hooks/post_push
-DOCKER_REPO="klakegg/hugo" SOURCE_BRANCH="0.xx" ./hooks/post_push
-echo
+source hooks/post_push
 
 # List images
-docker images
+docker images klakegg/hugo
 echo

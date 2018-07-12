@@ -1,9 +1,7 @@
 #!/bin/bash
 
-source ../tools/docker_hub.sh
-
 # Busybox + Hugo
-#build busybox Dockerfile-busybox
+build busybox Dockerfile-busybox
 tag   busybox "latest"
 tag   busybox "[version]"
 tag   busybox "[version]-busybox"

@@ -1,9 +1,7 @@
 #!/bin/bash
 
-source ../tools/docker_hub.sh
-
 # Debian + Hugo
-#build debian Dockerfile-debian
+build debian Dockerfile-debian
 tag   debian "[version]-debian"
 
 # Debian + Hugo + Onbuild

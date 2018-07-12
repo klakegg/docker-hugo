@@ -1,6 +1,7 @@
 # Hugo
 
 [![](https://images.microbadger.com/badges/image/klakegg/hugo.svg)](https://microbadger.com/images/klakegg/hugo "Get your own image badge on microbadger.com")
+[![Build Status](https://travis-ci.org/klakegg/docker-hugo.svg?branch=master)](https://travis-ci.org/klakegg/docker-hugo)
 
 Truly minimal Docker images for [Hugo](http://gohugo.io/) with batteries included.
 These images sets `destination` during build and `bind` when started as server, otherwise no magic.
@@ -16,7 +17,7 @@ Default minimal image based upon [Busybox](https://hub.docker.com/r/_/busybox/):
 * Hugo 0.41: `0.41-busybox`, `0.41`, `0.41-busybox-onbuild`, `0.41-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.41/busybox/Dockerfile-busybox))
 
 Minimal image based upon [Alpine](https://hub.docker.com/r/_/alpine/):
-* Hugo 0.43: `0.43-alpine`, `alpine`, `0.43-alpine-onbuild`, `alpine-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.43/alpine/Dockerfile-alpine))
+* Hugo 0.43: `0.43-alpine`, `alpine`, `0.43-alpine-onbuild`, `alpine-onbuild`, `0.43-ext-alpine`, `ext-alpine`, `0.43-ext-alpine-onbuild`, `ext-alpine-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.43/alpine/Dockerfile-alpine))
 * Hugo 0.42.2: `0.42.2-alpine`, `0.42.2-alpine-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.42.2/alpine/Dockerfile-alpine))
 * Hugo 0.42.1: `0.42.1-alpine`, `0.42.1-alpine-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.42.1/alpine/Dockerfile-alpine))
 * Hugo 0.42: `0.42-alpine`, `0.42-alpine-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.42/alpine/Dockerfile-alpine))

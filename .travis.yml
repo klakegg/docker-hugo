@@ -1,13 +1,9 @@
 sudo: required
 
+language: bash
+
 services:
   - docker
 
-env:
-  - VARIANT=alpine
-  - VARIANT=busybox
-  - VARIANT=debian
-  - VARIANT=ubuntu
-
 script:
-  - sh tools/travis.sh
+  - bash tools/travis.sh

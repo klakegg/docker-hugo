@@ -1,9 +1,7 @@
 #!/bin/bash
 
-source ../tools/docker_hub.sh
-
 # Ubuntu + Hugo
-#build ubuntu Dockerfile-ubuntu
+build ubuntu Dockerfile-ubuntu
 tag   ubuntu "[version]-ubuntu"
 
 # Ubuntu + Hugo + Onbuild

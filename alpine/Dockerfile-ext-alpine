@@ -1,11 +1,4 @@
-FROM alpine:3.7 AS fetch
-
-ARG VERSION=0.43
-
-ADD https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_extended_${VERSION}_Linux-64bit.tar.gz /hugo.tar.gz
-RUN tar -zxvf hugo.tar.gz
-
-
+FROM klakegg/hugo:base AS base
 
 FROM ubuntu:18.04 AS ubuntu
 
@@ -16,7 +9,7 @@ FROM frolvlad/alpine-glibc:alpine-3.7
 ENV HUGO_BIND="0.0.0.0" \
     HUGO_DESTINATION="/target"
 
-COPY --from=fetch /hugo /bin/hugo
+COPY --from=base /bin/hugo-extended /bin/hugo
 COPY files /
 
 RUN apk add --no-cache libstdc++

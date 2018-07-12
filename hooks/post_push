@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# Tiny library to make common tasks on Docker Hub easy for hooks files.
-
+HOME=$(pwd)
 
 # Listing some useful commands
 echo "CI: $CI"
 echo "DOCKER_REPO: $DOCKER_REPO"
+echo "HOME: $HOME"
 echo "SOURCE_BRANCH: $SOURCE_BRANCH"
 echo
 
@@ -23,6 +23,8 @@ function tag {
 function build {
   echo "Build: $1 ($2)"
   docker build -t $DOCKER_REPO:$1 -f $2 . > /dev/null
+  echo -n "       Verification: "
+  docker run --rm -it $DOCKER_REPO:$1 version
   push $1
 }
 
@@ -31,10 +33,26 @@ function push {
   if [ "$CI" != "true" ]; then
     docker push $img > /dev/null
   else
-    echo "       (Push of '$img' skipped.)"
+    if [ "$DEBUG" = "true" ]; then
+      echo "       (Push of '$img' skipped.)"
+    fi
   fi
 }
 
 function real {
   echo $1 | sed -e "s/\[version\]/${SOURCE_BRANCH}/g"
 }
+
+
+tag base "[version]-base"
+
+for VARIANT in "alpine" "busybox" "debian" "ubuntu"; do
+
+  # Move to variant folder
+  cd $HOME/$VARIANT
+
+  # Trigger hooks
+  source config
+  echo
+
+done

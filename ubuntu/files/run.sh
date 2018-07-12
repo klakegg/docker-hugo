@@ -2,6 +2,8 @@
 
 case "$1" in
 
+    # Commands from hugo
+
     "benchmark")
         hugo $@
         ;;
@@ -49,6 +51,14 @@ case "$1" in
     "version")
         hugo $@
         ;;
+
+    # Commands special to docker image
+
+    "shell")
+        sh /shell.sh
+        ;;
+
+    # Default build command
 
     *)
         hugo $@ --destination=$HUGO_DESTINATION
