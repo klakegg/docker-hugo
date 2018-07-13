@@ -11,7 +11,8 @@ tag   debian-onbuild "[version]-debian-onbuild"
 # Debian + Hugo extended
 build ext-debian Dockerfile-ext-debian
 tag   ext-debian "ext"
-tag   ext-debian "ext-latest"
+tag   ext-debian "latest-ext"
+tag   ext-debian "[version]-ext"
 tag   ext-debian "[version]-ext-debian"
 
 # Debian + Hugo extended + Onbuild
