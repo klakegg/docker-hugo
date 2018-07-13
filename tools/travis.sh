@@ -9,7 +9,3 @@ docker build -t klakegg/hugo:base -f Dockerfile-base .
 echo
 
 source hooks/post_push
-
-# List images
-docker images klakegg/hugo
-echo

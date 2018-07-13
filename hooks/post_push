@@ -1,11 +1,10 @@
 #!/bin/bash
 
-HOME=$(pwd)
+DPWD=$(pwd)
 
 # Listing some useful commands
 echo "CI: $CI"
 echo "DOCKER_REPO: $DOCKER_REPO"
-echo "HOME: $HOME"
 echo "SOURCE_BRANCH: $SOURCE_BRANCH"
 echo
 
@@ -51,10 +50,14 @@ echo
 for VARIANT in "alpine" "busybox" "debian" "ubuntu"; do
 
   # Move to variant folder
-  cd $HOME/$VARIANT
+  cd $DPWD/$VARIANT
 
   # Trigger hooks
   source config
   echo
 
 done
+
+# List images
+docker images $DOCKER_REPO
+echo
