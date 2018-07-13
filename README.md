@@ -91,8 +91,10 @@ Run server:
 
 ## Hugo shell (new as of 0.41)
 
-A Hugo shell is made available in the Alpine images (including Asciidoctor image).
-Initiating the shell will trigger installation of bash and configuration of autocompletion with Hugo support.
+A Hugo shell is made available in the Alpine/Debian/Ubuntu images (including Asciidoctor image).
+Hugo shell is bash and Hugo completion.
+
+When Alpine images are used is bash installed as part of initiation to minimize size of Docker image.
 
 To get into a shell for your site:
 
