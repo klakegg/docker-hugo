@@ -24,17 +24,18 @@ function build {
   echo "Build: $1 ($2)"
   docker build -t $DOCKER_REPO:$1 -f $2 . > /dev/null
   echo -n "       Verification: "
-  docker run --rm -it $DOCKER_REPO:$1 version
+  docker run --rm $DOCKER_REPO:$1 version
   push $1
 }
 
 function push {
   img=$DOCKER_REPO:$(real $1)
   if [ "$CI" != "true" ]; then
+    echo "       Push: $img"
     docker push $img > /dev/null
   else
     if [ "$DEBUG" = "true" ]; then
-      echo "       (Push of '$img' skipped.)"
+      echo "       Push: $img (skipped)"
     fi
   fi
 }
@@ -45,6 +46,7 @@ function real {
 
 
 tag base "[version]-base"
+echo
 
 for VARIANT in "alpine" "busybox" "debian" "ubuntu"; do
 

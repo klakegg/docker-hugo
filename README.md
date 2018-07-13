@@ -105,6 +105,13 @@ Hugo as of version [0.43](https://github.com/gohugoio/hugo/releases/tag/v0.43) c
 
 The extended edition is used in those images containing "ext" in the name. Except use of extended edition are those images exactly the same as those using the normal edition.
 
+Table of Hugo extention features and the version when images first support the feature:
+
+| Feature       | Alpine | Busybox | Debian | Ubuntu |
+| ------------- | ------ | ------- | ------ | ------ |
+| Hugo extended | 0.43   | -       | 0.43   | 0.43   |
+| PostCSS       | -      | -       | 0.43   | 0.43   |
+
 
 ## Using an ONBUILD image
 
