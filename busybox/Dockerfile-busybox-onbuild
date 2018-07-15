@@ -1,4 +1,0 @@
-FROM klakegg/hugo:busybox
-
-ONBUILD COPY . /src
-ONBUILD RUN hugo --destination=/onbuild

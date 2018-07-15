@@ -1,41 +1,46 @@
 #!/bin/bash
 
 # Alpine + Hugo
-build alpine Dockerfile-alpine
+build alpine
 tag   alpine "[version]-alpine"
 
 # Alpine + Hugo + Onbuild
-build alpine-onbuild Dockerfile-alpine-onbuild
+template onbuild alpine-onbuild alpine
+build alpine-onbuild
 tag   alpine-onbuild "[version]-alpine-onbuild"
 
 # Alpine + Hugo + Asciidoctor
-build asciidoctor Dockerfile-asciidoctor
+build asciidoctor
 tag   asciidoctor "[version]-asciidoctor"
 
 # Alpine + Hugo + Asciidoctor + Onbuild
-build asciidoctor-onbuild Dockerfile-asciidoctor-onbuild
+template onbuild asciidoctor-onbuild asciidoctor
+build asciidoctor-onbuild
 tag   asciidoctor-onbuild "[version]-asciidoctor-onbuild"
 
 # Alpine + Hugo + Pandoc
-build pandoc Dockerfile-pandoc
+build pandoc
 tag   pandoc "[version]-pandoc"
 
 # Alpine + Hugo + Pandoc + Onbuild
-build pandoc-onbuild Dockerfile-pandoc-onbuild
+template onbuild pandoc-onbuild pandoc
+build pandoc-onbuild
 tag   pandoc-onbuild "[version]-pandoc-onbuild"
 
 # Alpine + Hugo extended
-build ext-alpine Dockerfile-ext-alpine
+build ext-alpine
 tag   ext-alpine "[version]-ext-alpine"
 
 # Alpine + Hugo extended + Onbuild
-build ext-alpine-onbuild Dockerfile-ext-alpine-onbuild
+template onbuild ext-alpine-onbuild ext-alpine
+build ext-alpine-onbuild
 tag   ext-alpine-onbuild "[version]-ext-alpine-onbuild"
 
 # Alpine + Hugo extended + Asciidoctor
-build ext-asciidoctor Dockerfile-ext-asciidoctor
+build ext-asciidoctor
 tag   ext-asciidoctor "[version]-ext-asciidoctor"
 
 # Alpine + Hugo extended + Asciidoctor + Onbuild
-build ext-asciidoctor-onbuild Dockerfile-ext-asciidoctor-onbuild
+template onbuild ext-asciidoctor-onbuild ext-asciidoctor
+build ext-asciidoctor-onbuild
 tag   ext-asciidoctor-onbuild "[version]-ext-asciidoctor-onbuild"

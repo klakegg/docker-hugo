@@ -1,4 +1,0 @@
-FROM klakegg/hugo:ext-asciidoctor
-
-ONBUILD COPY . /src
-ONBUILD RUN hugo --destination=/onbuild

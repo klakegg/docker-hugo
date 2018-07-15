@@ -1,22 +1,24 @@
 #!/bin/bash
 
 # Debian + Hugo
-build debian Dockerfile-debian
+build debian
 tag   debian "[version]-debian"
 
 # Debian + Hugo + Onbuild
-build debian-onbuild Dockerfile-debian-onbuild
+template onbuild debian-onbuild debian
+build debian-onbuild
 tag   debian-onbuild "[version]-debian-onbuild"
 
 # Debian + Hugo extended
-build ext-debian Dockerfile-ext-debian
+build ext-debian
 tag   ext-debian "ext"
 tag   ext-debian "latest-ext"
 tag   ext-debian "[version]-ext"
 tag   ext-debian "[version]-ext-debian"
 
 # Debian + Hugo extended + Onbuild
-build ext-debian-onbuild Dockerfile-ext-debian-onbuild
+template onbuild ext-debian-onbuild ext-debian
+build ext-debian-onbuild
 tag   ext-debian-onbuild "[version]-ext-debian-onbuild"
 tag   ext-debian-onbuild "[version]-ext-onbuild"
 tag   ext-debian-onbuild "ext-onbuild"

@@ -1,25 +1,14 @@
 #!/bin/bash
 
 # Busybox + Hugo
-build busybox Dockerfile-busybox
+build busybox
 tag   busybox "latest"
 tag   busybox "[version]"
 tag   busybox "[version]-busybox"
 
 # Busybox + Hugo + Onbuild
-build busybox-onbuild Dockerfile-busybox-onbuild
+template onbuild busybox-onbuild busybox
+build busybox-onbuild
 tag   busybox-onbuild "[version]-busybox-onbuild"
 tag   busybox-onbuild "[version]-onbuild"
 tag   busybox-onbuild "onbuild"
-
-# Busybox + Hugo extended
-#build ext-busybox Dockerfile-ext-busybox
-#tag   ext-busybox "ext"
-#tag   ext-busybox "ext-latest"
-#tag   ext-busybox "[version]-ext-busybox"
-
-# Busybox + Hugo extended + Onbuild
-#build ext-busybox-onbuild Dockerfile-ext-busybox-onbuild
-#tag   ext-busybox-onbuild "[version]-ext-busybox-onbuild"
-#tag   ext-busybox-onbuild "[version]-ext-onbuild"
-#tag   ext-busybox-onbuild "ext-onbuild"

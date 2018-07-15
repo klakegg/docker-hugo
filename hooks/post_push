@@ -27,8 +27,17 @@ function build {
 }
 
 function build_only {
-  echo "Build: $1 ($2)"
-  docker build -t $DOCKER_REPO:$1 -f $2 . > /dev/null
+  name=$2
+  if [ "$2" == "" ]; then
+    if [ -e "Dockerfile-gen-$1" ]; then
+      name="gen-$1"
+    else
+      name=$1;
+    fi
+  fi
+
+  echo "Build: $1 (Dockerfile-$name)"
+  docker build -t $DOCKER_REPO:$1 -f Dockerfile-$name . > /dev/null
 }
 
 function push {
@@ -45,6 +54,11 @@ function push {
 
 function real {
   echo $1 | sed -e "s/\[version\]/${SOURCE_BRANCH}/g"
+}
+
+# template [tp] [target] [from]
+function template {
+  cat $DPWD/template/Dockerfile-$1 | sed -e "s|\[from\]|${DOCKER_REPO}:${3}|g" > Dockerfile-gen-$2
 }
 
 

@@ -1,17 +1,19 @@
 #!/bin/bash
 
 # Ubuntu + Hugo
-build ubuntu Dockerfile-ubuntu
+build ubuntu
 tag   ubuntu "[version]-ubuntu"
 
 # Ubuntu + Hugo + Onbuild
-build ubuntu-onbuild Dockerfile-ubuntu-onbuild
+template onbuild ubuntu-onbuild ubuntu
+build ubuntu-onbuild
 tag   ubuntu-onbuild "[version]-ubuntu-onbuild"
 
 # Ubuntu + Hugo extended
-build ext-ubuntu Dockerfile-ext-ubuntu
+build ext-ubuntu
 tag   ext-ubuntu "[version]-ext-ubuntu"
 
 # Ubuntu + Hugo extended + Onbuild
-build ext-ubuntu-onbuild Dockerfile-ext-ubuntu-onbuild
+template onbuild ext-ubuntu-onbuild ext-ubuntu
+build ext-ubuntu-onbuild
 tag   ext-ubuntu-onbuild "[version]-ext-ubuntu-onbuild"

@@ -1,4 +1,4 @@
-FROM klakegg/hugo:ext-ubuntu
+FROM [from]
 
 ONBUILD COPY . /src
 ONBUILD RUN hugo --destination=/onbuild

@@ -55,7 +55,7 @@ case "$1" in
     # Commands special to docker image
 
     "shell")
-        bash
+        sh /shell.sh
         ;;
 
     # Default build command

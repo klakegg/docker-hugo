@@ -1,4 +1,0 @@
-FROM klakegg/hugo:ext-debian
-
-ONBUILD COPY . /src
-ONBUILD RUN hugo --destination=/onbuild
