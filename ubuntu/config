@@ -1,19 +1,19 @@
 #!/bin/bash
 
 # Ubuntu + Hugo
-build ubuntu
-tag   ubuntu "[version]-ubuntu"
+build "ubuntu" - \
+  "[version]-ubuntu"
 
 # Ubuntu + Hugo + Onbuild
 template onbuild ubuntu-onbuild ubuntu
-build ubuntu-onbuild
-tag   ubuntu-onbuild "[version]-ubuntu-onbuild"
+build "ubuntu-onbuild" - \
+  "[version]-ubuntu-onbuild"
 
 # Ubuntu + Hugo extended
-build ext-ubuntu
-tag   ext-ubuntu "[version]-ext-ubuntu"
+build "ext-ubuntu" - \
+  "[version]-ext-ubuntu"
 
 # Ubuntu + Hugo extended + Onbuild
 template onbuild ext-ubuntu-onbuild ext-ubuntu
-build ext-ubuntu-onbuild
-tag   ext-ubuntu-onbuild "[version]-ext-ubuntu-onbuild"
+build "ext-ubuntu-onbuild" - \
+  "[version]-ext-ubuntu-onbuild"

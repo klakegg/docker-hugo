@@ -1,24 +1,24 @@
 #!/bin/bash
 
 # Debian + Hugo
-build debian
-tag   debian "[version]-debian"
+build "debian" - \
+  "[version]-debian"
 
 # Debian + Hugo + Onbuild
 template onbuild debian-onbuild debian
-build debian-onbuild
-tag   debian-onbuild "[version]-debian-onbuild"
+build "debian-onbuild" - \
+  "[version]-debian-onbuild"
 
 # Debian + Hugo extended
-build ext-debian
-tag   ext-debian "ext"
-tag   ext-debian "latest-ext"
-tag   ext-debian "[version]-ext"
-tag   ext-debian "[version]-ext-debian"
+build "ext-debian" - \
+  "ext" \
+  "latest-ext" \
+  "[version]-ext" \
+  "[version]-ext-debian"
 
 # Debian + Hugo extended + Onbuild
 template onbuild ext-debian-onbuild ext-debian
-build ext-debian-onbuild
-tag   ext-debian-onbuild "[version]-ext-debian-onbuild"
-tag   ext-debian-onbuild "[version]-ext-onbuild"
-tag   ext-debian-onbuild "ext-onbuild"
+build "ext-debian-onbuild" - \
+  "[version]-ext-debian-onbuild" \
+  "[version]-ext-onbuild" \
+  "ext-onbuild"

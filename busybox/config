@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # Busybox + Hugo
-build busybox
-tag   busybox "latest"
-tag   busybox "[version]"
-tag   busybox "[version]-busybox"
+build "busybox" - \
+  "latest" \
+  "[version]" \
+  "[version]-busybox"
 
 # Busybox + Hugo + Onbuild
 template onbuild busybox-onbuild busybox
-build busybox-onbuild
-tag   busybox-onbuild "[version]-busybox-onbuild"
-tag   busybox-onbuild "[version]-onbuild"
-tag   busybox-onbuild "onbuild"
+build "busybox-onbuild" - \
+  "[version]-busybox-onbuild" \
+  "[version]-onbuild" \
+  "onbuild"

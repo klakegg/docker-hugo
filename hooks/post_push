@@ -24,15 +24,19 @@ function build {
   echo -n "       Verification: "
   docker run --rm $DOCKER_REPO:$1 version
   push $1
+
+  for t in ${@:3}; do
+    tag $1 "$t"
+  done
 }
 
 function build_only {
   name=$2
-  if [ "$2" == "" ]; then
+  if [ "$2" = "" ] || [ "$2" = "-" ]; then
     if [ -e "Dockerfile-gen-$1" ]; then
       name="gen-$1"
     else
-      name=$1;
+      name=$1
     fi
   fi
 
