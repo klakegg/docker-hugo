@@ -1,0 +1,16 @@
+FROM busybox:1.28 AS fetch
+
+ARG PANDOC_VERSION=2.2.1
+
+ADD https://github.com/jgm/pandoc/releases/download/2.2.1/pandoc-2.2.1-linux.tar.gz /pandoc.tar.gz
+RUN tar -zxvf pandoc.tar.gz
+RUN mv /pandoc-${PANDOC_VERSION}/bin/pandoc /pandoc
+RUN mv /pandoc-${PANDOC_VERSION}/bin/pandoc-citeproc /pandoc-citeproc
+RUN ["/pandoc", "-v"]
+
+
+
+FROM scratch
+
+COPY --from=fetch /pandoc /bin/pandoc-default
+COPY --from=fetch /pandoc-citeproc /bin/pandoc-citeproc

@@ -131,6 +131,21 @@ COPY --from=hugo /onbuild /usr/share/nginx/html
 ```
 
 
+## Using Pandoc
+
+Hugo images with Pandoc support are made available for users wanting to use Pandoc in combination with Hugo.
+
+[Hugo triggers Pandoc](https://gohugo.io/content-management/formats/#additional-formats-through-external-helpers) with `pandoc --mathjax`.
+Some users may want to use other arguments, so to accommodate such a need is an alias `pandoc` created with the content of `HUGO_PANDOC` (default: `pandoc-default`) upon initiation.
+The normal `pandoc` executable is renamed to `pandoc-default` to allow for later introduction of `pandoc-citeproc` if needed.
+
+Example of explicit setting `pandoc` alias:
+
+```
+docker run --rm -it -v $(pwd):/src -v $(pwd)/output:/src/public -e HUGO_PANDOC="pandoc-default --strip-empty-paragraphs" klakegg/hugo:0.44-pandoc
+```
+
+
 ## Overriding entrypoint
 
 Those wanting to override entrypoint in the image may easily do so.
@@ -158,6 +173,7 @@ In docker-compose using `entrypoint`:
 Environment variables:
 * HUGO_BIND - Bind address for server. Default: `0.0.0.0`
 * HUGO_DESTINATION - Location of output folder. Default: `/target`
+* HUGO_PANDOC - Pandoc command to be triggered. Default: `pandoc-default`
 
 Volumes:
 * ```/src``` - Source folder and workdir

@@ -20,11 +20,15 @@ function tag {
 }
 
 function build {
-  echo "Build: $1 ($2)"
-  docker build -t $DOCKER_REPO:$1 -f $2 . > /dev/null
+  build_only $1 $2
   echo -n "       Verification: "
   docker run --rm $DOCKER_REPO:$1 version
   push $1
+}
+
+function build_only {
+  echo "Build: $1 ($2)"
+  docker build -t $DOCKER_REPO:$1 -f $2 . > /dev/null
 }
 
 function push {
@@ -47,7 +51,7 @@ function real {
 tag base "[version]-base"
 echo
 
-for VARIANT in "alpine" "busybox" "debian" "ubuntu"; do
+for VARIANT in "lib" "alpine" "busybox" "debian" "ubuntu"; do
 
   # Move to variant folder
   cd $DPWD/$VARIANT

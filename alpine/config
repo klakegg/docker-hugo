@@ -16,6 +16,14 @@ tag   asciidoctor "[version]-asciidoctor"
 build asciidoctor-onbuild Dockerfile-asciidoctor-onbuild
 tag   asciidoctor-onbuild "[version]-asciidoctor-onbuild"
 
+# Alpine + Hugo + Pandoc
+build pandoc Dockerfile-pandoc
+tag   pandoc "[version]-pandoc"
+
+# Alpine + Hugo + Pandoc + Onbuild
+build pandoc-onbuild Dockerfile-pandoc-onbuild
+tag   pandoc-onbuild "[version]-pandoc-onbuild"
+
 # Alpine + Hugo extended
 build ext-alpine Dockerfile-ext-alpine
 tag   ext-alpine "[version]-ext-alpine"

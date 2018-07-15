@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# This file builds images not to be exposed, however they are used internally
+# to make sure each asset is downloaded only once.
+
+build_only base-pandoc Dockerfile-base-pandoc
