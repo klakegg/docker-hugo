@@ -62,24 +62,22 @@ function real {
 
 # template [tp] [target] [from]
 function template {
-  cat $DPWD/template/Dockerfile-$1 | sed -e "s|\[from\]|${DOCKER_REPO}:${3}|g" > Dockerfile-gen-$2
+  cat $DPWD/lib/template/Dockerfile-$1 | sed -e "s|\[from\]|${DOCKER_REPO}:${3}|g" > Dockerfile-gen-$2
 }
 
+function trigger {
+  # Go to folder
+  cd $DPWD/$1
 
-tag base "[version]-base"
-echo
-
-for VARIANT in "lib" "alpine" "busybox" "debian" "ubuntu"; do
-
-  # Move to variant folder
-  cd $DPWD/$VARIANT
-
-  # Trigger hooks
+  # Trigger configuration
   source config
   echo
+}
 
+# Build base images if found
+if [ -e lib/base ]; then trigger "lib/base"; fi
+
+# Build distributions provided
+for VARIANT in $(ls $DPWD/dist); do
+  trigger "dist/$VARIANT"
 done
-
-# List images
-docker images $DOCKER_REPO
-echo

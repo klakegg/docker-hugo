@@ -6,4 +6,4 @@ services:
   - docker
 
 script:
-  - bash tools/travis.sh
+  - bash hooks/travis
