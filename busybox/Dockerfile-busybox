@@ -2,13 +2,19 @@ FROM klakegg/hugo:base AS base
 
 
 
+FROM scratch AS files
+
+COPY --from=base /bin/hugo /bin/hugo
+COPY files /
+
+
+
 FROM busybox:1.28
 
 ENV HUGO_BIND="0.0.0.0" \
     HUGO_DESTINATION="/target"
 
-COPY --from=base /bin/hugo /bin/hugo
-COPY files /
+COPY --from=files / /
 
 EXPOSE 1313
 
