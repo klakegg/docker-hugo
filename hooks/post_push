@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# This is the file triggered by Docker Hub after building the initial image.
+
 DPWD=$(pwd)
 
 # Listing some useful commands
@@ -13,24 +15,37 @@ if [ "$SOURCE_BRANCH" = "master" ]; then
     exit
 fi
 
+# tag [intial tag] [extra tag]
 function tag {
+  # Perform tagging
   echo "Tag:   $1 => $(real $2)"
   docker tag $DOCKER_REPO:$1 $DOCKER_REPO:$(real $2)
+
+  # Push tag
   push $2
 }
 
+# build [inital tag] [Dockerfile extension] [extra tags...]
 function build {
+  # Perform build
   build_only $1 $2
+
+  # Perform verification
   echo -n "       Verification: "
   docker run --rm $DOCKER_REPO:$1 version
+
+  # Push build
   push $1
 
+  # Add extra tags
   for t in ${@:3}; do
     tag $1 "$t"
   done
 }
 
+# build_only [initial tag] [Dockerfile extension]
 function build_only {
+  # Detect Dockerfile extension if not set.
   name=$2
   if [ "$2" = "" ] || [ "$2" = "-" ]; then
     if [ -e "Dockerfile-gen-$1" ]; then
@@ -40,31 +55,41 @@ function build_only {
     fi
   fi
 
+  # Perform build
   echo "Build: $1 (Dockerfile-$name)"
   docker build -t $DOCKER_REPO:$1 -f Dockerfile-$name . > /dev/null
 }
 
+# push [tag]
 function push {
+  # Figure out full image identififer.
   img=$DOCKER_REPO:$(real $1)
+
   if [ "$CI" != "true" ]; then
+    # Acually push when not in a CI environment.
     echo "       Push: $img"
     docker push $img > /dev/null
   else
+    # Simple logging in CI environment with debug enabled.
     if [ "$DEBUG" = "true" ]; then
       echo "       Push: $img (skipped)"
     fi
   fi
 }
 
+# real [tag]
 function real {
   echo $1 | sed -e "s/\[version\]/${SOURCE_BRANCH}/g"
 }
 
 # template [tp] [target] [from]
 function template {
-  cat $DPWD/lib/template/Dockerfile-$1 | sed -e "s|\[from\]|${DOCKER_REPO}:${3}|g" > Dockerfile-gen-$2
+  cat $DPWD/lib/template/Dockerfile-$1 \
+  | sed -e "s|\[from\]|${DOCKER_REPO}:${3}|g" \
+  > Dockerfile-gen-$2
 }
 
+# trigger [dir]
 function trigger {
   # Go to folder
   cd $DPWD/$1
@@ -78,6 +103,6 @@ function trigger {
 if [ -e lib/base ]; then trigger "lib/base"; fi
 
 # Build distributions provided
-for VARIANT in $(ls $DPWD/dist); do
-  trigger "dist/$VARIANT"
+for dist in $(ls $DPWD/dist); do
+  trigger "dist/$dist"
 done

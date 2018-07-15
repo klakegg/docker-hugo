@@ -17,7 +17,13 @@ RUN tar -zxvf hugo.tar.gz
 
 
 
-FROM scratch
+FROM scratch AS files
 
 COPY --from=fetch-standard /hugo /bin/hugo
 COPY --from=fetch-extended /hugo /bin/hugo-extended
+
+
+
+FROM scratch
+
+COPY --from=files / /

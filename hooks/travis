@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# This is the file triggered by Travis.
+
 # Setting variables for build
 export DOCKER_REPO="klakegg/hugo"
 export SOURCE_BRANCH="0.xx"
