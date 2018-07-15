@@ -44,3 +44,12 @@ build "ext-asciidoctor" - \
 template onbuild ext-asciidoctor-onbuild ext-asciidoctor
 build "ext-asciidoctor-onbuild" - \
   "[version]-ext-asciidoctor-onbuild"
+
+# Alpine + Hugo extended + Pandoc
+build "ext-pandoc" - \
+  "[version]-ext-pandoc"
+
+# Alpine + Hugo extended + Pandoc + Onbuild
+template onbuild ext-pandoc-onbuild ext-pandoc
+build "ext-pandoc-onbuild" - \
+  "[version]-ext-pandoc-onbuild"
