@@ -177,6 +177,7 @@ Environment variables:
 * HUGO_BIND - Bind address for server. Default: `0.0.0.0`
 * HUGO_DESTINATION - Location of output folder. Default: `/target`
 * HUGO_PANDOC - Pandoc command to be triggered. Default: `pandoc-default`
+* HUGO_ENV - Selecting environment ("DEV"/"production"). Default: `DEV`
 
 Volumes:
 * ```/src``` - Source folder and workdir

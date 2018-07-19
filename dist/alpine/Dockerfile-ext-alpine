@@ -7,7 +7,8 @@ FROM ubuntu:18.04 AS ubuntu
 FROM frolvlad/alpine-glibc:alpine-3.7
 
 ENV HUGO_BIND="0.0.0.0" \
-    HUGO_DESTINATION="/target"
+    HUGO_DESTINATION="/target" \
+    HUGO_ENV="DEV"
 
 COPY --from=base /bin/hugo-extended /bin/hugo
 COPY files /
