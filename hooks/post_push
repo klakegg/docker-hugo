@@ -30,10 +30,6 @@ function build {
   # Perform build
   build_only $1 $2
 
-  # Perform verification
-  echo -n "       Verification: "
-  docker run --rm $DOCKER_REPO:$1 version
-
   # Push build
   push $1
 
@@ -97,6 +93,26 @@ function trigger {
   # Trigger configuration
   source config
   echo
+
+  if [ -e tests ]; then
+    source tests
+    echo
+  fi
+}
+
+function test {
+  result=$(docker run --rm $2 $DOCKER_REPO:$1 $3)
+  count=$(echo $result | grep "$4" | wc -l)
+
+  if [ "$count" = "0" ]; then
+    echo "FAILED TEST: $@"
+    echo "Expected \"$4\", received:"
+    echo $result
+
+    exit 1
+  else
+    echo "SUCCESSFUL TEST: $@"
+  fi
 }
 
 # Build base images if found
