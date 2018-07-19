@@ -3,12 +3,7 @@
 # This is the file triggered by Docker Hub after building the initial image.
 
 DPWD=$(pwd)
-
-# Listing some useful commands
-echo "CI: $CI"
-echo "DOCKER_REPO: $DOCKER_REPO"
-echo "SOURCE_BRANCH: $SOURCE_BRANCH"
-echo
+PART="sys"
 
 # Make sure only tagged commits triggers logic in hooks files.
 if [ "$SOURCE_BRANCH" = "master" ]; then
@@ -18,7 +13,7 @@ fi
 # tag [intial tag] [extra tag]
 function tag {
   # Perform tagging
-  echo "Tag:   $1 => $(real $2)"
+  echos "Tag:   $1 => $(real $2)"
   docker tag $DOCKER_REPO:$1 $DOCKER_REPO:$(real $2)
 
   # Push tag
@@ -52,7 +47,7 @@ function build_only {
   fi
 
   # Perform build
-  echo "Build: $1 (Dockerfile-$name)"
+  echos "Build: $1 (Dockerfile-$name)"
   docker build -t $DOCKER_REPO:$1 -f Dockerfile-$name . > /dev/null
 }
 
@@ -63,12 +58,12 @@ function push {
 
   if [ "$CI" != "true" ]; then
     # Acually push when not in a CI environment.
-    echo "       Push: $img"
+    echos "       Push: $img"
     docker push $img > /dev/null
   else
     # Simple logging in CI environment with debug enabled.
     if [ "$DEBUG" = "true" ]; then
-      echo "       Push: $img (skipped)"
+      echos "       Push: $img (skipped)"
     fi
   fi
 }
@@ -90,14 +85,15 @@ function trigger {
   # Go to folder
   cd $DPWD/$1
 
-  # Trigger configuration
-  source config
-  echo
+  # Trigger steps
+  for step in "build" "test"; do
+    if [ -e "Step-$step" ]; then
+      PART="$1:$step"
 
-  if [ -e tests ]; then
-    source tests
-    echo
-  fi
+      source "Step-$step"
+      echo
+    fi
+  done
 }
 
 function test {
@@ -105,15 +101,25 @@ function test {
   count=$(echo $result | grep "$4" | wc -l)
 
   if [ "$count" = "0" ]; then
-    echo "FAILED TEST: $@"
-    echo "Expected \"$4\", received:"
-    echo $result
+    echos "FAILED TEST: $@"
+    echos "Expected \"$4\", received:"
+    echos $result
 
     exit 1
   else
-    echo "SUCCESSFUL TEST: $@"
+    echos "SUCCESSFUL TEST: $@"
   fi
 }
+
+function echos {
+  echo "[$PART] $@"
+}
+
+# Listing some useful commands
+echos "CI: $CI"
+echos "DOCKER_REPO: $DOCKER_REPO"
+echos "SOURCE_BRANCH: $SOURCE_BRANCH"
+echo
 
 # Build base images if found
 if [ -e lib/base ]; then trigger "lib/base"; fi
