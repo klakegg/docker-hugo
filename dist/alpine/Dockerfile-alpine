@@ -2,6 +2,10 @@ FROM klakegg/hugo:base AS base
 
 
 
+FROM klakegg/hugo:base-certs as certs
+
+
+
 FROM alpine:3.7
 
 ENV HUGO_BIND="0.0.0.0" \
@@ -10,6 +14,7 @@ ENV HUGO_BIND="0.0.0.0" \
 
 COPY --from=base /bin/hugo /bin/hugo
 COPY files /
+COPY --from=certs /etc/ssl/certs /etc/ssl/certs
 
 EXPOSE 1313
 

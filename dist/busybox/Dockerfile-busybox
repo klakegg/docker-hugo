@@ -8,6 +8,8 @@ COPY --from=base /bin/hugo /bin/hugo
 COPY files /
 
 
+FROM klakegg/hugo:base-certs as certs
+
 
 FROM busybox:1.28
 
@@ -16,6 +18,7 @@ ENV HUGO_BIND="0.0.0.0" \
     HUGO_ENV="DEV"
 
 COPY --from=files / /
+COPY --from=certs /etc/ssl/certs /etc/ssl/certs
 
 EXPOSE 1313
 
