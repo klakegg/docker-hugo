@@ -1,5 +1,13 @@
 #!/bin/sh
 
+if [ "$(id -u)" != "0" ]; then
+  su - root <<! > /dev/null
+alpine
+chown $(id -u).$(id -g) /src /target
+adduser -D -h /src -u $(id -u) hugo
+!
+fi
+
 case "$1" in
 
     # Commands from hugo

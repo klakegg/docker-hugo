@@ -1,20 +1,28 @@
 FROM klakegg/hugo:base AS base
 
-
-
 FROM klakegg/hugo:base-certs as certs
 
 
 
-FROM alpine:3.7
+FROM scratch as image
+
+COPY files /files
+COPY --from=base /bin/hugo /files/bin/hugo
+COPY --from=certs /etc/ssl/certs /files/etc/ssl/certs
+
+
+
+FROM alpine:3.8
 
 ENV HUGO_BIND="0.0.0.0" \
     HUGO_DESTINATION="/target" \
     HUGO_ENV="DEV"
 
-COPY --from=base /bin/hugo /bin/hugo
-COPY files /
-COPY --from=certs /etc/ssl/certs /etc/ssl/certs
+COPY --from=image /files /
+
+RUN apk --no-cache add busybox-suid bash bash-completion \
+ && mkdir /etc/bash_completion.d \
+ && hugo gen autocomplete > /dev/null
 
 EXPOSE 1313
 

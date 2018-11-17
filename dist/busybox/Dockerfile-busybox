@@ -1,24 +1,24 @@
 FROM klakegg/hugo:base AS base
 
-
-
-FROM scratch AS files
-
-COPY --from=base /bin/hugo /bin/hugo
-COPY files /
-
-
 FROM klakegg/hugo:base-certs as certs
 
 
-FROM busybox:1.28
+
+FROM scratch as image
+
+COPY files /files
+COPY --from=base /bin/hugo /files/bin/hugo
+COPY --from=certs /etc/ssl/certs /files/etc/ssl/certs
+
+
+
+FROM busybox:1.29
 
 ENV HUGO_BIND="0.0.0.0" \
     HUGO_DESTINATION="/target" \
     HUGO_ENV="DEV"
 
-COPY --from=files / /
-COPY --from=certs /etc/ssl/certs /etc/ssl/certs
+COPY --from=image /files /
 
 EXPOSE 1313
 

@@ -6,6 +6,6 @@ HOME=/src
 alias hugo="sh /run.sh"
 alias h="hugo"
 
-if [ -e /usr/share/bash-completion/bash_completion ]; then
-  . /usr/share/bash-completion/bash_completion
+if [ "$HUGO_PANDOC" != "" ]; then
+  alias pandoc="$HUGO_PANDOC"
 fi

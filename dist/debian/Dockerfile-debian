@@ -2,14 +2,20 @@ FROM klakegg/hugo:base AS base
 
 
 
-FROM debian:9.4-slim
+FROM scratch as image
+
+COPY files /files
+COPY --from=base /bin/hugo /files/bin/hugo
+
+
+
+FROM debian:9.6-slim
 
 ENV HUGO_BIND="0.0.0.0" \
     HUGO_DESTINATION="/target" \
     HUGO_ENV="DEV"
 
-COPY --from=base /bin/hugo /bin/hugo
-COPY files /
+COPY --from=image /files /
 
 RUN apt update \
  && apt install -y bash-completion \
