@@ -1,0 +1,41 @@
+FROM klakegg/hugo:base AS base
+
+FROM klakegg/hugo:base-certs as certs
+
+FROM klakegg/hugo:base-nodejs as node
+
+FROM ubuntu:18.04 AS ubuntu
+
+FROM scratch as image
+
+COPY files /files
+COPY --from=base /bin/hugo-extended /files/bin/hugo
+COPY --from=certs /etc/ssl/certs /files/etc/ssl/certs
+COPY --from=ubuntu /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25 /files/usr/lib/libstdc++.so.6
+COPY --from=node /node /files/
+CMD ln -s /files/node/bin/node /files/bin/node \
+    && ln -s /files/node/bin/npm /files/bin/npm \
+    && ln -s /files/node/bin/npx /files/bin/npx
+
+FROM frolvlad/alpine-glibc:alpine-3.8
+
+ENV HUGO_BIND="0.0.0.0" \
+    HUGO_DESTINATION="/target" \
+    HUGO_ENV="DEV"
+
+RUN apk add --no-cache libstdc++ busybox-suid bash bash-completion
+
+COPY --from=image /files /
+
+RUN ["node", "-v"]
+RUN npm install --global yarn
+
+RUN mkdir /etc/bash_completion.d \
+ && hugo gen autocomplete > /dev/null
+
+EXPOSE 1313
+
+VOLUME /src /target
+WORKDIR /src
+
+ENTRYPOINT ["sh", "/run.sh"]
