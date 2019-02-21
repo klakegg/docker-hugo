@@ -4,6 +4,8 @@ test "alpine" "" "version" "Hugo"
 
 test "ext-alpine" "" "version" "Hugo"
 
+test "ext-nodejs" "--entrypoint node" "--version"
+
 test "asciidoctor" "--entrypoint asciidoctor" "--version" "Asciidoctor 1"
 
 test "pandoc" "--entrypoint pandoc-default" "--version" "Compiled with pandoc"

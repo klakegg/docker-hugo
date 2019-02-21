@@ -31,6 +31,10 @@ build "pandoc-onbuild" - \
 build "ext-alpine" - \
   "[version]-ext-alpine"
 
+# Alpine + Hugo extended + Nodejs
+build "ext-nodejs" - \
+  "[version]-ext-nodejs"
+
 # Alpine + Hugo extended + Onbuild
 template onbuild ext-alpine-onbuild ext-alpine
 build "ext-alpine-onbuild" - \
