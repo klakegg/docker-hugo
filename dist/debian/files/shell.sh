@@ -1,4 +1,4 @@
 #!/bin/sh
 
 # Start bash
-bash -l
+exec bash -l

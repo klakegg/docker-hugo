@@ -3,55 +3,55 @@
 case "$1" in
 
     "benchmark")
-        hugo $@
+        exec hugo $@
         ;;
 
     "config")
-        hugo $@
+        exec hugo $@
         ;;
 
     "convert")
-        hugo $@
+        exec hugo $@
         ;;
 
     "env")
-        hugo $@
+        exec hugo $@
         ;;
 
     "gen")
-        hugo $@
+        exec hugo $@
         ;;
 
     "help")
-        hugo $@
+        exec hugo $@
         ;;
 
     "import")
-        hugo $@
+        exec hugo $@
         ;;
 
     "list")
-        hugo $@
+        exec hugo $@
         ;;
 
     "new")
-        hugo $@
+        exec hugo $@
         ;;
 
     "server")
-        hugo server --bind=$HUGO_BIND $(echo $* | sed "s:^server::")
+        exec hugo server --bind=$HUGO_BIND $(echo $* | sed "s:^server::")
         ;;
 
     "undraft")
-        hugo $@
+        exec hugo $@
         ;;
 
     "version")
-        hugo $@
+        exec hugo $@
         ;;
 
     *)
-        hugo $@ --destination=$HUGO_DESTINATION
+        exec hugo $@ --destination=$HUGO_DESTINATION
         ;;
 
 esac
