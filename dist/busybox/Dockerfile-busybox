@@ -8,11 +8,11 @@ FROM scratch as image
 
 COPY files /files
 COPY --from=base /bin/hugo /files/bin/hugo
-COPY --from=certs /etc/ssl/certs /files/etc/ssl/certs
+COPY --from=certs /files /files
 
 
 
-FROM busybox:1.29
+FROM busybox:1.30
 
 ENV HUGO_BIND="0.0.0.0" \
     HUGO_DESTINATION="/target" \

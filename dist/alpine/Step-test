@@ -4,7 +4,7 @@ test "alpine" "" "version" "Hugo"
 
 test "ext-alpine" "" "version" "Hugo"
 
-test "ext-nodejs" "--entrypoint node" "--version"
+test "ext-alpine" "--entrypoint node" "--version"
 
 test "asciidoctor" "--entrypoint asciidoctor" "--version" "Asciidoctor 1"
 

@@ -1,6 +1,6 @@
-FROM busybox:1.28 AS fetch
+FROM busybox:1.30 AS fetch
 
-ARG PANDOC_VERSION=2.2.1
+ARG PANDOC_VERSION=2.7.2
 
 ADD https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-linux.tar.gz /pandoc.tar.gz
 RUN tar -zxvf pandoc.tar.gz

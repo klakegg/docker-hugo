@@ -4,7 +4,7 @@
 
 # Setting variables for build
 export DOCKER_REPO="klakegg/hugo"
-export SOURCE_BRANCH="0.xx.x"
+export SOURCE_BRANCH=$(cat Dockerfile-base  | grep VERSION | head -1 | cut -d = -f 2)
 export CI="true"
 
 # Build initial image as done by Docker Hub
