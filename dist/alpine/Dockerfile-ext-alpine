@@ -24,7 +24,7 @@ ENV HUGO_BIND="0.0.0.0" \
     HUGO_DESTINATION="/target" \
     HUGO_ENV="DEV"
 
-RUN apk add --no-cache libstdc++ busybox-suid bash bash-completion
+RUN apk add --no-cache libstdc++ busybox-suid bash bash-completion git
 
 COPY --from=image /files /
 
