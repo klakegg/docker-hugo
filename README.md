@@ -80,13 +80,13 @@ The good practice of having a separate output folder is part of the image.
 Normal build:
 
 ```
-docker run --rm -it -v $(pwd):/src -v $(pwd)/output:/target klakegg/hugo:0.55.6
+docker run --rm -it -v $(pwd):/src -v $(pwd)/output:/target klakegg/hugo:0.56.3
 ```
 
 Run server:
 
 ```
-docker run --rm -it -v $(pwd):/src -p 1313:1313 klakegg/hugo:0.55.6 server
+docker run --rm -it -v $(pwd):/src -p 1313:1313 klakegg/hugo:0.56.3 server
 ```
 
 
@@ -96,7 +96,7 @@ Normal build:
 
 ```yaml
   build:
-    image: klakegg/hugo:0.55.6
+    image: klakegg/hugo:0.56.3
     volumes:
       - .:/src
       - ./output:/target
@@ -106,7 +106,7 @@ Run server:
 
 ```yaml
   server:
-    image: klakegg/hugo:0.55.6
+    image: klakegg/hugo:0.56.3
     command: server
     volumes:
       - .:/src
@@ -125,7 +125,7 @@ When Alpine images are used is bash installed as part of initiation to minimize 
 To get into a shell for your site:
 
 ```
-docker run --rm -it -v $(pwd):/src klakegg/hugo:0.55.6-alpine shell
+docker run --rm -it -v $(pwd):/src klakegg/hugo:0.56.3-alpine shell
 ```
 
 
@@ -152,7 +152,7 @@ The onbuild images adds content of the folder of your Dockerfile into `/src` and
 Example Dockerfile for your project where the site is made into an nginx image (Docker 17.05-ce or newer):
 
 ```Dockerfile
-FROM klakegg/hugo:0.55.6-onbuild AS hugo
+FROM klakegg/hugo:0.56.3-onbuild AS hugo
 
 FROM nginx
 COPY --from=hugo /onbuild /usr/share/nginx/html
@@ -170,7 +170,7 @@ The normal `pandoc` executable is renamed to `pandoc-default` to allow for later
 Example of explicit setting `pandoc` alias:
 
 ```
-docker run --rm -it -v $(pwd):/src -v $(pwd)/output:/src/public -e HUGO_PANDOC="pandoc-default --strip-empty-paragraphs" klakegg/hugo:0.55.6-pandoc
+docker run --rm -it -v $(pwd):/src -v $(pwd)/output:/src/public -e HUGO_PANDOC="pandoc-default --strip-empty-paragraphs" klakegg/hugo:0.56.3-pandoc
 ```
 
 
@@ -181,14 +181,14 @@ Those wanting to override entrypoint in the image may easily do so.
 On command line using `--entrypoint`:
 
 ```
-docker run --rm -it -v $(pwd):/src -v $(pwd)/output:/src/public --entrypoint hugo klakegg/hugo:0.55.6
+docker run --rm -it -v $(pwd):/src -v $(pwd)/output:/src/public --entrypoint hugo klakegg/hugo:0.56.3
 ```
 
 In docker-compose using `entrypoint`:
 
 ```yaml
   build:
-    image: klakegg/hugo:0.55.6
+    image: klakegg/hugo:0.56.3
     entrypoint: hugo
     volumes:
       - .:/src
