@@ -30,7 +30,7 @@ COPY --from=image /files /
 
 RUN mkdir /etc/bash_completion.d \
  && hugo gen autocomplete > /dev/null \
- && npm install -g yarn postcss-cli
+ && npm install -g yarn autoprefixer postcss-cli
 
 EXPOSE 1313
 
