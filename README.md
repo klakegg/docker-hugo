@@ -156,6 +156,31 @@ Table of Hugo extention features and the version when images first support the f
 | Autoprefixer  | 0.57.0 | 0.57.0 | 0.57.0 |
 
 
+## Github Actions
+
+You may now use these images as part of your Github workflow. All versions and variants published using this repository may be used in any combination.
+
+Simple configuration:
+
+```yaml
+name: Hugo
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: hugo
+      uses: klakegg/actions-hugo@1.0.0
+```
+
+Find out more in [actions-hugo](https://github.com/klakegg/actions-hugo).
+
+
 ## Using an ONBUILD image
 
 The onbuild images adds content of the folder of your Dockerfile into `/src` and builds to the `/onbuild` folder.
