@@ -122,7 +122,7 @@ Run server:
 ```
 
 
-## Hugo shell (new as of 0.41)
+## Hugo shell
 
 A Hugo shell is made available in the Alpine/Debian/Ubuntu images (including Asciidoctor image).
 Hugo shell is bash and Hugo completion.
@@ -139,7 +139,7 @@ docker run --rm -it \
 ```
 
 
-## Hugo extended edition (new as of 0.43)
+## Hugo extended edition
 
 Hugo as of version [0.43](https://github.com/gohugoio/hugo/releases/tag/v0.43) contains also an extended edition.
 
