@@ -13,7 +13,8 @@ FROM debian:9.4-slim
 
 ENV HUGO_BIND="0.0.0.0" \
     HUGO_DESTINATION="/target" \
-    HUGO_ENV="DEV"
+    HUGO_ENV="DEV" \
+    NODE_PATH=".:/usr/lib/node_modules"
 
 COPY --from=image /files /
 
