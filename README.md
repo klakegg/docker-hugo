@@ -57,8 +57,6 @@ Image based upon [Ubuntu](https://hub.docker.com/r/_/ubuntu/):
 * Hugo 0.57.1: `0.57.1-ubuntu`, `0.57.1-ubuntu-onbuild`, `0.57.1-ext-ubuntu`, `0.57.1-ext-ubuntu-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.57.1/dist/ubuntu/Dockerfile-ubuntu))
 * Hugo 0.56.3: `0.56.3-ubuntu`, `0.56.3-ubuntu-onbuild`, `0.56.3-ext-ubuntu`, `0.56.3-ext-ubuntu-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.56.3/dist/ubuntu/Dockerfile-ubuntu))
 * Hugo 0.56.2: `0.56.2-ubuntu`, `0.56.2-ubuntu-onbuild`, `0.56.2-ext-ubuntu`, `0.56.2-ext-ubuntu-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.56.2/dist/ubuntu/Dockerfile-ubuntu))
-* Hugo 0.55.6: `0.55.6-ubuntu`, `0.55.6-ubuntu-onbuild`, `0.55.6-ext-ubuntu`, `0.55.6-ext-ubuntu-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.55.6/dist/ubuntu/Dockerfile-ubuntu))
-* Hugo 0.55.5: `0.55.5-ubuntu`, `0.55.5-ubuntu-onbuild`, `0.55.5-ext-ubuntu`, `0.55.5-ext-ubuntu-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.55.5/dist/ubuntu/Dockerfile-ubuntu))
 
 *Looking for older tags? Please see the [complete list of tags](https://github.com/klakegg/docker-hugo/blob/master/doc/tags.md).*
 
@@ -146,10 +144,12 @@ Table of Hugo extention features and the version when images first support the f
 | Feature       | Alpine | Debian | Ubuntu |
 | ------------- | ------ | ------ | ------ |
 | Hugo extended | 0.43   | 0.43   | 0.43   |
-| PostCSS       | -      | 0.43   | 0.43   |
+| PostCSS       | 0.56.0 | 0.43   | 0.43   |
 | NodeJS/Yarn   | 0.54.0 | 0.54.0 | 0.54.0 |
 | Git           | 0.56.0 | 0.56.0 | 0.56.0 |
 | Autoprefixer  | 0.57.0 | 0.57.0 | 0.57.0 |
+
+Users of [google/docsy](https://github.com/google/docsy) may use these extended images as of version 0.57.2 to build their site.
 
 
 ## Github Actions
