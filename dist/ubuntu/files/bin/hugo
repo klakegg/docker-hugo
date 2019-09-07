@@ -1,0 +1,67 @@
+#!/bin/sh
+
+case "$1" in
+
+    # Commands from hugo
+
+    "benchmark")
+        exec hugo-official $@
+        ;;
+
+    "config")
+        exec hugo-official $@
+        ;;
+
+    "convert")
+        exec hugo-official $@
+        ;;
+
+    "env")
+        exec hugo-official $@
+        ;;
+
+    "gen")
+        exec hugo-official $@
+        ;;
+
+    "help")
+        exec hugo-official $@
+        ;;
+
+    "import")
+        exec hugo-official $@
+        ;;
+
+    "list")
+        exec hugo-official $@
+        ;;
+
+    "new")
+        exec hugo-official $@
+        ;;
+
+    "server")
+        exec hugo-official server --bind=$HUGO_BIND $(echo $* | sed "s:^server::")
+        ;;
+
+    "undraft")
+        exec hugo-official $@
+        ;;
+
+    "version")
+        exec hugo-official $@
+        ;;
+
+    # Commands special to docker image
+
+    "shell")
+        exec bash -l
+        ;;
+
+    # Default build command
+
+    *)
+        exec hugo-official $@ --destination=$HUGO_DESTINATION
+        ;;
+
+esac

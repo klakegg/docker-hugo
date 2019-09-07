@@ -6,9 +6,8 @@ FROM klakegg/hugo:base-certs as certs
 
 FROM scratch as image
 
-COPY files /files
-COPY --from=base /bin/hugo /files/bin/hugo
-COPY --from=certs /files /files
+COPY --from=base /hugo-standard /busybox /
+COPY --from=certs /files /
 
 
 
@@ -18,11 +17,11 @@ ENV HUGO_BIND="0.0.0.0" \
     HUGO_DESTINATION="/target" \
     HUGO_ENV="DEV"
 
-COPY --from=image /files /
+COPY --from=image / /
 
 EXPOSE 1313
 
 VOLUME /src /target
 WORKDIR /src
 
-ENTRYPOINT ["sh", "/run.sh"]
+ENTRYPOINT ["hugo"]

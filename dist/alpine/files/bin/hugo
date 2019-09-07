@@ -13,63 +13,63 @@ case "$1" in
     # Commands from hugo
 
     "benchmark")
-        exec hugo $@
+        exec hugo-official $@
         ;;
 
     "config")
-        exec hugo $@
+        exec hugo-official $@
         ;;
 
     "convert")
-        exec hugo $@
+        exec hugo-official $@
         ;;
 
     "env")
-        exec hugo $@
+        exec hugo-official $@
         ;;
 
     "gen")
-        exec hugo $@
+        exec hugo-official $@
         ;;
 
     "help")
-        exec hugo $@
+        exec hugo-official $@
         ;;
 
     "import")
-        exec hugo $@
+        exec hugo-official $@
         ;;
 
     "list")
-        exec hugo $@
+        exec hugo-official $@
         ;;
 
     "new")
-        exec hugo $@
+        exec hugo-official $@
         ;;
 
     "server")
-        exec hugo server --bind=$HUGO_BIND $(echo $* | sed "s:^server::")
+        exec hugo-official server --bind=$HUGO_BIND $(echo $* | sed "s:^server::")
         ;;
 
     "undraft")
-        exec hugo $@
+        exec hugo-official $@
         ;;
 
     "version")
-        exec hugo $@
+        exec hugo-official $@
         ;;
 
     # Commands special to docker image
 
     "shell")
-        exec sh /shell.sh
+        exec bash -l
         ;;
 
     # Default build command
 
     *)
-        exec hugo $@ --destination=$HUGO_DESTINATION
+        exec hugo-official $@ --destination=$HUGO_DESTINATION
         ;;
 
 esac

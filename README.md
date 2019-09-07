@@ -155,14 +155,14 @@ Table of Hugo extention features and the version when images first support the f
 | Git           | 0.56.0 | 0.56.0 | 0.56.0 |
 | Autoprefixer  | 0.57.0 | 0.57.0 | 0.57.0 |
 
-Users of [google/docsy](https://github.com/google/docsy) may use these extended images as of version 0.57.2 to build their site.
+Users of [google/docsy](https://github.com/google/docsy) may use the extended images as of version 0.57.2 to build their site.
 
 
 ## Github Actions
 
 You may now use these images as part of your Github workflow. All versions and variants published using this repository may be used in any combination.
 
-Simple configuration:
+Simple configuration for e.g. `.github/workflows/hugo.yml`:
 
 ```yaml
 name: Hugo
@@ -181,6 +181,28 @@ jobs:
 ```
 
 Find out more in [klakegg/actions-hugo](https://github.com/klakegg/actions-hugo).
+
+
+## Travis CI
+
+Users of Travis CI may use this image for builds.
+
+Simple configuration for `.travis.yml`:
+
+```yaml
+sudo: required
+
+language: bash
+
+services:
+- docker
+
+script:
+- docker run --rm -i \
+    -v $(pwd):/src \
+    -v $(pwd)/output:/target \
+    klakegg/hugo:0.58.1
+```
 
 
 ## Using an ONBUILD image

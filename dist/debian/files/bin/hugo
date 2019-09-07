@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 case "$1" in
 
@@ -55,7 +55,7 @@ case "$1" in
     # Commands special to docker image
 
     "shell")
-        exec sh /shell.sh
+        exec bash -l
         ;;
 
     # Default build command

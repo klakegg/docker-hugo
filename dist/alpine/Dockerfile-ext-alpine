@@ -10,11 +10,10 @@ FROM klakegg/hugo:base-nodejs as node
 
 FROM scratch as image
 
-COPY files /files
-COPY --from=base /bin/hugo-extended /files/bin/hugo
-COPY --from=certs /files /files
-COPY --from=ubuntu /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25 /files/usr/lib/libstdc++.so.6
-COPY --from=node /files /files
+COPY --from=base /hugo-extended /alpine /
+COPY --from=certs /files /
+COPY --from=ubuntu /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25 /usr/lib/libstdc++.so.6
+COPY --from=node /files /
 
 
 
@@ -27,7 +26,7 @@ ENV HUGO_BIND="0.0.0.0" \
 
 RUN apk add --no-cache libstdc++ busybox-suid bash bash-completion git
 
-COPY --from=image /files /
+COPY --from=image / /
 
 RUN mkdir /etc/bash_completion.d \
  && hugo gen autocomplete > /dev/null \
@@ -38,4 +37,4 @@ EXPOSE 1313
 VOLUME /src /target
 WORKDIR /src
 
-ENTRYPOINT ["sh", "/run.sh"]
+ENTRYPOINT ["hugo"]

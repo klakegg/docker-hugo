@@ -17,13 +17,19 @@ RUN tar -zxvf hugo.tar.gz
 
 
 
-FROM scratch AS files
+FROM busybox:1.30 AS files
 
-COPY --from=fetch-standard /hugo /bin/hugo
-COPY --from=fetch-extended /hugo /bin/hugo-extended
+COPY --from=fetch-standard /hugo /files/hugo-standard/bin/hugo-official
+COPY --from=fetch-extended /hugo /files/hugo-extended/bin/hugo-official
 
+ADD dist/alpine/files /files/alpine
+ADD dist/busybox/files /files/busybox
+ADD dist/debian/files /files/debian
+ADD dist/ubuntu/files /files/ubuntu
+
+RUN chmod a+x /files/*/bin/* && find /files -type f
 
 
 FROM scratch
 
-COPY --from=files / /
+COPY --from=files /files /
