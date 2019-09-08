@@ -48,7 +48,11 @@ function build_only {
 
   # Perform build
   echos "Build: $1 (Dockerfile-$name)"
-  docker build -t $DOCKER_REPO:$1 -f Dockerfile-$name . > /dev/null
+  if [ "$DEBUG" = "true" ]; then
+    docker build -t $DOCKER_REPO:$1 -f Dockerfile-$name .
+  else
+    docker build -t $DOCKER_REPO:$1 -f Dockerfile-$name . > /dev/null
+  fi
 }
 
 # push [tag]
