@@ -5,6 +5,8 @@ ARG VERSION=0.58.1
 ADD https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_${VERSION}_Linux-64bit.tar.gz /hugo.tar.gz
 RUN tar -zxvf hugo.tar.gz
 RUN ["/hugo", "version"]
+RUN mkdir /etc/bash_completion.d  \
+ && /hugo gen autocomplete > /dev/null
 
 
 
@@ -20,7 +22,9 @@ RUN tar -zxvf hugo.tar.gz
 FROM busybox:1.30 AS files
 
 COPY --from=fetch-standard /hugo /files/hugo-standard/bin/hugo-official
+COPY --from=fetch-standard /etc/bash_completion.d/hugo.sh /files/hugo-standard/etc/bash_completion.d/hugo.sh
 COPY --from=fetch-extended /hugo /files/hugo-extended/bin/hugo-official
+COPY --from=fetch-standard /etc/bash_completion.d/hugo.sh /files/hugo-extended/etc/bash_completion.d/hugo.sh
 
 ADD dist/alpine/files /files/alpine
 ADD dist/busybox/files /files/busybox

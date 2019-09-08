@@ -12,8 +12,7 @@ COPY --from=base /hugo-standard /debian /
 
 RUN apt update \
  && apt install -y bash-completion \
- && rm -rf /var/lib/apt/lists/* \
- && hugo gen autocomplete > /dev/null
+ && rm -rf /var/lib/apt/lists/*
 
 EXPOSE 1313
 

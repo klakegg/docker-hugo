@@ -12,15 +12,14 @@ ENV HUGO_BIND="0.0.0.0" \
 COPY --from=base /hugo-extended /debian /
 
 RUN apt update \
- && apt install -y curl gnupg bash-completion \
+ && apt install -y curl gnupg bash-completion apt-transport-https lsb-release \
  && curl -sL https://deb.nodesource.com/setup_11.x | bash - \
  && apt install -y nodejs git \
  && npm install -g autoprefixer postcss-cli \
  && npm install -g yarn \
  && apt remove -y curl gnupg apt-transport-https lsb-release \
  && apt autoremove -y \
- && rm -rf /var/lib/apt/lists/* \
- && hugo gen autocomplete > /dev/null
+ && rm -rf /var/lib/apt/lists/*
 
 EXPOSE 1313
 

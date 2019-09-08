@@ -89,29 +89,31 @@ function trigger {
   # Go to folder
   cd $DPWD/$1
 
-  # Trigger steps
-  for step in "build" "test"; do
-    if [ -e "Step-$step" ]; then
-      PART="$1:$step"
+  if [ ! -e ".skip" ]; then
+    # Trigger steps
+    for step in "build" "test"; do
+      if [ -e "Step-$step" ]; then
+        PART="$1:$step"
 
-      source "Step-$step"
-      echo
-    fi
-  done
+        source "Step-$step"
+        echo
+      fi
+    done
+  fi
 }
 
 function test {
+  echos "TEST: $@"
   result=$(docker run --rm $2 $DOCKER_REPO:$1 $3)
   count=$(echo $result | grep "$4" | wc -l)
 
   if [ "$count" = "0" ]; then
-    echos "FAILED TEST: $@"
-    echos "Expected \"$4\", received:"
+    echos "> FAILED: Expected \"$4\", received:"
     echos $result
 
     exit 1
   else
-    echos "SUCCESSFUL TEST: $@"
+    echos "> SUCCESS"
   fi
 }
 

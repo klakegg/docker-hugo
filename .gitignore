@@ -3,3 +3,4 @@
 target
 Dockerfile-gen-*
 *.tmp
+.skip
