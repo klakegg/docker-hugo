@@ -70,7 +70,7 @@ Image based upon [Ubuntu](https://hub.docker.com/r/_/ubuntu/):
 ## Using image
 
 This image does not try to do any fancy.
-Users may use Hugo just as they are used to.
+Users may use Hugo [just as they are used to](https://gohugo.io/documentation/).
 
 The good practice of having a separate output folder is part of the image.
 
@@ -124,10 +124,8 @@ Run server:
 
 ## Hugo shell
 
-A Hugo shell is made available in the Alpine/Debian/Ubuntu images (including Asciidoctor image).
+A Hugo shell is made available in the Alpine/Debian/Ubuntu images (including Asciidoctor/Pandoc images).
 Hugo shell is bash and Hugo completion.
-
-When Alpine images are used is bash installed as part of initiation to minimize size of Docker image.
 
 To get into a shell for your site:
 
@@ -140,8 +138,6 @@ docker run --rm -it \
 
 
 ## Hugo extended edition
-
-Hugo as of version [0.43](https://github.com/gohugoio/hugo/releases/tag/v0.43) contains also an extended edition.
 
 The extended edition is used in those images containing `ext` in the name. Except use of extended edition and additional tools are those images exactly the same as those using the normal edition.
 
@@ -190,8 +186,6 @@ Users of Travis CI may use this image for builds.
 Simple configuration for `.travis.yml`:
 
 ```yaml
-sudo: required
-
 language: bash
 
 services:
@@ -203,6 +197,8 @@ script:
     -v $(pwd)/output:/target \
     klakegg/hugo:0.58.1
 ```
+
+The `bash` environment is used for faster loading before Travis is ready to trigger Docker.
 
 
 ## Using an ONBUILD image
@@ -242,13 +238,15 @@ docker run --rm -it \
 
 Those wanting to override entrypoint in the image may easily do so.
 
+Default entrypoint is `hugo`, a small script wrapping the official Hugo software. If you want to use the official software without any wrapping may you use `hugo-official` as entrypoint.
+
 On command line using `--entrypoint`:
 
 ```shell
 docker run --rm -it \
   -v $(pwd):/src \
   -v $(pwd)/output:/src/public \
-  --entrypoint hugo \
+  --entrypoint hugo-official \
   klakegg/hugo:0.58.1
 ```
 
@@ -257,7 +255,7 @@ In docker-compose using `entrypoint`:
 ```yaml
   build:
     image: klakegg/hugo:0.58.1
-    entrypoint: hugo
+    entrypoint: hugo-official
     volumes:
       - .:/src
       - ./output:/src/public
