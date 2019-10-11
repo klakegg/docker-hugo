@@ -2,8 +2,10 @@ FROM busybox:1.30 AS fetch-standard
 
 ARG VERSION=0.58.3
 
-ADD https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_${VERSION}_Linux-64bit.tar.gz /hugo.tar.gz
-RUN tar -zxvf hugo.tar.gz
+ADD https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_${VERSION}_Linux-64bit.tar.gz /
+ADD https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_${VERSION}_checksums.txt /
+RUN grep hugo_${VERSION}_Linux-64bit.tar.gz hugo_${VERSION}_checksums.txt | sha256sum -c
+RUN tar -zxvf hugo_${VERSION}_Linux-64bit.tar.gz
 RUN ["/hugo", "version"]
 RUN mkdir /etc/bash_completion.d  \
  && /hugo gen autocomplete > /dev/null
@@ -14,8 +16,10 @@ FROM busybox:1.30 AS fetch-extended
 
 ARG VERSION=0.58.3
 
-ADD https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_extended_${VERSION}_Linux-64bit.tar.gz /hugo.tar.gz
-RUN tar -zxvf hugo.tar.gz
+ADD https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_extended_${VERSION}_Linux-64bit.tar.gz /
+ADD https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_${VERSION}_checksums.txt /
+RUN grep hugo_extended_${VERSION}_Linux-64bit.tar.gz hugo_${VERSION}_checksums.txt | sha256sum -c
+RUN tar -zxvf hugo_extended_${VERSION}_Linux-64bit.tar.gz
 
 
 
