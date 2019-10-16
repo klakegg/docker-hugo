@@ -66,6 +66,11 @@ case "$1" in
         exec bash -l
         ;;
 
+    "build")
+        shift
+        exec hugo-official $@ --destination=$HUGO_DESTINATION
+        ;;
+
     # Default build command
 
     *)

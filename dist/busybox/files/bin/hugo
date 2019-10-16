@@ -50,6 +50,11 @@ case "$1" in
         exec hugo-official $@
         ;;
 
+    "build")
+        shift
+        exec hugo-official $@ --destination=$HUGO_DESTINATION
+        ;;
+
     *)
         exec hugo-official $@ --destination=$HUGO_DESTINATION
         ;;
