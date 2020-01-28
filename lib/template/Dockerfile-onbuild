@@ -1,4 +1,10 @@
 FROM [from]
 
+ONBUILD ARG HUGO_DESTINATION
+ONBUILD ARG HUGO_ENV
+
+ONBUILD ENV HUGO_DESTINATION="${HUGO_DESTINATION:-/target}" \
+            HUGO_ENV="${HUGO_ENV:-DEV}"
+
 ONBUILD COPY . /src
 ONBUILD RUN hugo-official --destination=/onbuild
