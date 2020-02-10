@@ -1,6 +1,6 @@
 FROM busybox:1.30 AS fetch-standard
 
-ARG VERSION=0.64.0
+ARG VERSION=0.64.1
 
 ADD https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_${VERSION}_Linux-64bit.tar.gz /
 ADD https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_${VERSION}_checksums.txt /
@@ -14,7 +14,7 @@ RUN mkdir /etc/bash_completion.d  \
 
 FROM busybox:1.30 AS fetch-extended
 
-ARG VERSION=0.64.0
+ARG VERSION=0.64.1
 
 ADD https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_extended_${VERSION}_Linux-64bit.tar.gz /
 ADD https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_${VERSION}_checksums.txt /
