@@ -2,6 +2,8 @@
 
 # This is the file triggered by Travis.
 
+set -e
+
 # Setting variables for build
 export DOCKER_REPO="klakegg/hugo"
 export SOURCE_BRANCH=$(cat Dockerfile-base  | grep VERSION | head -1 | cut -d = -f 2)
