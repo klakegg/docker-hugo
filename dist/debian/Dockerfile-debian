@@ -11,7 +11,7 @@ ENV HUGO_BIND="0.0.0.0" \
 COPY --from=base /hugo-standard /debian /
 
 RUN apt update \
- && apt install -y bash-completion \
+ && DEBIAN_FRONTEND=noninteractive apt install -y bash-completion tzdata \
  && rm -rf /var/lib/apt/lists/*
 
 EXPOSE 1313
