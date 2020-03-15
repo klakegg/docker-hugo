@@ -2,6 +2,7 @@
 
 Default minimal image based upon [Busybox](https://hub.docker.com/r/_/busybox/):
 * Aliases: `latest`, `busybox`, `busybox-onbuild`, `onbuild`
+* Hugo 0.67.1: `0.67.1-busybox`, `0.67.1`, `0.67.1-busybox-onbuild`, `0.67.1-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.67.1/dist/busybox/Dockerfile-busybox))
 * Hugo 0.67.0: `0.67.0-busybox`, `0.67.0`, `0.67.0-busybox-onbuild`, `0.67.0-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.67.0/dist/busybox/Dockerfile-busybox))
 * Hugo 0.66.0: `0.66.0-busybox`, `0.66.0`, `0.66.0-busybox-onbuild`, `0.66.0-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.66.0/dist/busybox/Dockerfile-busybox))
 * Hugo 0.65.3: `0.65.3-busybox`, `0.65.3`, `0.65.3-busybox-onbuild`, `0.65.3-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.65.3/dist/busybox/Dockerfile-busybox))
@@ -76,6 +77,7 @@ Default minimal image based upon [Busybox](https://hub.docker.com/r/_/busybox/):
 
 Minimal image based upon [Alpine](https://hub.docker.com/r/_/alpine/):
 * Aliases: `alpine`, `alpine-onbuild`, `ext-alpine`, `ext-alpine-onbuild`, `ext-nodejs`
+* Hugo 0.67.1: `0.67.1-alpine`, `0.67.1-alpine-onbuild`, `0.67.1-ext-alpine`, `0.67.1-ext-alpine-onbuild`, `0.67.1-ext-nodejs` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.67.1/dist/alpine/Dockerfile-alpine))
 * Hugo 0.67.0: `0.67.0-alpine`, `0.67.0-alpine-onbuild`, `0.67.0-ext-alpine`, `0.67.0-ext-alpine-onbuild`, `0.67.0-ext-nodejs` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.67.0/dist/alpine/Dockerfile-alpine))
 * Hugo 0.66.0: `0.66.0-alpine`, `0.66.0-alpine-onbuild`, `0.66.0-ext-alpine`, `0.66.0-ext-alpine-onbuild`, `0.66.0-ext-nodejs` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.66.0/dist/alpine/Dockerfile-alpine))
 * Hugo 0.65.3: `0.65.3-alpine`, `0.65.3-alpine-onbuild`, `0.65.3-ext-alpine`, `0.65.3-ext-alpine-onbuild`, `0.65.3-ext-nodejs` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.65.3/dist/alpine/Dockerfile-alpine))
@@ -150,6 +152,7 @@ Minimal image based upon [Alpine](https://hub.docker.com/r/_/alpine/):
 
 Minimal image based upon [Alpine](https://hub.docker.com/r/_/alpine/) with [Asciidoctor](http://asciidoctor.org/) installed:
 * Aliases:  `asciidoctor`, `asciidoctor-onbuild`, `ext-asciidoctor`, `ext-asciidoctor-onbuild`
+* Hugo 0.67.1: `0.67.1-asciidoctor`, `0.67.1-asciidoctor-onbuild`, `0.67.1-ext-asciidoctor`, `0.67.1-ext-asciidoctor-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.67.1/dist/alpine/Dockerfile-asciidoctor))
 * Hugo 0.67.0: `0.67.0-asciidoctor`, `0.67.0-asciidoctor-onbuild`, `0.67.0-ext-asciidoctor`, `0.67.0-ext-asciidoctor-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.67.0/dist/alpine/Dockerfile-asciidoctor))
 * Hugo 0.66.0: `0.66.0-asciidoctor`, `0.66.0-asciidoctor-onbuild`, `0.66.0-ext-asciidoctor`, `0.66.0-ext-asciidoctor-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.66.0/dist/alpine/Dockerfile-asciidoctor))
 * Hugo 0.65.3: `0.65.3-asciidoctor`, `0.65.3-asciidoctor-onbuild`, `0.65.3-ext-asciidoctor`, `0.65.3-ext-asciidoctor-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.65.3/dist/alpine/Dockerfile-asciidoctor))
@@ -223,6 +226,7 @@ Minimal image based upon [Alpine](https://hub.docker.com/r/_/alpine/) with [Asci
 
 Minimal image based upon [Alpine](https://hub.docker.com/r/_/alpine/) with [Pandoc](https://pandoc.org/) installed:
 * Aliases: `pandoc`, `pandoc-onbuild`, `ext-pandoc`, `ext-pandoc-onbuild`
+* Hugo 0.67.1: `0.67.1-pandoc`, `0.67.1-pandoc-onbuild`, `0.67.1-ext-pandoc`, `0.67.1-ext-pandoc-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.67.1/dist/alpine/Dockerfile-pandoc))
 * Hugo 0.67.0: `0.67.0-pandoc`, `0.67.0-pandoc-onbuild`, `0.67.0-ext-pandoc`, `0.67.0-ext-pandoc-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.67.0/dist/alpine/Dockerfile-pandoc))
 * Hugo 0.66.0: `0.66.0-pandoc`, `0.66.0-pandoc-onbuild`, `0.66.0-ext-pandoc`, `0.66.0-ext-pandoc-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.66.0/dist/alpine/Dockerfile-pandoc))
 * Hugo 0.65.3: `0.65.3-pandoc`, `0.65.3-pandoc-onbuild`, `0.65.3-ext-pandoc`, `0.65.3-ext-pandoc-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.65.3/dist/alpine/Dockerfile-pandoc))
@@ -278,6 +282,7 @@ Minimal image based upon [Alpine](https://hub.docker.com/r/_/alpine/) with [Pand
 
 Image based upon [Debian](https://hub.docker.com/r/_/debian/):
 * Aliases: `debian`, `debian-onbuild`, `ext`, `latest-ext`, `ext-debian`, `ext-debian-onbuild`, `ext-onbuild`
+* Hugo 0.67.1: `0.67.1-debian`, `0.67.1-debian-onbuild`, `0.67.1-ext`, `0.67.1-ext-debian`, `0.67.1-ext-debian-onbuild`, `0.67.1-ext-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.67.1/dist/debian/Dockerfile-debian))
 * Hugo 0.67.0: `0.67.0-debian`, `0.67.0-debian-onbuild`, `0.67.0-ext`, `0.67.0-ext-debian`, `0.67.0-ext-debian-onbuild`, `0.67.0-ext-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.67.0/dist/debian/Dockerfile-debian))
 * Hugo 0.66.0: `0.66.0-debian`, `0.66.0-debian-onbuild`, `0.66.0-ext`, `0.66.0-ext-debian`, `0.66.0-ext-debian-onbuild`, `0.66.0-ext-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.66.0/dist/debian/Dockerfile-debian))
 * Hugo 0.65.3: `0.65.3-debian`, `0.65.3-debian-onbuild`, `0.65.3-ext`, `0.65.3-ext-debian`, `0.65.3-ext-debian-onbuild`, `0.65.3-ext-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.65.3/dist/debian/Dockerfile-debian))
@@ -334,6 +339,7 @@ Image based upon [Debian](https://hub.docker.com/r/_/debian/):
 
 Image based upon [Ubuntu](https://hub.docker.com/r/_/ubuntu/):
 * Aliases: `ubuntu`, `ubuntu-onbuild`, `ext-ubuntu`, `ext-ubuntu-onbuild`
+* Hugo 0.67.1: `0.67.1-ubuntu`, `0.67.1-ubuntu-onbuild`, `0.67.1-ext-ubuntu`, `0.67.1-ext-ubuntu-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.67.1/dist/ubuntu/Dockerfile-ubuntu))
 * Hugo 0.67.0: `0.67.0-ubuntu`, `0.67.0-ubuntu-onbuild`, `0.67.0-ext-ubuntu`, `0.67.0-ext-ubuntu-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.67.0/dist/ubuntu/Dockerfile-ubuntu))
 * Hugo 0.66.0: `0.66.0-ubuntu`, `0.66.0-ubuntu-onbuild`, `0.66.0-ext-ubuntu`, `0.66.0-ext-ubuntu-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.66.0/dist/ubuntu/Dockerfile-ubuntu))
 * Hugo 0.65.3: `0.65.3-ubuntu`, `0.65.3-ubuntu-onbuild`, `0.65.3-ext-ubuntu`, `0.65.3-ext-ubuntu-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.65.3/dist/ubuntu/Dockerfile-ubuntu))
