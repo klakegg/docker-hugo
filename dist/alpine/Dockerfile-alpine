@@ -11,7 +11,7 @@ COPY --from=certs /files /
 
 
 
-FROM alpine:3.9
+FROM alpine:3.11
 
 ENV HUGO_BIND="0.0.0.0" \
     HUGO_DESTINATION="/target" \

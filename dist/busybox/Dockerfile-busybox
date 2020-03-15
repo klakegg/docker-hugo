@@ -11,7 +11,7 @@ COPY --from=certs /files /
 
 
 
-FROM busybox:1.30
+FROM busybox:1.31
 
 ENV HUGO_BIND="0.0.0.0" \
     HUGO_DESTINATION="/target" \

@@ -17,7 +17,7 @@ COPY --from=node /files /
 
 
 
-FROM frolvlad/alpine-glibc:alpine-3.10
+FROM frolvlad/alpine-glibc:alpine-3.11_glibc-2.30
 
 ENV HUGO_BIND="0.0.0.0" \
     HUGO_DESTINATION="/target" \

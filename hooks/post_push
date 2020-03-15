@@ -131,6 +131,6 @@ echo
 if [ -e lib/base ]; then trigger "lib/base"; fi
 
 # Build distributions provided
-for dist in $(ls $DPWD/dist); do
+for dist in ${DISTS:-$(ls $DPWD/dist)}; do
   trigger "dist/$dist"
 done

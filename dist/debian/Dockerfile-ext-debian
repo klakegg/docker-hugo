@@ -2,7 +2,7 @@ FROM klakegg/hugo:base AS base
 
 
 
-FROM debian:9.6-slim
+FROM debian:10.3-slim
 
 ENV HUGO_BIND="0.0.0.0" \
     HUGO_DESTINATION="/target" \
@@ -13,7 +13,7 @@ COPY --from=base /hugo-extended /debian /
 
 RUN apt update \
  && DEBIAN_FRONTEND=noninteractive apt install -y curl gnupg bash-completion apt-transport-https lsb-release tzdata \
- && curl -sL https://deb.nodesource.com/setup_11.x | bash - \
+ && curl -sL https://deb.nodesource.com/setup_12.x | bash - \
  && apt install -y nodejs git \
  && npm install -g autoprefixer postcss-cli \
  && npm install -g yarn \

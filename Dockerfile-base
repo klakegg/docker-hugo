@@ -1,4 +1,4 @@
-FROM busybox:1.30 AS fetch-standard
+FROM busybox:1.31 AS fetch-standard
 
 ARG VERSION=0.67.1
 
@@ -12,7 +12,7 @@ RUN mkdir /etc/bash_completion.d  \
 
 
 
-FROM busybox:1.30 AS fetch-extended
+FROM busybox:1.31 AS fetch-extended
 
 ARG VERSION=0.67.1
 
@@ -23,7 +23,7 @@ RUN tar -zxf hugo_extended_${VERSION}_Linux-64bit.tar.gz
 
 
 
-FROM busybox:1.30 AS files
+FROM busybox:1.31 AS files
 
 COPY --from=fetch-standard /hugo /files/hugo-standard/bin/hugo-official
 COPY --from=fetch-standard /etc/bash_completion.d/hugo.sh /files/hugo-standard/etc/bash_completion.d/hugo.sh
