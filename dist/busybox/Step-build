@@ -1,7 +1,5 @@
 #!/bin/bash
 
-echo "WOW!"
-
 # Busybox + Hugo
 build "busybox" - \
   "latest" \

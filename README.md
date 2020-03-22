@@ -184,7 +184,7 @@ Users of [google/docsy](https://github.com/google/docsy) may use the extended im
 
 ## Using an ONBUILD image
 
-The onbuild images adds content of the folder of your Dockerfile into `/src` and builds to the `/target` folder.
+The onbuild images adds content of the folder of your Dockerfile into `/src` and builds to the `/target` (prior to `0.68.0`: `/onbuild`) folder.
 
 Example Dockerfile for your project where the site is made into an nginx image (Docker 17.05-ce or newer):
 
