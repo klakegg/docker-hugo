@@ -11,14 +11,10 @@ jobs:
     - uses: actions/checkout@v1
 
     - name: Build
-      run: bash hooks/travis
+      run: make build
 
     - name: Test Docsy
-      run: |
-        git clone --recurse-submodules --depth 1 https://github.com/google/docsy.git docsy
-        docker run --rm -i -v $(pwd)/docsy:/src klakegg/hugo:ext-alpine
+      run: make build-docsy
 
     - name: Test DocuAPI
-      run: |
-        git clone --depth 1 https://github.com/bep/docuapi.git docuapi
-        docker run --rm -i -v $(pwd)/docuapi:/src klakegg/hugo:ext-alpine
+      run: make build-docuapi

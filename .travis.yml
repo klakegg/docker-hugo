@@ -4,4 +4,4 @@ services:
   - docker
 
 script:
-  - bash hooks/travis
+  - make build
