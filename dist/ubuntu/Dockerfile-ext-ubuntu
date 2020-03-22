@@ -1,5 +1,7 @@
 FROM klakegg/hugo:base AS base
 
+FROM klakegg/hugo:base-golang as golang
+
 
 
 FROM ubuntu:18.04
@@ -7,9 +9,12 @@ FROM ubuntu:18.04
 ENV HUGO_BIND="0.0.0.0" \
     HUGO_DESTINATION="/target" \
     HUGO_ENV="DEV" \
-    NODE_PATH=".:/usr/lib/node_modules"
+    NODE_PATH=".:/usr/lib/node_modules" \
+    GOROOT="/usr/local/lib/go"
 
 COPY --from=base /hugo-extended /ubuntu /
+
+COPY --from=golang / /
 
 RUN apt update \
  && DEBIAN_FRONTEND=noninteractive apt install -y curl gnupg bash-completion apt-transport-https lsb-release tzdata \

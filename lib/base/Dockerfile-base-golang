@@ -1,0 +1,19 @@
+FROM alpine:3.11 AS source
+
+ARG GOLANG_VERSION=1.14.1
+
+ADD https://dl.google.com/go/go${GOLANG_VERSION}.linux-amd64.tar.gz /go.tar.gz
+
+RUN mkdir -p /files/usr/local/lib /files/usr/local/bin \
+ && tar -xf /go.tar.gz -C /files/usr/local/lib \
+ && ln -s /usr/local/lib/go/bin/go /files/usr/local/bin/go
+
+
+FROM scratch AS base
+
+COPY --from=source /files /
+
+
+FROM frolvlad/alpine-glibc:alpine-3.11_glibc-2.30
+
+COPY --from=base / /

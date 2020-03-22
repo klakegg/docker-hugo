@@ -6,6 +6,8 @@ FROM ubuntu:18.04 AS ubuntu
 
 FROM klakegg/hugo:base-nodejs as node
 
+FROM klakegg/hugo:base-golang as golang
+
 
 
 FROM scratch as image
@@ -14,6 +16,7 @@ COPY --from=base /hugo-extended /alpine /
 COPY --from=certs /files /
 COPY --from=ubuntu /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25 /usr/lib/libstdc++.so.6
 COPY --from=node /files /
+COPY --from=golang / /
 
 
 
@@ -22,7 +25,8 @@ FROM frolvlad/alpine-glibc:alpine-3.11_glibc-2.30
 ENV HUGO_BIND="0.0.0.0" \
     HUGO_DESTINATION="/target" \
     HUGO_ENV="DEV" \
-    NODE_PATH=".:/lib/node_modules"
+    NODE_PATH=".:/lib/node_modules" \
+    GOROOT="/usr/local/lib/go"
 
 RUN apk add --no-cache libstdc++ busybox-suid bash bash-completion git tzdata
 
