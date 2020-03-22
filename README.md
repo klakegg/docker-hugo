@@ -70,7 +70,7 @@ Normal build:
 ```shell
 docker run --rm -it \
   -v $(pwd):/src \
-  -v $(pwd)/output:/target \
+  -v $(pwd)/public:/target \
   klakegg/hugo:0.68.1
 ```
 
@@ -93,8 +93,8 @@ Normal build:
   build:
     image: klakegg/hugo:0.68.1
     volumes:
-      - .:/src
-      - ./output:/target
+      - ".:/src"
+      - "./public:/target"
 ```
 
 Run server:
@@ -104,9 +104,9 @@ Run server:
     image: klakegg/hugo:0.68.1
     command: server
     volumes:
-      - .:/src
+      - ".:/src"
     ports:
-      - 1313:1313
+      - "1313:1313"
 ```
 
 
@@ -148,7 +148,7 @@ services:
 script:
 - docker run --rm -i \
     -v $(pwd):/src \
-    -v $(pwd)/output:/target \
+    -v $(pwd)/public:/target \
     klakegg/hugo:0.68.1
 ```
 
@@ -215,7 +215,7 @@ Example of explicit setting `pandoc` alias:
 ```shell
 docker run --rm -it \
   -v $(pwd):/src \
-  -v $(pwd)/output:/src/public \
+  -v $(pwd)/public:/target \
   -e HUGO_PANDOC="pandoc-default --strip-empty-paragraphs" \
   klakegg/hugo:0.68.1-pandoc
 ```
@@ -232,7 +232,6 @@ On command line using `--entrypoint`:
 ```shell
 docker run --rm -it \
   -v $(pwd):/src \
-  -v $(pwd)/output:/src/public \
   --entrypoint hugo-official \
   klakegg/hugo:0.68.1
 ```
@@ -244,8 +243,7 @@ In docker-compose using `entrypoint`:
     image: klakegg/hugo:0.68.1
     entrypoint: hugo-official
     volumes:
-      - .:/src
-      - ./output:/src/public
+      - ".:/src"
 ```
 
 
@@ -253,6 +251,7 @@ In docker-compose using `entrypoint`:
 
 Environment variables:
 * HUGO_BIND - Bind address for server. Default: `0.0.0.0`
+* HUGO_CACHEDIR - Cache directory for modules. Default: `/tmp`
 * HUGO_DESTINATION - Location of output folder. Default: `/target`
 * HUGO_PANDOC - Pandoc command to be triggered. Default: `pandoc-default`
 * HUGO_ENV - Selecting environment ("DEV"/"production"). Default: `DEV`

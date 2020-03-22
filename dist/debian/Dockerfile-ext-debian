@@ -9,6 +9,7 @@ FROM debian:10.3-slim
 ENV HUGO_BIND="0.0.0.0" \
     HUGO_DESTINATION="/target" \
     HUGO_ENV="DEV" \
+    HUGO_CACHEDIR="/tmp" \
     NODE_PATH=".:/usr/lib/node_modules" \
     GOROOT="/usr/local/lib/go"
 
