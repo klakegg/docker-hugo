@@ -12,8 +12,3 @@ RUN mkdir -p /files/usr/local/lib /files/usr/local/bin \
 FROM scratch AS base
 
 COPY --from=source /files /
-
-
-FROM frolvlad/alpine-glibc:alpine-3.11_glibc-2.30
-
-COPY --from=base / /
