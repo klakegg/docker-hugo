@@ -28,7 +28,6 @@ RUN apt update \
 
 EXPOSE 1313
 
-VOLUME /src /target
 WORKDIR /src
 
 ENTRYPOINT ["hugo"]

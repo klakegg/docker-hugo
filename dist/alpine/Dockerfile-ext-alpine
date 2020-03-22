@@ -36,7 +36,6 @@ RUN npm install -g yarn autoprefixer postcss-cli
 
 EXPOSE 1313
 
-VOLUME /src /target
 WORKDIR /src
 
 ENTRYPOINT ["hugo"]

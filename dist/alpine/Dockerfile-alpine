@@ -23,7 +23,6 @@ RUN apk --no-cache add busybox-suid bash bash-completion tzdata
 
 EXPOSE 1313
 
-VOLUME /src /target
 WORKDIR /src
 
 ENTRYPOINT ["hugo"]

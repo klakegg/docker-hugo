@@ -21,7 +21,6 @@ COPY --from=image / /
 
 EXPOSE 1313
 
-VOLUME /src /target
 WORKDIR /src
 
 ENTRYPOINT ["hugo"]
