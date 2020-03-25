@@ -195,6 +195,11 @@ FROM nginx
 COPY --from=hugo /target /usr/share/nginx/html
 ```
 
+Available arguments for `docker build`:
+* HUGO_CMD - Commands passed to Hugo during build. Default *empty*
+* HUGO_DESTINATION_ARG - Location of output folder. Default: `/target`
+* HUGO_ENV_ARG - Selecting environment ("DEV"/"production"). Default: `DEV`
+
 
 ## Using Pandoc
 
@@ -251,8 +256,8 @@ Environment variables:
 * HUGO_ENV - Selecting environment ("DEV"/"production"). Default: `DEV`
 
 Volumes:
-* ```/src``` - Source folder and workdir
-* ```/target``` - Target folder
+* `/src` - Source folder and workdir
+* `/target` - Target folder
 
 Ports:
 * `1313/tcp`
