@@ -52,6 +52,10 @@ case "$1" in
         exec hugo-official $@
         ;;
 
+    "deploy")
+        exec hugo-official $@
+        ;;
+
     # Commands special to docker image
 
     "shell")
