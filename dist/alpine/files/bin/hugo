@@ -60,6 +60,10 @@ case "$1" in
         exec hugo-official $@
         ;;
 
+    "deploy")
+        exec hugo-official $@
+        ;;
+
     # Commands special to docker image
 
     "shell")
@@ -70,6 +74,7 @@ case "$1" in
         shift
         exec hugo-official $@ --destination=$HUGO_DESTINATION
         ;;
+        
 
     # Default build command
 
