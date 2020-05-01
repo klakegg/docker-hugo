@@ -18,11 +18,10 @@ COPY --from=base /hugo-extended /debian /
 COPY --from=golang / /
 
 RUN apt update \
- && DEBIAN_FRONTEND=noninteractive apt install -y curl gnupg bash-completion apt-transport-https lsb-release tzdata \
+ && DEBIAN_FRONTEND=noninteractive apt install -y curl git gnupg bash-completion apt-transport-https lsb-release tzdata \
  && curl -sL https://deb.nodesource.com/setup_12.x | bash - \
- && apt install -y nodejs git \
- && npm install -g autoprefixer postcss-cli \
- && npm install -g yarn \
+ && apt install -y nodejs \
+ && npm install -g autoprefixer postcss-cli yarn \
  && apt remove -y curl gnupg apt-transport-https lsb-release \
  && apt autoremove -y \
  && rm -rf /var/lib/apt/lists/*

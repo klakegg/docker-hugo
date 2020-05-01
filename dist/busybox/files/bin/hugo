@@ -38,6 +38,10 @@ case "$1" in
         exec hugo-official $@
         ;;
 
+    "serve")
+        exec hugo-official serve --bind=$HUGO_BIND $(echo $* | sed "s:^serve::")
+        ;;
+
     "server")
         exec hugo-official server --bind=$HUGO_BIND $(echo $* | sed "s:^server::")
         ;;
