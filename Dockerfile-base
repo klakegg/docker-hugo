@@ -37,7 +37,7 @@ ADD dist/ubuntu/files /files/ubuntu
 
 RUN chmod a+x /files/*/bin/* \
  && mkdir -p /files/hugo-{standard,extended}/{src,target} \
- && chmod a+w files/hugo-{standard,extended}/{src,target} \
+ && chmod a+w /files/hugo-{standard,extended}/{src,target}
 
 
 FROM scratch

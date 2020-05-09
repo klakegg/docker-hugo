@@ -5,7 +5,7 @@
 
 ## Fixes
 
-* Folders `/src` and `/target` is now writable for all to support using non-root user.
+* Folders `/src` and `/target` are now writable for all to support using non-root user.
 
 
 ## Updates:
