@@ -13,6 +13,12 @@ jobs:
     - name: Build
       run: make build
 
+    - name: Push egde images
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
+      run: make edge
+
     - name: Test Docsy
       run: make build-docsy
 
