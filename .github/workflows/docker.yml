@@ -15,7 +15,7 @@ jobs:
 
     - name: Push egde images
       env:
-        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_USERNAME: klakegg
         DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
       run: make edge
 

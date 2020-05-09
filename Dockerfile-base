@@ -35,11 +35,9 @@ ADD dist/busybox/files /files/busybox
 ADD dist/debian/files /files/debian
 ADD dist/ubuntu/files /files/ubuntu
 
-RUN chmod a+x /files/*/bin/* && find /files -type f \
- && mkdir /files/hugo-standard/src \
- && mkdir /files/hugo-standard/target \
- && mkdir /files/hugo-extended/src \
- && mkdir /files/hugo-extended/target
+RUN chmod a+x /files/*/bin/* \
+ && mkdir -p /files/hugo-{standard,extended}/{src,target} \
+ && chmod a+w files/hugo-{standard,extended}/{src,target} \
 
 
 FROM scratch
