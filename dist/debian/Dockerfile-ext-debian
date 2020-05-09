@@ -21,10 +21,11 @@ RUN apt update \
  && DEBIAN_FRONTEND=noninteractive apt install -y curl git gnupg bash-completion apt-transport-https lsb-release tzdata \
  && curl -sL https://deb.nodesource.com/setup_12.x | bash - \
  && apt install -y nodejs \
- && npm install -g autoprefixer postcss-cli yarn \
+ && npm install -g autoprefixer postcss-cli yarn @babel/cli @babel/core \
  && apt remove -y curl gnupg apt-transport-https lsb-release \
  && apt autoremove -y \
- && rm -rf /var/lib/apt/lists/*
+ && rm -rf /var/lib/apt/lists/* \
+ && rm -rf /tmp/npm
 
 EXPOSE 1313
 

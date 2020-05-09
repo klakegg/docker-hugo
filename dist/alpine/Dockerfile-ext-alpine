@@ -33,7 +33,8 @@ RUN apk add --no-cache libstdc++ busybox-suid bash bash-completion git tzdata
 
 COPY --from=image / /
 
-RUN npm install -g yarn autoprefixer postcss-cli
+RUN npm install -g yarn autoprefixer postcss-cli @babel/cli @babel/core \
+ && rm -rf /tmp/npm
 
 EXPOSE 1313
 
