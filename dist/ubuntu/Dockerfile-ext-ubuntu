@@ -2,6 +2,7 @@ FROM klakegg/hugo:base AS base
 
 FROM klakegg/hugo:base-golang as golang
 
+FROM klakegg/hugo:base-pandoc AS pandoc
 
 
 FROM ubuntu:18.04
@@ -11,17 +12,29 @@ ENV HUGO_BIND="0.0.0.0" \
     HUGO_ENV="DEV" \
     HUGO_CACHEDIR="/tmp" \
     NODE_PATH=".:/usr/lib/node_modules" \
+    HUGO_PANDOC="pandoc-default"\
     GOROOT="/usr/local/lib/go"
 
 COPY --from=base /hugo-extended /ubuntu /
 
+COPY --from=pandoc /bin/pandoc-default /bin/pandoc-default
+
 COPY --from=golang / /
 
+# Install software
 RUN apt update \
  && DEBIAN_FRONTEND=noninteractive apt install -y curl git gnupg bash-completion apt-transport-https lsb-release tzdata \
+ #
+ # Install NodeJS and tooling
  && curl -sL https://deb.nodesource.com/setup_12.x | bash - \
  && apt install -y nodejs \
  && npm install -g postcss-cli autoprefixer yarn @babel/cli @babel/core \
+ #
+ # Install Asciidoctor
+ && DEBIAN_FRONTEND=noninteractive apt install -y ruby \
+ && gem install asciidoctor coderay --no-document \
+ #
+ # Cleaning up
  && apt remove -y curl gnupg apt-transport-https lsb-release \
  && apt autoremove -y \
  && rm -rf /var/lib/apt/lists/* \
