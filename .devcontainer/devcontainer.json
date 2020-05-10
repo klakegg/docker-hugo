@@ -1,0 +1,13 @@
+{
+	"dockerFile": "Dockerfile",
+	"remoteUser": "remote",
+
+	"settings": { 
+		"terminal.integrated.shell.linux": "/bin/bash",
+	},
+
+	"extensions": [
+        "ms-azuretools.vscode-docker",
+        "geeebe.duplicate"
+	],
+}
