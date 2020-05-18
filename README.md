@@ -244,9 +244,5 @@ Environment variables:
 * HUGO_PANDOC - Pandoc command to be triggered. Default: `pandoc-default`
 * HUGO_ENV - Selecting environment ("DEV"/"production"). Default: `DEV`
 
-Volumes:
-* `/src` - Source folder and workdir
-* `/target` - Target folder
-
 Ports:
 * `1313/tcp`
