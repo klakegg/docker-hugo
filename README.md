@@ -48,8 +48,6 @@ Image based upon [Ubuntu](https://hub.docker.com/r/_/ubuntu/):
 This image does not try to do any fancy.
 Users may use Hugo [just as they are used to](https://gohugo.io/documentation/).
 
-The good practice of having a separate output folder is part of the image.
-
 
 ### Command line
 
@@ -58,7 +56,6 @@ Normal build:
 ```shell
 docker run --rm -it \
   -v $(pwd):/src \
-  -v $(pwd)/public:/target \
   klakegg/hugo:0.71.0
 ```
 
@@ -82,7 +79,6 @@ Normal build:
     image: klakegg/hugo:0.71.0
     volumes:
       - ".:/src"
-      - "./public:/target"
 ```
 
 Run server:
@@ -136,7 +132,6 @@ services:
 script:
 - docker run --rm -i \
     -v $(pwd):/src \
-    -v $(pwd)/public:/target \
     klakegg/hugo:0.71.0
 ```
 
@@ -209,7 +204,6 @@ Example of explicit setting `pandoc` alias:
 ```shell
 docker run --rm -it \
   -v $(pwd):/src \
-  -v $(pwd)/public:/target \
   -e HUGO_PANDOC="pandoc-default --strip-empty-paragraphs" \
   klakegg/hugo:0.71.0-pandoc
 ```
@@ -246,7 +240,7 @@ In docker-compose using `entrypoint`:
 Environment variables:
 * HUGO_BIND - Bind address for server. Default: `0.0.0.0`
 * HUGO_CACHEDIR - Cache directory for modules. Default: `/tmp`
-* HUGO_DESTINATION - Location of output folder. Default: `/target`
+* HUGO_DESTINATION - Location of output folder. Default: `public`
 * HUGO_PANDOC - Pandoc command to be triggered. Default: `pandoc-default`
 * HUGO_ENV - Selecting environment ("DEV"/"production"). Default: `DEV`
 

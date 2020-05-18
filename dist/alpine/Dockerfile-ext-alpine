@@ -23,7 +23,7 @@ COPY --from=golang / /
 FROM frolvlad/alpine-glibc:alpine-3.11_glibc-2.30
 
 ENV HUGO_BIND="0.0.0.0" \
-    HUGO_DESTINATION="/target" \
+    HUGO_DESTINATION="public" \
     HUGO_ENV="DEV" \
     HUGO_CACHEDIR="/tmp" \
     NODE_PATH=".:/lib/node_modules" \
