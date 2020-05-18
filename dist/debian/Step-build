@@ -22,3 +22,10 @@ build "ext-debian-onbuild" - \
   "[version]-ext-debian-onbuild" \
   "[version]-ext-onbuild" \
   "ext-onbuild"
+
+# Debian + Hugo extended + Devcontainer
+build "ext-debian-devcontainer" - \
+  "[version]-ext-debian-devcontainer" \
+  "[version]-ext-devcontainer" \
+  "ext-devcontainer" \
+  "devcontainer"

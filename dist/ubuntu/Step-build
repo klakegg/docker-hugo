@@ -17,3 +17,8 @@ build "ext-ubuntu" - \
 template onbuild ext-ubuntu-onbuild ext-ubuntu
 build "ext-ubuntu-onbuild" - \
   "[version]-ext-ubuntu-onbuild"
+
+# Ubuntu + Hugo extended + DevContainer
+build "ext-ubuntu-devcontainer" - \
+  "[version]-ext-ubuntu-devcontainer"
+
