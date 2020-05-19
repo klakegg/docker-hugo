@@ -20,7 +20,7 @@ ENV HUGO_BIND="0.0.0.0" \
 
 COPY --from=image / /
 
-RUN apk --no-cache add busybox-suid bash bash-completion tzdata \
+RUN apk --no-cache add busybox-suid bash bash-completion tzdata make \
  && find /tmp -mindepth 1 -maxdepth 1 | xargs rm -rf
 
 EXPOSE 1313
