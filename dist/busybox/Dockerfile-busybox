@@ -15,7 +15,8 @@ FROM busybox:1.31
 
 ENV HUGO_BIND="0.0.0.0" \
     HUGO_DESTINATION="public" \
-    HUGO_ENV="DEV"
+    HUGO_ENV="DEV" \
+    HOME="/tmp"
 
 COPY --from=image / /
 

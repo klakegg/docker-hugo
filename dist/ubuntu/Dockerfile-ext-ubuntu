@@ -39,7 +39,7 @@ RUN apt update \
  && apt remove -y curl gnupg apt-transport-https lsb-release \
  && apt autoremove -y \
  && rm -rf /var/lib/apt/lists/* \
- && rm -rf /tmp/npm
+ && find /tmp -mindepth 1 -maxdepth 1 | xargs rm -rf
 
 EXPOSE 1313
 

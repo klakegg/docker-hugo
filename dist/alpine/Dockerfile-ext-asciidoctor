@@ -1,4 +1,5 @@
 FROM klakegg/hugo:ext-alpine
 
 RUN apk --no-cache add asciidoctor \
- && gem install coderay
+ && gem install coderay \
+ && find /tmp -mindepth 1 -maxdepth 1 | xargs rm -rf

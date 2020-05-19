@@ -13,7 +13,8 @@ COPY --from=base /hugo-standard /ubuntu /
 
 RUN apt update \
  && DEBIAN_FRONTEND=noninteractive apt install -y bash-completion tzdata \
- && rm -rf /var/lib/apt/lists/*
+ && rm -rf /var/lib/apt/lists/* \
+ && find /tmp -mindepth 1 -maxdepth 1 | xargs rm -rf
 
 EXPOSE 1313
 

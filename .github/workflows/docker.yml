@@ -11,24 +11,24 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
 
-    - name: Build
-      run: make build
-
     - name: Prepare templates
       run: make build-templates
 
+    - name: Build
+      run: make build-docker
+
     - name: Test Docsy
-      run: make build-docsy
+      run: make test-docsy
 
     - name: Test DocuAPI
-      run: make build-docuapi
+      run: make test-docuapi
 
     - name: Push egde images
       if: "!startsWith(github.ref, 'refs/tags/')"
       env:
         DOCKER_USERNAME: klakegg
         DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
-      run: make edge
+      run: make edge-tag edge-push
 
     - name: Publish templates
       uses: klakegg/github-upload@v0.9.1

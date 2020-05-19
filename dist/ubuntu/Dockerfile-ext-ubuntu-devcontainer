@@ -20,4 +20,5 @@ RUN apt update \
  #
  # Cleaning up
  && apt autoremove -y \
- && rm -rf /var/lib/apt/lists/*
+ && rm -rf /var/lib/apt/lists/* \
+ && find /tmp -mindepth 1 -maxdepth 1 | xargs rm -rf
