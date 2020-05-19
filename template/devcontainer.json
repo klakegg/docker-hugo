@@ -1,0 +1,23 @@
+{
+	"image": "klakegg/hugo:${HUGO_VERSION}-ext-devcontainer",
+	"forwardPorts": [1313],
+	"containerUser": "hugo",
+	"settings": {
+		"terminal.integrated.shell.linux": "/bin/bash",
+		"terminal.integrated.shellArgs.linux": [ "-l" ]
+	},
+	"extensions": [
+		// AsciiDoc
+		"joaompinto.asciidoctor-vscode",
+		// Better TOML
+		"bungcip.better-toml",
+		// IntelliSense for CSS class names in HTML
+		"zignd.html-css-class-completion",
+		// Presentation Mode
+		"jspolancor.presentationmode",
+		// Sass
+		"syler.sass-indented",
+		// YAML
+		"redhat.vscode-yaml"
+	]
+}
