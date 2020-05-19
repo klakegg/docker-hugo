@@ -9,7 +9,7 @@ build-docker-debug:
 build-templates:
 	@rm -rf target/templates
 	@mkdir -p target/templates
-	@for t in $$(ls templates); do cat templates/$$t | HUGO_VERSION=$(HUGO_VERSION) envsubst > target/templates/$$t; done
+	@for t in $$(ls src/templates); do cat src/templates/$$t | HUGO_VERSION=$(HUGO_VERSION) envsubst > target/templates/$$t; done
 
 test-docsy:
 	@rm -rf target/docsy

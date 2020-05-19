@@ -37,10 +37,10 @@ COPY --from=fetch /hugo-extended/README.md /files/hugo-extended/README.md
 COPY --from=fetch /etc/bash_completion.d/hugo.sh /files/hugo-standard/etc/bash_completion.d/hugo.sh
 COPY --from=fetch /etc/bash_completion.d/hugo.sh /files/hugo-extended/etc/bash_completion.d/hugo.sh
 
-ADD dist/alpine/files /files/alpine
-ADD dist/busybox/files /files/busybox
-ADD dist/debian/files /files/debian
-ADD dist/ubuntu/files /files/ubuntu
+ADD src/dist/alpine/files /files/alpine
+ADD src/dist/busybox/files /files/busybox
+ADD src/dist/debian/files /files/debian
+ADD src/dist/ubuntu/files /files/ubuntu
 
 RUN chmod a+x /files/*/bin/* \
  && mkdir -p /files/hugo-{standard,extended}/{src,target} \

@@ -79,7 +79,7 @@ function real {
 
 # template [tp] [target] [from]
 function template {
-  cat $DPWD/lib/template/Dockerfile-$1 \
+  cat $DPWD/src/lib/template/Dockerfile-$1 \
   | sed -e "s|\[from\]|${DOCKER_REPO}:${3}|g" \
   > Dockerfile-gen-$2
 }
@@ -128,9 +128,9 @@ echos "SOURCE_BRANCH: $SOURCE_BRANCH"
 echo
 
 # Build base images if found
-if [ -e lib/base ]; then trigger "lib/base"; fi
+if [ -e src/lib/base ]; then trigger "src/lib/base"; fi
 
 # Build distributions provided
-for dist in ${DISTS:-$(ls $DPWD/dist)}; do
-  trigger "dist/$dist"
+for dist in ${DISTS:-$(ls $DPWD/src/dist)}; do
+  trigger "src/dist/$dist"
 done
