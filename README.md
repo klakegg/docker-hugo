@@ -244,6 +244,7 @@ In docker-compose using `entrypoint`:
 | Go       | 1.14.3  |
 | NodeJS   | 12.16.3 |
 | Pandoc   | 2.9.2   |
+| Yarn     | 1.22.4  |
 
 
 ## Configuration
