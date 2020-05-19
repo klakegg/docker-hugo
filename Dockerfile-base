@@ -48,6 +48,7 @@ RUN chmod a+x /files/*/bin/* \
  && find /files -type f | sort
 
 
+
 FROM scratch
 
 COPY --from=files /files /
