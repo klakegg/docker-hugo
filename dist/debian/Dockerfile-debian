@@ -6,7 +6,8 @@ FROM debian:10.3-slim
 
 ENV HUGO_BIND="0.0.0.0" \
     HUGO_DESTINATION="public" \
-    HUGO_ENV="DEV"
+    HUGO_ENV="DEV" \
+    HOME="/tmp"
 
 COPY --from=base /hugo-standard /debian /
 

@@ -13,7 +13,8 @@ ENV HUGO_BIND="0.0.0.0" \
     HUGO_CACHEDIR="/tmp" \
     NODE_PATH=".:/usr/lib/node_modules" \
     HUGO_PANDOC="pandoc-default"\
-    GOROOT="/usr/local/lib/go"
+    GOROOT="/usr/local/lib/go" \
+    HOME="/tmp"
 
 COPY --from=base /hugo-extended /debian /
 
