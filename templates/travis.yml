@@ -1,0 +1,15 @@
+# This configuration is fetched from https://github.com/klakegg/docker-hugo.
+# Please create an issue or pull request in the repository if you want to contribute.
+
+language: bash
+
+services:
+  - docker
+
+script:
+  # Uncomment if you need to install npm dependencies
+  #- npm install
+
+  - docker run --rm -i \
+      -v $(pwd):/src \
+      klakegg/hugo:${HUGO_VERSION}-ext-debian

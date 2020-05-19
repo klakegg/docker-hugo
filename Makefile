@@ -1,8 +1,15 @@
+HUGO_VERSION=$(shell cat Dockerfile-base | grep VERSION | head -1 | cut -d = -f 2)
+
 build:
 	@bash hooks/local
 
 build-debug:
 	@DEBUG=true bash hooks/local
+
+build-templates:
+	@rm -rf target/templates
+	@mkdir -p target/templates
+	@for t in $$(ls templates); do cat templates/$$t | HUGO_VERSION=$(HUGO_VERSION) envsubst > target/templates/$$t; done
 
 build-docsy:
 	@rm -rf docsy
