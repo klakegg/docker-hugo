@@ -4,7 +4,7 @@
 	"containerUser": "hugo",
 	"settings": {
 		"terminal.integrated.shell.linux": "/bin/bash",
-		"terminal.integrated.shellArgs.linux": [ "-l" ]
+		"terminal.integrated.shellArgs.linux": [ "-l" ],
 	},
 	"extensions": [
 		// AsciiDoc
@@ -18,6 +18,6 @@
 		// Sass
 		"syler.sass-indented",
 		// YAML
-		"redhat.vscode-yaml"
+		"redhat.vscode-yaml",
 	]
 }

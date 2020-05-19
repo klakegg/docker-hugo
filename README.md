@@ -163,11 +163,12 @@ Table of Hugo extention features and the version when images first support the f
 | ------------- | ------ | ------ | ------ |
 | Hugo extended | 0.43   | 0.43   | 0.43   |
 | PostCSS       | 0.56.0 | 0.43   | 0.43   |
-| NodeJS/Yarn   | 0.54.0 | 0.54.0 | 0.54.0 |
+| NodeJS        | 0.54.0 | 0.54.0 | 0.54.0 |
+| Yarn          | 0.54.0 | 0.54.0 | 0.54.0 |
 | Git           | 0.56.0 | 0.56.0 | 0.56.0 |
 | Autoprefixer  | 0.57.0 | 0.57.0 | 0.57.0 |
 | Go            | 0.68.0 | 0.68.0 | 0.68.0 |
-| Babal         | 0.71.0 | 0.71.0 | 0.71.0 |
+| Babel         | 0.71.0 | 0.71.0 | 0.71.0 |
 
 Users of [google/docsy](https://github.com/google/docsy) may use the extended images as of version 0.57.2 to build their site.
 
@@ -233,6 +234,16 @@ In docker-compose using `entrypoint`:
     volumes:
       - ".:/src"
 ```
+
+
+## Versions
+
+| Software | Version |
+| -------- | ------- |
+| Hugo     | 0.71.0  |
+| Go       | 1.14.3  |
+| NodeJS   | 12.16.3 |
+| Pandoc   | 2.9.2   |
 
 
 ## Configuration
