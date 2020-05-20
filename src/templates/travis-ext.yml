@@ -7,6 +7,9 @@ services:
   - docker
 
 script:
+  # Uncomment if you need to install npm dependencies
+  #- npm install
+
   - docker run --rm -i \
       -v $(pwd):/src \
-      klakegg/hugo:${HUGO_VERSION}-alpine
+      klakegg/hugo:${HUGO_VERSION}-ext-debian

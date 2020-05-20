@@ -9,7 +9,7 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-    container: klakegg/hugo:${HUGO_VERSION}-alpine
+    container: klakegg/hugo:${HUGO_VERSION}-ext-debian
 
     steps:
     - name: Checkout
@@ -17,6 +17,9 @@ jobs:
       with:
         # Set this to 'true' or 'recursive' if you use submodules
         submodules: false 
+
+    - name: Fetch npm dependencies
+      run: (test -e package.json && npm install) || echo "package.json does not exists, skippeing this step."
 
     - name: Build
       run: hugo --minify
