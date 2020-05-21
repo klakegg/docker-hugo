@@ -10,16 +10,22 @@ if [ "$HUGO_VERSION" != "" ]; then
         # Download standard edition
         if [ "${HUGO_EDITION}" = "standard" ]; then
             echo "Downloading Hugo ${HUGO_VERSION}..."
-            wget -q "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz" -O $target.tar.gz
+            wget -q "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz" -O $target.tar.gz || true
 
         # Download extended edition
         elif [ "${HUGO_EDITION}" = "extended" ]; then
             echo "Downloading Hugo ${HUGO_VERSION}..."
-            wget -q "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_Linux-64bit.tar.gz" -O $target.tar.gz
+            wget -q "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_Linux-64bit.tar.gz" -O $target.tar.gz || true
 
         # Unknown edition
         else
             echo "Unknown edition '${HUGO_EDITION}'."
+            exit 1
+        fi
+
+        if [ ! -e $target.tar.gz ] || [ "$(stat --printf="%s" $target.tar.gz)" = "0" ]; then
+            rm $target.tar.gz
+            echo "Unable to download Hugo ${HUGO_VERSION} ${HUGO_EDITION} edition."
             exit 1
         fi
 
