@@ -1,0 +1,25 @@
+FROM klakegg/hugo:base AS base
+
+
+
+FROM ubuntu:18.04
+
+ENV HUGO_BIND="0.0.0.0" \
+    HUGO_DESTINATION="public" \
+    HUGO_ENV="DEV" \
+    HOME="/tmp"
+
+COPY --from=base /debian /
+
+RUN apt update \
+ && DEBIAN_FRONTEND=noninteractive apt install -y wget bash-completion tzdata make \
+ && rm -rf /var/lib/apt/lists/* \
+ && find /tmp -mindepth 1 -maxdepth 1 | xargs rm -rf \
+ && mkdir -p /src /target \
+ && chmod a+w /src /target
+
+EXPOSE 1313
+
+WORKDIR /src
+
+ENTRYPOINT ["hugo"]

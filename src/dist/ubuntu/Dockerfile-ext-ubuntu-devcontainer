@@ -7,7 +7,7 @@ ARG USER_GID=$USER_UID
 # Install extra tooling
 RUN apt update \
  && DEBIAN_FRONTEND=noninteractive apt install -y --no-install-recommends apt-utils dialog \
- && DEBIAN_FRONTEND=noninteractive apt install -y openssh-server bash openssh-client less iproute2 procps lsb-release \
+ && DEBIAN_FRONTEND=noninteractive apt install -y openssh-server openssh-client less iproute2 procps lsb-release \
  #
  # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.
  && groupadd --gid $USER_GID $USERNAME \

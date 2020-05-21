@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Debian base
+build_only "base-debian" ""
+
 # Debian + Hugo
 build "debian" - \
   "[version]-debian"

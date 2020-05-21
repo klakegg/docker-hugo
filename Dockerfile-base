@@ -43,7 +43,7 @@ COPY --from=fetch /hugo-extended /files/hugo-extended
 ADD src/dist/alpine/files /files/alpine
 ADD src/dist/busybox/files /files/busybox
 ADD src/dist/debian/files /files/debian
-ADD src/dist/ubuntu/files /files/ubuntu
+#ADD src/dist/ubuntu/files /files/ubuntu  # Same as debian - use debian files in ubuntu dists
 
 RUN chmod a+x /files/*/bin/* \
  && find /files | sed s:^/files::g | sort

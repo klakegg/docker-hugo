@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Ubuntu base
+build_only "base-ubuntu" ""
+
 # Ubuntu + Hugo
 build "ubuntu" - \
   "[version]-ubuntu"

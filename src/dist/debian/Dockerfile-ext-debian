@@ -5,19 +5,16 @@ FROM klakegg/hugo:base-golang as golang
 FROM klakegg/hugo:base-pandoc AS pandoc
 
 
-FROM debian:10.3-slim
 
-ENV HUGO_BIND="0.0.0.0" \
-    HUGO_DESTINATION="public" \
-    HUGO_ENV="DEV" \
-    HUGO_EDITION="extended" \
+FROM klakegg/hugo:base-debian
+
+ENV HUGO_EDITION="extended" \
     HUGO_CACHEDIR="/tmp" \
     NODE_PATH=".:/usr/lib/node_modules" \
     HUGO_PANDOC="pandoc-default"\
-    GOROOT="/usr/local/lib/go" \
-    HOME="/tmp"
+    GOROOT="/usr/local/lib/go"
 
-COPY --from=base /hugo-extended /debian /
+COPY --from=base /hugo-extended /
 
 COPY --from=pandoc /bin/pandoc-default /bin/pandoc-default
 
@@ -25,7 +22,7 @@ COPY --from=golang / /
 
 # Install software
 RUN apt update \
- && DEBIAN_FRONTEND=noninteractive apt install -y wget curl git gnupg bash-completion apt-transport-https lsb-release tzdata make \
+ && DEBIAN_FRONTEND=noninteractive apt install -y curl git gnupg apt-transport-https lsb-release \
  #
  # Install NodeJS and tooling
  && curl -sL https://deb.nodesource.com/setup_12.x | bash - \
@@ -43,9 +40,3 @@ RUN apt update \
  && find /tmp -mindepth 1 -maxdepth 1 | xargs rm -rf \
  && mkdir -p /src /target \
  && chmod a+w /src /target
-
-EXPOSE 1313
-
-WORKDIR /src
-
-ENTRYPOINT ["hugo"]
