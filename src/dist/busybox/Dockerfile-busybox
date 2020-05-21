@@ -20,8 +20,8 @@ ENV HUGO_BIND="0.0.0.0" \
 
 COPY --from=image / /
 
-RUN mkdir -p /{src,target} \
- && chmod a+w /{src,target}
+RUN mkdir -p /src /target \
+ && chmod a+w /src /target
 
 EXPOSE 1313
 

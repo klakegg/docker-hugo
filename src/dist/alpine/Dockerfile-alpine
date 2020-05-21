@@ -22,8 +22,8 @@ COPY --from=image / /
 
 RUN apk --no-cache add busybox-suid bash bash-completion tzdata make \
  && find /tmp -mindepth 1 -maxdepth 1 | xargs rm -rf \
- && mkdir -p /{src,target} \
- && chmod a+w /{src,target}
+ && mkdir -p /src /target \
+ && chmod a+w /src /target
 
 EXPOSE 1313
 

@@ -36,8 +36,8 @@ COPY --from=image / /
 
 RUN npm install -g yarn@1.22.4 autoprefixer postcss-cli @babel/cli @babel/core  \
  && find /tmp -mindepth 1 -maxdepth 1 | xargs rm -rf \
- && mkdir -p /{src,target} \
- && chmod a+w /{src,target}
+ && mkdir -p /src /target \
+ && chmod a+w /src /target
 
 EXPOSE 1313
 
