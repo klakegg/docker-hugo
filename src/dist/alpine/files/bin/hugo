@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Load environment configuration
+source /etc/profile.d/hugo.sh
+
 opts=""
 
 case "$1" in

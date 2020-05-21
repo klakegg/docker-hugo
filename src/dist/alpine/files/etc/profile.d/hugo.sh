@@ -1,9 +1,6 @@
 #!/bin/sh
 
-PS1="\e[1;32mhugo\e[m:\e[1;34m\w\e[m\$ "
+# Environment configuration triggered by both shell and hugo script.
 
-alias h="hugo"
-
-if [ "$HUGO_PANDOC" != "" ]; then
-  alias pandoc="$HUGO_PANDOC"
-fi
+# Set `pandoc` alias when $HUGO_PANDOC is set
+test "$HUGO_PANDOC" = "" || alias pandoc="$HUGO_PANDOC"
