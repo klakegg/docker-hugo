@@ -21,7 +21,7 @@ ENV HUGO_BIND="0.0.0.0" \
 
 COPY --from=image / /
 
-RUN apk --no-cache add curl busybox-suid bash bash-completion tzdata make \
+RUN apk --no-cache add busybox-suid bash bash-completion tzdata make \
  && find /tmp -mindepth 1 -maxdepth 1 | xargs rm -rf \
  && mkdir -p /src /target \
  && chmod a+w /src /target

@@ -25,7 +25,7 @@ COPY --from=golang / /
 
 # Install software
 RUN apt update \
- && DEBIAN_FRONTEND=noninteractive apt install -y curl git gnupg bash-completion apt-transport-https lsb-release tzdata make \
+ && DEBIAN_FRONTEND=noninteractive apt install -y wget git gnupg bash-completion apt-transport-https lsb-release tzdata make \
  #
  # Install NodeJS and tooling
  && curl -sL https://deb.nodesource.com/setup_12.x | bash - \
