@@ -10,26 +10,24 @@ ADD https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_${VERSIO
 # Verify checksums
 RUN grep Linux-64bit.tar.gz hugo_${VERSION}_checksums.txt | sha256sum -c
 
+# Prepare folders
+RUN mkdir -p /hugo-standard/usr/lib/hugo \
+ && mkdir -p /hugo-extended/usr/lib/hugo
+
 # Unpack downloaded content
-RUN mkdir /hugo-standard /hugo-extended \
- && tar -zxf hugo_${VERSION}_Linux-64bit.tar.gz -C /hugo-standard \
- && tar -zxf hugo_extended_${VERSION}_Linux-64bit.tar.gz -C /hugo-extended
+RUN tar -zxf hugo_${VERSION}_Linux-64bit.tar.gz -C /hugo-standard/usr/lib/hugo \
+ && tar -zxf hugo_extended_${VERSION}_Linux-64bit.tar.gz -C /hugo-extended/usr/lib/hugo
 
 # Verify executable
-RUN ["/hugo-standard/hugo", "version"]
+RUN ["/hugo-standard/usr/lib/hugo/hugo", "version"]
 
 # Create autocompletion script
 RUN mkdir /etc/bash_completion.d  \
- && /hugo-standard/hugo gen autocomplete > /dev/null \
+ && /hugo-standard/usr/lib/hugo/hugo gen autocomplete > /dev/null \
  && mkdir -p /hugo-standard/etc/bash_completion.d \
  && mkdir -p /hugo-extended/etc/bash_completion.d \
  && cp /etc/bash_completion.d/hugo.sh /hugo-standard/etc/bash_completion.d/hugo.sh \
  && cp /etc/bash_completion.d/hugo.sh /hugo-extended/etc/bash_completion.d/hugo.sh
-
-# Move and rename hugo executables
-RUN mkdir -p /hugo-standard/bin /hugo-extended/bin \
- && mv /hugo-standard/hugo /hugo-standard/bin/hugo-official \
- && mv /hugo-extended/hugo /hugo-extended/bin/hugo-official
 
 # Create version file
 RUN echo -n "$VERSION" > /hugo-standard/etc/hugo-release \
