@@ -6,6 +6,13 @@ FROM klakegg/hugo:base-pandoc AS pandoc
 
 
 
+FROM scratch as image
+
+COPY --from=base /hugo-extended /
+COPY --from=pandoc /bin/pandoc-default /bin/pandoc-default
+
+
+
 FROM klakegg/hugo:base-debian
 
 ENV HUGO_EDITION="extended" \
@@ -14,11 +21,7 @@ ENV HUGO_EDITION="extended" \
     HUGO_PANDOC="pandoc-default"\
     GOROOT="/usr/local/lib/go"
 
-COPY --from=base /hugo-extended /
-
-COPY --from=pandoc /bin/pandoc-default /bin/pandoc-default
-
-COPY --from=golang / /
+COPY --from=image / /
 
 # Install software
 RUN apt update \
@@ -40,3 +43,5 @@ RUN apt update \
  && find /tmp -mindepth 1 -maxdepth 1 | xargs rm -rf \
  && mkdir -p /src /target \
  && chmod a+w /src /target
+
+COPY --from=golang / /
