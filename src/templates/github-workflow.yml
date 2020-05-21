@@ -7,7 +7,7 @@ on: [push]
 
 jobs:
   build:
-    name: Build
+    name: Build [Hugo]
     runs-on: ubuntu-latest
     container: klakegg/hugo:${HUGO_VERSION}-alpine
 
@@ -25,11 +25,11 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: site
-        path: src/public
+        path: public
 
 
-  verify:
-    name: Verify
+  verify-htmlproofer:
+    name: Verify [HTML-Proofer]
     runs-on: ubuntu-latest
     container: klakegg/html-proofer:latest
     needs: build
@@ -49,4 +49,4 @@ jobs:
   #deploy:
   #  name: Deploy
   #  runs-on: ubuntu-latest
-  #  needs: verify
+  #  needs: verify-htmlproofer
