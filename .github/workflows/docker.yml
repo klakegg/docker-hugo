@@ -15,7 +15,7 @@ jobs:
       run: make build-templates
 
     - name: Build
-      run: make build-docker-debug
+      run: make build-docker
 
     - name: Test Docsy
       run: make test-docsy
