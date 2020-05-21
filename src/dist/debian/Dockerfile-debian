@@ -14,7 +14,9 @@ COPY --from=base /hugo-standard /debian /
 RUN apt update \
  && DEBIAN_FRONTEND=noninteractive apt install -y bash-completion tzdata make \
  && rm -rf /var/lib/apt/lists/* \
- && find /tmp -mindepth 1 -maxdepth 1 | xargs rm -rf
+ && find /tmp -mindepth 1 -maxdepth 1 | xargs rm -rf \
+ && mkdir -p /{src,target} \
+ && chmod a+w /{src,target}
 
 EXPOSE 1313
 
