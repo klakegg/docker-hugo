@@ -1,5 +1,7 @@
 #!/bin/sh
 
+opts=""
+
 case "$1" in
 
     "benchmark")
@@ -39,11 +41,11 @@ case "$1" in
         ;;
 
     "serve")
-        exec hugo-official serve --bind=$HUGO_BIND $(echo $* | sed "s:^serve::")
+        exec hugo-official $@ --bind=$HUGO_BIND
         ;;
 
     "server")
-        exec hugo-official server --bind=$HUGO_BIND $(echo $* | sed "s:^server::")
+        exec hugo-official $@ --bind=$HUGO_BIND
         ;;
 
     "undraft")
@@ -59,12 +61,16 @@ case "$1" in
         ;;
 
     "build")
+        test "$HUGO_DESTINATION" = "public" || opts="$opts --destination=${HUGO_DESTINATION}"
+
         shift
-        exec hugo-official $@ --destination=$HUGO_DESTINATION
+        exec hugo-official $@ $opts
         ;;
 
     *)
-        exec hugo-official $@ --destination=$HUGO_DESTINATION
+        test "$HUGO_DESTINATION" = "public" || opts="$opts --destination=${HUGO_DESTINATION}"
+
+        exec hugo-official $@ $opts
         ;;
 
 esac
