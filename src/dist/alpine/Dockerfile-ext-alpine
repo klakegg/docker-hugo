@@ -31,7 +31,7 @@ ENV HUGO_BIND="0.0.0.0" \
     GOROOT="/usr/local/lib/go" \
     HOME="/tmp"
 
-RUN apk add --no-cache libstdc++ busybox-suid bash bash-completion git tzdata make
+RUN apk add --no-cache curl libstdc++ busybox-suid bash bash-completion git tzdata make
 
 COPY --from=image / /
 
