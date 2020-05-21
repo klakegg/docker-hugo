@@ -5,7 +5,7 @@
 
 ## :tada: Features
 
-*Nothing*
+* Hugo Time Machine - Set environment variable `HUGO_VERSION` to automatically fetch a previous version of Hugo. Supports Hugo 0.21 and newer.
 
 
 ## :bug: Fixes
@@ -47,4 +47,4 @@ This release is available from Docker Hub as project `klakegg/hugo` with the fol
 | `ubuntu-onbuild`             | `NEXT-ubuntu-onbuild`                    |
 | `ext-ubuntu`                 | `NEXT-ext-ubuntu`                        |
 | `ext-ubuntu-onbuild`         | `NEXT-ext-ubuntu-onbuild`                |
-| `ext-ubuntu-devcontainer`    | `0.71-0-ext-ubuntu-devcontainer`           |
+| `ext-ubuntu-devcontainer`    | `NEXT-ext-ubuntu-devcontainer`           |

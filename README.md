@@ -255,6 +255,7 @@ Environment variables:
 * HUGO_DESTINATION - Location of output folder. Default: `public`
 * HUGO_PANDOC - Pandoc command to be triggered. Default: `pandoc-default`
 * HUGO_ENV - Selecting environment ("DEV"/"production"). Default: `DEV`
+* HUGO_VERSION - Version of Hugo to use. Requires images for Hugo NEXT or newer. Default: *blank*
 
 Ports:
 * `1313/tcp`
