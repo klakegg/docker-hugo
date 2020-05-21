@@ -10,6 +10,7 @@ FROM ubuntu:18.04
 ENV HUGO_BIND="0.0.0.0" \
     HUGO_DESTINATION="public" \
     HUGO_ENV="DEV" \
+    HUGO_EDITION="extended" \
     HUGO_CACHEDIR="/tmp" \
     NODE_PATH=".:/usr/lib/node_modules" \
     HUGO_PANDOC="pandoc-default"\

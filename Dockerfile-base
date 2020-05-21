@@ -2,6 +2,7 @@ FROM busybox:1.31 AS fetch
 
 ARG VERSION=0.71.0
 
+# Download binaries from release
 ADD https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_${VERSION}_Linux-64bit.tar.gz /
 ADD https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_extended_${VERSION}_Linux-64bit.tar.gz /
 ADD https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_${VERSION}_checksums.txt /
@@ -10,32 +11,36 @@ ADD https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_${VERSIO
 RUN grep Linux-64bit.tar.gz hugo_${VERSION}_checksums.txt | sha256sum -c
 
 # Unpack downloaded content
-RUN mkdir /hugo-standard /hugo-extended
-RUN tar -zxf hugo_${VERSION}_Linux-64bit.tar.gz -C /hugo-standard
-RUN tar -zxf hugo_extended_${VERSION}_Linux-64bit.tar.gz -C /hugo-extended
+RUN mkdir /hugo-standard /hugo-extended \
+ && tar -zxf hugo_${VERSION}_Linux-64bit.tar.gz -C /hugo-standard \
+ && tar -zxf hugo_extended_${VERSION}_Linux-64bit.tar.gz -C /hugo-extended
 
 # Verify executable
 RUN ["/hugo-standard/hugo", "version"]
 
 # Create autocompletion script
 RUN mkdir /etc/bash_completion.d  \
- && /hugo-standard/hugo gen autocomplete > /dev/null
+ && /hugo-standard/hugo gen autocomplete > /dev/null \
+ && mkdir -p /hugo-standard/etc/bash_completion.d \
+ && mkdir -p /hugo-extended/etc/bash_completion.d \
+ && cp /etc/bash_completion.d/hugo.sh /hugo-standard/etc/bash_completion.d/hugo.sh \
+ && cp /etc/bash_completion.d/hugo.sh /hugo-extended/etc/bash_completion.d/hugo.sh
+
+# Move and rename hugo executables
+RUN mkdir -p /hugo-standard/bin /hugo-extended/bin \
+ && mv /hugo-standard/hugo /hugo-standard/bin/hugo-official \
+ && mv /hugo-extended/hugo /hugo-extended/bin/hugo-official
+
+# Create version file
+RUN echo -n "$VERSION" > /hugo-standard/etc/hugo-release \
+ && echo -n "$VERSION" > /hugo-extended/etc/hugo-release
 
 
 
 FROM busybox:1.31 AS files
 
-COPY --from=fetch /hugo-standard/hugo /files/hugo-standard/bin/hugo-official
-COPY --from=fetch /hugo-extended/hugo /files/hugo-extended/bin/hugo-official
-
-COPY --from=fetch /hugo-standard/LICENSE /files/hugo-standard/LICENSE
-COPY --from=fetch /hugo-extended/LICENSE /files/hugo-extended/LICENSE
-
-COPY --from=fetch /hugo-standard/README.md /files/hugo-standard/README.md
-COPY --from=fetch /hugo-extended/README.md /files/hugo-extended/README.md
-
-COPY --from=fetch /etc/bash_completion.d/hugo.sh /files/hugo-standard/etc/bash_completion.d/hugo.sh
-COPY --from=fetch /etc/bash_completion.d/hugo.sh /files/hugo-extended/etc/bash_completion.d/hugo.sh
+COPY --from=fetch /hugo-standard /files/hugo-standard
+COPY --from=fetch /hugo-extended /files/hugo-extended
 
 ADD src/dist/alpine/files /files/alpine
 ADD src/dist/busybox/files /files/busybox
@@ -43,7 +48,7 @@ ADD src/dist/debian/files /files/debian
 ADD src/dist/ubuntu/files /files/ubuntu
 
 RUN chmod a+x /files/*/bin/* \
- && find /files -type f | sort
+ && find /files | sed s:^/files::g | sort
 
 
 

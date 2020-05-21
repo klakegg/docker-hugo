@@ -7,6 +7,7 @@ FROM ubuntu:18.04
 ENV HUGO_BIND="0.0.0.0" \
     HUGO_DESTINATION="public" \
     HUGO_ENV="DEV" \
+    HUGO_EDITION="standard" \
     HOME="/tmp"
 
 COPY --from=base /hugo-standard /ubuntu /
