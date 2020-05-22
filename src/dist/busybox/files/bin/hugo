@@ -41,12 +41,14 @@ case "$1" in
         ;;
 
     "serve")
+        # Override bind host as we are running inside a Docker container.
         opts="$opts --bind=${HUGO_BIND}"
 
         exec hugo-official $@ $opts
         ;;
 
     "server")
+        # Override bind host as we are running inside a Docker container.
         opts="$opts --bind=${HUGO_BIND}"
 
         exec hugo-official $@ $opts
@@ -65,7 +67,11 @@ case "$1" in
         ;;
 
     "build")
+        # Override destination folder when other folder than "public" is set.
         test "$HUGO_DESTINATION" = "public" || opts="$opts --destination=${HUGO_DESTINATION}"
+
+        # Fixing chtimes error when running in unpriviledged mode.
+        # https://github.com/gohugoio/hugo/issues/7302
         test "$(id -u)" = "0" || opts="$opts --noTimes"
 
         shift
@@ -73,7 +79,11 @@ case "$1" in
         ;;
 
     *)
+        # Override destination folder when other folder than "public" is set.
         test "$HUGO_DESTINATION" = "public" || opts="$opts --destination=${HUGO_DESTINATION}"
+
+        # Fixing chtimes error when running in unpriviledged mode.
+        # https://github.com/gohugoio/hugo/issues/7302
         test "$(id -u)" = "0" || opts="$opts --noTimes"
 
         exec hugo-official $@ $opts
