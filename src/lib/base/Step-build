@@ -2,9 +2,9 @@
 
 # Base images built before dist images.
 
-tag base "[version]-base"
+tag "base" "[version]-base"
 
-build_only base-certs ""
-build_only base-pandoc ""
-build_only base-nodejs ""
-build_only base-golang ""
+build_only "base-certs" ""
+build_only "base-pandoc" ""
+build_only "base-nodejs" ""
+build_only "base-golang" ""

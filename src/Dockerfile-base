@@ -37,13 +37,12 @@ RUN echo -n "$VERSION" > /hugo-standard/etc/hugo-release \
 
 FROM busybox:1.31 AS files
 
+# Copy content of files folder to populate base image
+ADD files /files
+
+# Copy Hugo files
 COPY --from=fetch /hugo-standard /files/hugo-standard
 COPY --from=fetch /hugo-extended /files/hugo-extended
-
-ADD dist/alpine/files /files/alpine
-ADD dist/busybox/files /files/busybox
-ADD dist/debian/files /files/debian
-#ADD dist/ubuntu/files /files/ubuntu  # Same as debian - use debian files in ubuntu dists
 
 RUN chmod a+x /files/*/bin/* \
  && find /files | sed s:^/files::g | sort
@@ -52,4 +51,5 @@ RUN chmod a+x /files/*/bin/* \
 
 FROM scratch
 
+# Create prepared files to root of base image
 COPY --from=files /files /
