@@ -16,6 +16,7 @@
 ## :heartbeat: Updates
 
 * Hugo: `0.71.0` => `NEXT`
+* Pandoc: `2.9.2` => `2.9.2.1`
 
 
 ## Docker images
