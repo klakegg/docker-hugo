@@ -62,6 +62,7 @@ case "$1" in
 
     "build")
         test "$HUGO_DESTINATION" = "public" || opts="$opts --destination=${HUGO_DESTINATION}"
+        test "$(id -u)" = "0" || opts="$opts --noTimes"
 
         shift
         exec hugo-official $@ $opts
@@ -69,6 +70,7 @@ case "$1" in
 
     *)
         test "$HUGO_DESTINATION" = "public" || opts="$opts --destination=${HUGO_DESTINATION}"
+        test "$(id -u)" = "0" || opts="$opts --noTimes"
 
         exec hugo-official $@ $opts
         ;;

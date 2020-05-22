@@ -2,8 +2,9 @@
 	"dockerFile": "Dockerfile",
 	"remoteUser": "remote",
 
-	"settings": { 
+	"settings": {
 		"terminal.integrated.shell.linux": "/bin/bash",
+		"terminal.integrated.shellArgs.linux": [ "-l" ],
 	},
 
 	"extensions": [
