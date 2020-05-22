@@ -1,10 +1,10 @@
-HUGO_VERSION=$(shell cat Dockerfile-base | grep VERSION | head -1 | cut -d = -f 2)
+HUGO_VERSION=$(shell cat src/Dockerfile-base | grep VERSION | head -1 | cut -d = -f 2)
 
 build-docker:
-	@bash hooks/local
+	@cd src && bash hooks/local
 
 build-docker-debug:
-	@DEBUG=true bash hooks/local
+	@cd src && DEBUG=true bash hooks/local
 
 build-templates:
 	@rm -rf target/templates
