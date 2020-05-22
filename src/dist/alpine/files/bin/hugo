@@ -46,11 +46,15 @@ case "$1" in
         ;;
 
     "serve")
-        exec hugo-official $@ --bind=$HUGO_BIND
+        opts="$opts --bind=${HUGO_BIND}"
+
+        exec hugo-official $@ $opts
         ;;
 
     "server")
-        exec hugo-official $@ --bind=$HUGO_BIND
+        opts="$opts --bind=${HUGO_BIND}"
+
+        exec hugo-official $@ $opts
         ;;
 
     "undraft")
