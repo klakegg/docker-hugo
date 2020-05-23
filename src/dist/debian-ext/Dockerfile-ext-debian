@@ -1,0 +1,47 @@
+FROM klakegg/hugo:base AS base
+
+FROM klakegg/hugo:base-golang as golang
+
+FROM klakegg/hugo:base-pandoc AS pandoc
+
+
+
+FROM scratch as image
+
+COPY --from=base /hugo-extended /
+COPY --from=pandoc /bin/pandoc-default /bin/pandoc-default
+
+
+
+FROM klakegg/hugo:base-debian
+
+ENV HUGO_EDITION="extended" \
+    HUGO_CACHEDIR="/tmp" \
+    NODE_PATH=".:/usr/lib/node_modules" \
+    HUGO_PANDOC="pandoc-default"\
+    GOROOT="/usr/local/lib/go"
+
+COPY --from=image / /
+
+# Install software
+RUN apt update \
+ && DEBIAN_FRONTEND=noninteractive apt install -y curl git gnupg apt-transport-https lsb-release \
+ #
+ # Install NodeJS and tooling
+ && curl -sL https://deb.nodesource.com/setup_12.x | bash - \
+ && apt install -y nodejs \
+ && npm install -g autoprefixer postcss-cli yarn@1.22.4 @babel/cli @babel/core \
+ #
+ # Install Asciidoctor
+ && DEBIAN_FRONTEND=noninteractive apt install -y ruby \
+ && gem install asciidoctor coderay --no-document \
+ #
+ # Cleaning up
+ && apt remove -y curl gnupg apt-transport-https lsb-release \
+ && apt autoremove -y \
+ && rm -rf /var/lib/apt/lists/* \
+ && find /tmp -mindepth 1 -maxdepth 1 | xargs rm -rf \
+ && mkdir -p /src /target \
+ && chmod a+w /src /target
+
+COPY --from=golang / /

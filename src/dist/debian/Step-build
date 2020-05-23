@@ -11,24 +11,3 @@ build "debian" - \
 template onbuild debian-onbuild debian
 build "debian-onbuild" - \
   "[version]-debian-onbuild"
-
-# Debian + Hugo extended
-build "ext-debian" - \
-  "ext" \
-  "latest-ext" \
-  "[version]-ext" \
-  "[version]-ext-debian"
-
-# Debian + Hugo extended + Onbuild
-template onbuild ext-debian-onbuild ext-debian
-build "ext-debian-onbuild" - \
-  "[version]-ext-debian-onbuild" \
-  "[version]-ext-onbuild" \
-  "ext-onbuild"
-
-# Debian + Hugo extended + Devcontainer
-build "ext-debian-devcontainer" - \
-  "[version]-ext-debian-devcontainer" \
-  "[version]-ext-devcontainer" \
-  "ext-devcontainer" \
-  "devcontainer"

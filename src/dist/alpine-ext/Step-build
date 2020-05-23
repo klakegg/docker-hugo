@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Alpine + Hugo extended
+build "ext-alpine" - \
+  "[version]-ext-alpine" \
+  "ext-nodejs" \
+  "[version]-ext-nodejs"
+
+# Alpine + Hugo extended + Onbuild
+template onbuild ext-alpine-onbuild ext-alpine
+build "ext-alpine-onbuild" - \
+  "[version]-ext-alpine-onbuild"
+
+# Alpine + Hugo extended + Asciidoctor
+build "ext-asciidoctor" - \
+  "[version]-ext-asciidoctor"
+
+# Alpine + Hugo extended + Asciidoctor + Onbuild
+template onbuild ext-asciidoctor-onbuild ext-asciidoctor
+build "ext-asciidoctor-onbuild" - \
+  "[version]-ext-asciidoctor-onbuild"
+
+# Alpine + Hugo extended + Pandoc
+build "ext-pandoc" - \
+  "[version]-ext-pandoc"
+
+# Alpine + Hugo extended + Pandoc + Onbuild
+template onbuild ext-pandoc-onbuild ext-pandoc
+build "ext-pandoc-onbuild" - \
+  "[version]-ext-pandoc-onbuild"

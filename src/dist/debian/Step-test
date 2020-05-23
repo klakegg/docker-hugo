@@ -1,5 +1,3 @@
 #!/bin/bash
 
 test "debian" "" "version" "Hugo"
-
-test "ext-debian" "" "version" "Hugo"

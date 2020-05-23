@@ -2,10 +2,6 @@
 
 test "alpine" "" "version" "Hugo"
 
-test "ext-alpine" "" "version" "Hugo"
-
-test "ext-alpine" "--entrypoint node" "--version"
-
 test "asciidoctor" "--entrypoint asciidoctor" "--version" "Asciidoctor 2"
 
 test "pandoc" "--entrypoint pandoc-default" "--version" "Compiled with pandoc"

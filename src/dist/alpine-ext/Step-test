@@ -1,0 +1,9 @@
+#!/bin/bash
+
+test "ext-alpine" "" "version" "Hugo"
+
+test "ext-alpine" "--entrypoint node" "--version"
+
+test "ext-asciidoctor" "--entrypoint asciidoctor" "--version" "Asciidoctor 2"
+
+test "ext-pandoc" "--entrypoint pandoc-default" "--version" "Compiled with pandoc"

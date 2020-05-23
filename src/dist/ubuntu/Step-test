@@ -2,4 +2,3 @@
 
 test "ubuntu" "" "version" "Hugo"
 
-test "ext-ubuntu" "" "version" "Hugo"
