@@ -5,11 +5,6 @@
 DPWD=$(pwd)
 PART="sys"
 
-# Make sure only tagged commits triggers logic in hooks files.
-if [ "$SOURCE_BRANCH" = "master" ]; then
-    exit
-fi
-
 # tag [intial tag] [extra tag]
 function tag {
   # Perform tagging
@@ -49,9 +44,9 @@ function build_only {
   # Perform build
   echos "Build: $1 (Dockerfile-$name)"
   if [ "$DEBUG" = "true" ]; then
-    docker build -t $DOCKER_REPO:$1 -f Dockerfile-$name .
+    docker build -t $DOCKER_REPO:$1 -f Dockerfile-$name ${DPWD}
   else
-    docker build -t $DOCKER_REPO:$1 -f Dockerfile-$name . > /dev/null
+    docker build -t $DOCKER_REPO:$1 -f Dockerfile-$name ${DPWD} > /dev/null
   fi
 }
 
@@ -121,6 +116,17 @@ function echos {
   echo "[$PART] $@"
 }
 
+
+# Make sure only tagged commits triggers logic in hooks files.
+# Building an Alpine image for verification.
+if [ "$SOURCE_BRANCH" = "master" ]; then
+  docker build -f lib/base/Dockerfile-base -t $DOCKER_REPO:base ${DPWD}
+  docker build -f lib/base/Dockerfile-base-certs -t $DOCKER_REPO:base-certs ${DPWD}
+  docker build -f dist/alpine/Dockerfile-alpine -t $IMAGE_NAME ${DPWD}
+  exit
+fi
+
+
 # Listing some useful commands
 echos "CI: $CI"
 echos "DOCKER_REPO: $DOCKER_REPO"
@@ -128,7 +134,7 @@ echos "SOURCE_BRANCH: $SOURCE_BRANCH"
 echo
 
 # Build base images if found
-if [ -e lib/base ]; then trigger "lib/base"; fi
+if [ -e $DPWD/lib/base ]; then trigger "lib/base"; fi
 
 # Build distributions provided
 for dist in ${DISTS:-$(ls $DPWD/dist)}; do

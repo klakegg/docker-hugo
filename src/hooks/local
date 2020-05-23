@@ -1,21 +1,17 @@
 #!/bin/bash
 
-# This is the file triggered by Travis.
+# This is the file triggered locally in a CI environment or for local testing.
 
 set -e
 
 # Setting variables for build
 export DOCKER_REPO="klakegg/hugo"
-export SOURCE_BRANCH=$(cat Dockerfile-base | grep VERSION | head -1 | cut -d = -f 2)
+export SOURCE_BRANCH=$(cat lib/base/Dockerfile-base | grep VERSION | head -1 | cut -d = -f 2)
 export CI="true"
 export DEBUG="${DEBUG:-false}"
 
-# Build initial image as done by Docker Hub
-docker build -t $DOCKER_REPO:base -f Dockerfile-base .
-echo
-
 # Trigger code for Docker Hub
-source hooks/post_push
+source hooks/build
 
 # List images
 docker images $DOCKER_REPO

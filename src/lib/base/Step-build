@@ -2,7 +2,9 @@
 
 # Base images built before dist images.
 
-tag "base" "[version]-base"
+# Base
+build "base" - \
+  "[version]-base"
 
 build_only "base-certs" ""
 build_only "base-pandoc" ""
