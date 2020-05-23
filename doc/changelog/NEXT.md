@@ -10,7 +10,7 @@
 
 ## :bug: Fixes
 
-*Nothing*
+* Adding `--noTimes` to command when container is running in unpriviledged mode. [#24](https://github.com/klakegg/docker-hugo/issues/24)
 
 
 ## :heartbeat: Updates

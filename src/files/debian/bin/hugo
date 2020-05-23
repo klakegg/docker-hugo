@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# This script wraps the Hugo executable to add arguments for some of the commands.
+
 # Load environment configuration
 . /etc/profile.d/hugo.sh
 

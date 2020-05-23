@@ -243,7 +243,7 @@ In docker-compose using `entrypoint`:
 | Hugo     | 0.71.0  |
 | Go       | 1.14.3  |
 | NodeJS   | 12.16.3 |
-| Pandoc   | 2.9.2   |
+| Pandoc   | 2.9.2.1 |
 | Yarn     | 1.22.4  |
 
 
