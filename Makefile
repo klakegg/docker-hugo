@@ -1,4 +1,4 @@
-HUGO_VERSION=$(shell cat src/Dockerfile-base | grep VERSION | head -1 | cut -d = -f 2)
+HUGO_VERSION=$(shell cat src/lib/base/Dockerfile-base | grep VERSION | head -1 | cut -d = -f 2)
 
 build-docker:
 	@cd src && bash hooks/local

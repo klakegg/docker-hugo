@@ -6,8 +6,9 @@ FROM klakegg/hugo:base-certs as certs
 
 FROM scratch as image
 
-COPY --from=base /hugo-standard /alpine /
-COPY --from=certs /files /
+COPY --from=base /alpine /
+COPY --from=base /hugo-standard /
+COPY --from=certs / /
 
 
 

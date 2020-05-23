@@ -16,7 +16,7 @@ RUN apt update \
  && mkdir -p /src /target \
  && chmod a+w /src /target
 
-COPY --from=base /hugo-extended /debian /
+COPY --from=base /debian /
 
 EXPOSE 1313
 

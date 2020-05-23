@@ -11,4 +11,4 @@ RUN tar -xJf "node.tar.gz" -C /node --strip-components=1 --no-same-owner
 
 FROM scratch
 
-COPY --from=fetch /node /files
+COPY --from=fetch /node /

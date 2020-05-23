@@ -12,11 +12,12 @@ FROM klakegg/hugo:base-golang as golang
 
 FROM scratch as image
 
-COPY --from=base /hugo-extended /alpine /
-COPY --from=certs /files /
-COPY --from=ubuntu /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25 /usr/lib/libstdc++.so.6
-COPY --from=node /files /
+COPY --from=base /alpine /
+COPY --from=base /hugo-extended /
+COPY --from=certs / /
+COPY --from=node / /
 COPY --from=golang / /
+COPY --from=ubuntu /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25 /usr/lib/libstdc++.so.6
 
 
 

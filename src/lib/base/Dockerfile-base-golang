@@ -9,6 +9,7 @@ RUN mkdir -p /files/usr/local/lib /files/usr/local/bin \
  && ln -s /usr/local/lib/go/bin/go /files/usr/local/bin/go
 
 
-FROM scratch AS base
+
+FROM scratch
 
 COPY --from=source /files /
