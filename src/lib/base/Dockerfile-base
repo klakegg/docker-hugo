@@ -1,6 +1,6 @@
 FROM busybox:1.31 AS fetch
 
-ARG VERSION=0.71.0
+ARG VERSION=0.71.1
 
 # Download binaries from release
 ADD https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_${VERSION}_Linux-64bit.tar.gz /
