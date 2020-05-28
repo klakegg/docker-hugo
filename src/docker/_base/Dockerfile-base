@@ -38,7 +38,7 @@ RUN echo -n "$VERSION" > /hugo-standard/etc/hugo-release \
 FROM busybox:1.31 AS files
 
 # Copy content of files folder to populate base image
-ADD files /files
+ADD . /files
 
 # Copy Hugo files
 COPY --from=fetch /hugo-standard /files/hugo-standard

@@ -9,7 +9,7 @@ PART="sys"
 function tag {
   # Perform tagging
   echos "Tag:   $1 => $(real $2)"
-  docker tag $DOCKER_REPO:$1 $DOCKER_REPO:$(real $2)
+  _docker tag $DOCKER_REPO:$1 $DOCKER_REPO:$(real $2)
 
   # Push tag
   push $2
@@ -43,11 +43,7 @@ function build_only {
 
   # Perform build
   echos "Build: $1 (Dockerfile-$name)"
-  if [ "$DEBUG" = "true" ]; then
-    docker build -t $DOCKER_REPO:$1 -f Dockerfile-$name ${DPWD}
-  else
-    docker build -t $DOCKER_REPO:$1 -f Dockerfile-$name ${DPWD} > /dev/null
-  fi
+  _docker build -t $DOCKER_REPO:$1 -f Dockerfile-$name ${DPWD}/files
 }
 
 # push [tag]
@@ -58,10 +54,10 @@ function push {
   if [ "$CI" != "true" ]; then
     # Acually push when not in a CI environment.
     echos "       Push: $img"
-    docker push $img > /dev/null
+    _docker push $img
   else
     # Simple logging in CI environment with debug enabled.
-    if [ "$DEBUG" = "true" ]; then
+    if [ "${DEBUG:-false}" = "true" ]; then
       echos "       Push: $img (skipped)"
     fi
   fi
@@ -74,7 +70,7 @@ function real {
 
 # template [tp] [target] [from]
 function template {
-  cat $DPWD/lib/template/Dockerfile-$1 \
+  cat $DPWD/docker/_template/Dockerfile-$1 \
   | sed -e "s|\[from\]|${DOCKER_REPO}:${3}|g" \
   > Dockerfile-gen-$2
 }
@@ -82,7 +78,7 @@ function template {
 # trigger [dir]
 function trigger {
   # Go to folder
-  cd $DPWD/$1
+  cd $DPWD/docker/$1
 
   if [ ! -e ".skip" ]; then
     # Trigger steps
@@ -99,16 +95,19 @@ function trigger {
 
 function test {
   echos "TEST: $@"
-  result=$(docker run --rm $2 $DOCKER_REPO:$1 $3)
-  count=$(echo $result | grep "$4" | wc -l)
 
-  if [ "$count" = "0" ]; then
-    echos "> FAILED: Expected \"$4\", received:"
-    echos $result
+  if [ "${DOCKER_DEBUG:-false}" = "false" ]; then
+    result=$(_docker run --rm $2 $DOCKER_REPO:$1 $3)
+    count=$(echo $result | grep "$4" | wc -l)
 
-    exit 1
-  else
-    echos "> SUCCESS"
+    if [ "$count" = "0" ]; then
+      echos "> FAILED: Expected \"$4\", received:"
+      echos $result
+
+      exit 1
+    else
+      echos "> SUCCESS"
+    fi
   fi
 }
 
@@ -120,9 +119,9 @@ function echos {
 # Make sure only tagged commits triggers logic in hooks files.
 # Building an Alpine image for verification.
 if [ "$SOURCE_BRANCH" = "master" ]; then
-  docker build -f lib/base/Dockerfile-base -t $DOCKER_REPO:base ${DPWD}
-  docker build -f lib/base/Dockerfile-base-certs -t $DOCKER_REPO:base-certs ${DPWD}
-  docker build -f dist/alpine/Dockerfile-alpine -t $IMAGE_NAME ${DPWD}
+  _docker build -f docker/_base/Dockerfile-base -t $DOCKER_REPO:base ${DPWD}
+  _docker build -f docker/_base/Dockerfile-base-certs -t $DOCKER_REPO:base-certs ${DPWD}
+  _docker build -f docker/alpine/Dockerfile-alpine -t $IMAGE_NAME ${DPWD}
   exit
 fi
 
@@ -133,10 +132,7 @@ echos "DOCKER_REPO: $DOCKER_REPO"
 echos "SOURCE_BRANCH: $SOURCE_BRANCH"
 echo
 
-# Build base images if found
-if [ -e $DPWD/lib/base ]; then trigger "lib/base"; fi
-
 # Build distributions provided
-for dist in ${DISTS:-$(ls $DPWD/dist)}; do
-  trigger "dist/$dist"
+for dist in ${DISTS:-$(ls $DPWD/docker | grep ^_) $(ls $DPWD/docker | grep ^[^_])}; do
+  trigger $dist
 done

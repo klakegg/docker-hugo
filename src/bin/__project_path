@@ -1,0 +1,3 @@
+#!/bin/sh
+
+echo -n $(dirname $(dirname $(realpath $0)))

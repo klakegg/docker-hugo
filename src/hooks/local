@@ -6,7 +6,7 @@ set -e
 
 # Setting variables for build
 export DOCKER_REPO="klakegg/hugo"
-export SOURCE_BRANCH=$(cat lib/base/Dockerfile-base | grep VERSION | head -1 | cut -d = -f 2)
+export SOURCE_BRANCH=$(__version)
 export CI="true"
 export DEBUG="${DEBUG:-false}"
 
@@ -14,5 +14,5 @@ export DEBUG="${DEBUG:-false}"
 source hooks/build
 
 # List images
-docker images $DOCKER_REPO
+_docker images $DOCKER_REPO
 echo

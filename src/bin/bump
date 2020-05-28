@@ -1,0 +1,61 @@
+#!/bin/sh
+
+if [ ! $RELEASE ]; then
+    echo "Variabel $RELEASE is not set."
+    exit 1
+fi
+
+PROJECT=$(__project_path)
+REPO=$(__repo_path)
+
+CURRENT=$(__version)
+NEXT=$RELEASE
+
+echo "$CURRENT => $NEXT"
+
+# Update main Dockerfile
+sed -i "s:$CURRENT:$NEXT:" $PROJECT/lib/base/Dockerfile-base
+
+# Update README.md
+{
+    while IFS= read -r line
+    do
+    echo "$line"
+
+    if [ "$(echo $line | grep "^<!--" | wc -l)" = "1" ]; then
+        echo "$line" \
+        | sed "s:<!\-\-\s*::" \
+        | sed "s:\s*\-\->::" \
+        | sed "s:NEXT:${NEXT}:g"
+    fi
+    done < "$REPO/README.md"
+} > $REPO/README.md.tmp
+mv $REPO/README.md.tmp $REPO/README.md
+
+sed -i "s:\:$CURRENT:\:$NEXT:" $REPO/README.md
+
+# Update tags.md
+{
+    while IFS= read -r line
+    do
+    echo "$line"
+
+    if [ "$(echo $line | grep "^<!--" | wc -l)" = "1" ]; then
+        echo "$line" \
+        | sed "s:<!\-\-\s*::" \
+        | sed "s:\s*\-\->::" \
+        | sed "s:NEXT:${NEXT}:g"
+    fi
+    done < "$REPO/doc/tags.md"
+} > $REPO/doc/tags.md.tmp
+mv $REPO/doc/tags.md.tmp $REPO/doc/tags.md
+
+# Update changelog
+cat $REPO/doc/changelog/NEXT.md \
+  | sed "s:NEXT:$NEXT:g" \
+  > $REPO/doc/changelog/$NEXT.md
+
+# Create next changelog
+cat $REPO/doc/template/changelog.md \
+  | sed "s:CURRENT:$NEXT:g" \
+  > $REPO/doc/changelog/NEXT.md

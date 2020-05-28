@@ -2,8 +2,9 @@
 
 *Nothing*
 
-**0.75.0 or later**:
-* Tag aliases `ext-nodejs` and `[version]-ext-nodejs` is not longer created as they as simply aliases pointing to `ext-alpine` and `[version]-ext-alpine`.
+<!-- 0.75.0 or later:
+* Tag aliases `ext-nodejs` and `[version]-ext-nodejs` is not longer created as they as simply aliases pointing to `ext-alpine` and `[ver sion]-ext-alpine`.
+-->
 
 
 ## :tada: Features

@@ -1,0 +1,15 @@
+#!/bin/sh
+
+set -e
+
+if [ "${DOCKER_DEBUG:-false}" = "true" ]; then
+    echo docker $@
+else
+    if [ "${DEBUG:-false}" = "true" ]; then
+        exec docker $@
+    elif [ $1 = "build" ] || [ $1 = "tag" ] || [ $1 = "push" ]; then
+        exec docker $@ > /dev/null
+    else
+        exec docker $@
+    fi
+fi
