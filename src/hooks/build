@@ -4,6 +4,7 @@
 
 DPWD=$(pwd)
 PART="sys"
+PATH="$(dirname $(dirname $(realpath $0)))/bin:$PATH"
 
 # tag [intial tag] [extra tag]
 function tag {
