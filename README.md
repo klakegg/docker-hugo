@@ -252,8 +252,8 @@ In docker-compose using `entrypoint`:
 
 | Software | Version |
 | -------- | ------- |
-| Go       | 1.14.3  |
-| NodeJS   | 12.16.3 |
+| Go       | 1.14.4  |
+| NodeJS   | 12.18.0 |
 | Pandoc   | 2.9.2.1 |
 | Yarn     | 1.22.4  |
 

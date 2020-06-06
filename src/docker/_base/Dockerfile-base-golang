@@ -1,6 +1,6 @@
 FROM alpine:3.11 AS source
 
-ARG GOLANG_VERSION=1.14.3
+ARG GOLANG_VERSION=1.14.4
 
 ADD https://dl.google.com/go/go${GOLANG_VERSION}.linux-amd64.tar.gz /go.tar.gz
 
