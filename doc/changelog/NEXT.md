@@ -19,9 +19,7 @@
 
 ## :heartbeat: Updates
 
-* Hugo: `0.72.0` => `NEXT`
-* Go: `1.14.3` => `1.14.3`
-* NodeJS: `12.16.3` => `12.18.0`
+* Hugo: `0.73.0` => `NEXT`
 
 
 ## Docker images

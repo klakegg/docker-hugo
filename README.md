@@ -13,44 +13,38 @@ These images sets `destination` during build and `bind` when started as server, 
 Default minimal image based upon [Busybox](https://hub.docker.com/r/_/busybox/):
 * Aliases: `latest`, `busybox`, `busybox-onbuild`, `onbuild`
 <!-- * Hugo NEXT: `NEXT-busybox`, `NEXT`, `NEXT-busybox-onbuild`, `NEXT-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/NEXT/dist/busybox/Dockerfile-busybox)) -->
+* Hugo 0.73.0: `0.73.0-busybox`, `0.73.0`, `0.73.0-busybox-onbuild`, `0.73.0-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.73.0/dist/busybox/Dockerfile-busybox))
 * Hugo 0.72.0: `0.72.0-busybox`, `0.72.0`, `0.72.0-busybox-onbuild`, `0.72.0-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.72.0/dist/busybox/Dockerfile-busybox))
-* Hugo 0.71.1: `0.71.1-busybox`, `0.71.1`, `0.71.1-busybox-onbuild`, `0.71.1-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.71.1/dist/busybox/Dockerfile-busybox))
-* Hugo 0.71.0: `0.71.0-busybox`, `0.71.0`, `0.71.0-busybox-onbuild`, `0.71.0-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.71.0/dist/busybox/Dockerfile-busybox))
 
 Minimal image based upon [Alpine](https://hub.docker.com/r/_/alpine/):
 * Aliases: `alpine`, `alpine-onbuild`, `ext-alpine`, `ext-alpine-onbuild`, `ext-nodejs`
 <!-- * Hugo NEXT: `NEXT-alpine`, `NEXT-alpine-onbuild`, `NEXT-ext-alpine`, `NEXT-ext-alpine-onbuild`, `NEXT-ext-nodejs` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/NEXT/dist/alpine/Dockerfile-alpine)) -->
+* Hugo 0.73.0: `0.73.0-alpine`, `0.73.0-alpine-onbuild`, `0.73.0-ext-alpine`, `0.73.0-ext-alpine-onbuild`, `0.73.0-ext-nodejs` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.73.0/dist/alpine/Dockerfile-alpine))
 * Hugo 0.72.0: `0.72.0-alpine`, `0.72.0-alpine-onbuild`, `0.72.0-ext-alpine`, `0.72.0-ext-alpine-onbuild`, `0.72.0-ext-nodejs` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.72.0/dist/alpine/Dockerfile-alpine))
-* Hugo 0.71.1: `0.71.1-alpine`, `0.71.1-alpine-onbuild`, `0.71.1-ext-alpine`, `0.71.1-ext-alpine-onbuild`, `0.71.1-ext-nodejs` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.71.1/dist/alpine/Dockerfile-alpine))
-* Hugo 0.71.0: `0.71.0-alpine`, `0.71.0-alpine-onbuild`, `0.71.0-ext-alpine`, `0.71.0-ext-alpine-onbuild`, `0.71.0-ext-nodejs` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.71.0/dist/alpine/Dockerfile-alpine))
 
 Minimal image based upon [Alpine](https://hub.docker.com/r/_/alpine/) with [Asciidoctor](http://asciidoctor.org/) installed:
 * Aliases: `asciidoctor`, `asciidoctor-onbuild`, `ext-asciidoctor`, `ext-asciidoctor-onbuild`
 <!-- * Hugo NEXT: `NEXT-asciidoctor`, `NEXT-asciidoctor-onbuild`, `NEXT-ext-asciidoctor`, `NEXT-ext-asciidoctor-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/NEXT/dist/alpine/Dockerfile-asciidoctor)) -->
+* Hugo 0.73.0: `0.73.0-asciidoctor`, `0.73.0-asciidoctor-onbuild`, `0.73.0-ext-asciidoctor`, `0.73.0-ext-asciidoctor-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.73.0/dist/alpine/Dockerfile-asciidoctor))
 * Hugo 0.72.0: `0.72.0-asciidoctor`, `0.72.0-asciidoctor-onbuild`, `0.72.0-ext-asciidoctor`, `0.72.0-ext-asciidoctor-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.72.0/dist/alpine/Dockerfile-asciidoctor))
-* Hugo 0.71.1: `0.71.1-asciidoctor`, `0.71.1-asciidoctor-onbuild`, `0.71.1-ext-asciidoctor`, `0.71.1-ext-asciidoctor-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.71.1/dist/alpine/Dockerfile-asciidoctor))
-* Hugo 0.71.0: `0.71.0-asciidoctor`, `0.71.0-asciidoctor-onbuild`, `0.71.0-ext-asciidoctor`, `0.71.0-ext-asciidoctor-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.71.0/dist/alpine/Dockerfile-asciidoctor))
 
 Minimal image based upon [Alpine](https://hub.docker.com/r/_/alpine/) with [Pandoc](https://pandoc.org/) installed:
 * Aliases: `pandoc`, `pandoc-onbuild`, `ext-pandoc`, `ext-pandoc-onbuild`
 <!-- * Hugo NEXT: `NEXT-pandoc`, `NEXT-pandoc-onbuild`, `NEXT-ext-pandoc`, `NEXT-ext-pandoc-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/NEXT/dist/alpine/Dockerfile-pandoc)) -->
+* Hugo 0.73.0: `0.73.0-pandoc`, `0.73.0-pandoc-onbuild`, `0.73.0-ext-pandoc`, `0.73.0-ext-pandoc-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.73.0/dist/alpine/Dockerfile-pandoc))
 * Hugo 0.72.0: `0.72.0-pandoc`, `0.72.0-pandoc-onbuild`, `0.72.0-ext-pandoc`, `0.72.0-ext-pandoc-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.72.0/dist/alpine/Dockerfile-pandoc))
-* Hugo 0.71.1: `0.71.1-pandoc`, `0.71.1-pandoc-onbuild`, `0.71.1-ext-pandoc`, `0.71.1-ext-pandoc-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.71.1/dist/alpine/Dockerfile-pandoc))
-* Hugo 0.71.0: `0.71.0-pandoc`, `0.71.0-pandoc-onbuild`, `0.71.0-ext-pandoc`, `0.71.0-ext-pandoc-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.71.0/dist/alpine/Dockerfile-pandoc))
 
 Image based upon [Debian](https://hub.docker.com/r/_/debian/):
 * Aliases: `debian`, `debian-onbuild`, `ext`, `latest-ext`, `ext-debian`, `ext-debian-onbuild`, `ext-onbuild`
 <!-- * Hugo NEXT: `NEXT-debian`, `NEXT-debian-onbuild`, `NEXT-ext`, `NEXT-ext-debian`, `NEXT-ext-debian-onbuild`, `NEXT-ext-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/NEXT/dist/debian/Dockerfile-debian)) -->
+* Hugo 0.73.0: `0.73.0-debian`, `0.73.0-debian-onbuild`, `0.73.0-ext`, `0.73.0-ext-debian`, `0.73.0-ext-debian-onbuild`, `0.73.0-ext-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.73.0/dist/debian/Dockerfile-debian))
 * Hugo 0.72.0: `0.72.0-debian`, `0.72.0-debian-onbuild`, `0.72.0-ext`, `0.72.0-ext-debian`, `0.72.0-ext-debian-onbuild`, `0.72.0-ext-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.72.0/dist/debian/Dockerfile-debian))
-* Hugo 0.71.1: `0.71.1-debian`, `0.71.1-debian-onbuild`, `0.71.1-ext`, `0.71.1-ext-debian`, `0.71.1-ext-debian-onbuild`, `0.71.1-ext-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.71.1/dist/debian/Dockerfile-debian))
-* Hugo 0.71.0: `0.71.0-debian`, `0.71.0-debian-onbuild`, `0.71.0-ext`, `0.71.0-ext-debian`, `0.71.0-ext-debian-onbuild`, `0.71.0-ext-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.71.0/dist/debian/Dockerfile-debian))
 
 Image based upon [Ubuntu](https://hub.docker.com/r/_/ubuntu/):
 * Aliases: `ubuntu`, `ubuntu-onbuild`, `ext-ubuntu`, `ext-ubuntu-onbuild`
 <!-- * Hugo NEXT: `NEXT-ubuntu`, `NEXT-ubuntu-onbuild`, `NEXT-ext-ubuntu`, `NEXT-ext-ubuntu-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/NEXT/dist/ubuntu/Dockerfile-ubuntu)) -->
+* Hugo 0.73.0: `0.73.0-ubuntu`, `0.73.0-ubuntu-onbuild`, `0.73.0-ext-ubuntu`, `0.73.0-ext-ubuntu-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.73.0/dist/ubuntu/Dockerfile-ubuntu))
 * Hugo 0.72.0: `0.72.0-ubuntu`, `0.72.0-ubuntu-onbuild`, `0.72.0-ext-ubuntu`, `0.72.0-ext-ubuntu-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.72.0/dist/ubuntu/Dockerfile-ubuntu))
-* Hugo 0.71.1: `0.71.1-ubuntu`, `0.71.1-ubuntu-onbuild`, `0.71.1-ext-ubuntu`, `0.71.1-ext-ubuntu-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.71.1/dist/ubuntu/Dockerfile-ubuntu))
-* Hugo 0.71.0: `0.71.0-ubuntu`, `0.71.0-ubuntu-onbuild`, `0.71.0-ext-ubuntu`, `0.71.0-ext-ubuntu-onbuild` ([Dockerfile](https://github.com/klakegg/docker-hugo/blob/0.71.0/dist/ubuntu/Dockerfile-ubuntu))
 
 *Looking for older tags? Please see the [complete list of tags](https://github.com/klakegg/docker-hugo/blob/master/doc/tags.md).*
 
@@ -68,7 +62,7 @@ Normal build:
 ```shell
 docker run --rm -it \
   -v $(pwd):/src \
-  klakegg/hugo:0.72.0
+  klakegg/hugo:0.73.0
 ```
 
 Run server:
@@ -77,7 +71,7 @@ Run server:
 docker run --rm -it \
   -v $(pwd):/src \
   -p 1313:1313 \
-  klakegg/hugo:0.72.0 \
+  klakegg/hugo:0.73.0 \
   server
 ```
 
@@ -88,7 +82,7 @@ Normal build:
 
 ```yaml
   build:
-    image: klakegg/hugo:0.72.0
+    image: klakegg/hugo:0.73.0
     volumes:
       - ".:/src"
 ```
@@ -97,7 +91,7 @@ Run server:
 
 ```yaml
   server:
-    image: klakegg/hugo:0.72.0
+    image: klakegg/hugo:0.73.0
     command: server
     volumes:
       - ".:/src"
@@ -144,7 +138,7 @@ services:
 script:
 - docker run --rm -i \
     -v $(pwd):/src \
-    klakegg/hugo:0.72.0
+    klakegg/hugo:0.73.0
 ```
 
 The `bash` environment is used for faster loading before Travis is ready to trigger Docker.
@@ -160,7 +154,7 @@ To get into a shell for your site:
 ```shell
 docker run --rm -it \
   -v $(pwd):/src \
-  klakegg/hugo:0.72.0-alpine \
+  klakegg/hugo:0.73.0-alpine \
   shell
 ```
 
@@ -192,7 +186,7 @@ The onbuild images adds content of the folder of your Dockerfile into `/src` and
 Example Dockerfile for your project where the site is made into an nginx image (Docker 17.05-ce or newer):
 
 ```Dockerfile
-FROM klakegg/hugo:0.72.0-onbuild AS hugo
+FROM klakegg/hugo:0.73.0-onbuild AS hugo
 
 FROM nginx
 COPY --from=hugo /target /usr/share/nginx/html
@@ -218,7 +212,7 @@ Example of explicit setting `pandoc` alias:
 docker run --rm -it \
   -v $(pwd):/src \
   -e HUGO_PANDOC="pandoc-default --strip-empty-paragraphs" \
-  klakegg/hugo:0.72.0-pandoc
+  klakegg/hugo:0.73.0-pandoc
 ```
 
 
@@ -234,14 +228,14 @@ On command line using `--entrypoint`:
 docker run --rm -it \
   -v $(pwd):/src \
   --entrypoint hugo-official \
-  klakegg/hugo:0.72.0
+  klakegg/hugo:0.73.0
 ```
 
 In docker-compose using `entrypoint`:
 
 ```yaml
   build:
-    image: klakegg/hugo:0.72.0
+    image: klakegg/hugo:0.73.0
     entrypoint: hugo-official
     volumes:
       - ".:/src"
