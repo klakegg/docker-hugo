@@ -12,7 +12,7 @@ else
     elif [ $1 = "build" ] || [ $1 = "tag" ] || [ $1 = "push" ]; then
         exec docker $@ > /dev/null
     elif [ $1 = "buildx" ] && [ $2 = "build" ]; then
-        exec docker $@ > /dev/null
+        exec docker $@ > /dev/null 2> /dev/null
     else
         exec docker $@
     fi
