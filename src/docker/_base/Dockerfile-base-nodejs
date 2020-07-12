@@ -1,11 +1,7 @@
-FROM busybox:1.30 AS fetch
+FROM alpine:3.11 AS fetch
 
-ARG NODE_VERSION=12.18.0
-ARG ARCH=x64
-
-ADD https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-${ARCH}.tar.xz /node.tar.gz
-RUN mkdir /node
-RUN tar -xJf "node.tar.gz" -C /node --strip-components=1 --no-same-owner
+ADD _script/nodejs.sh nodejs.sh
+RUN sh nodejs.sh
 
 
 

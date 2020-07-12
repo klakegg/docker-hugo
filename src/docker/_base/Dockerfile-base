@@ -1,37 +1,9 @@
-FROM busybox:1.31 AS fetch
+FROM alpine:3.11 AS fetch
 
 ARG VERSION=0.73.0
 
-# Download binaries from release
-ADD https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_${VERSION}_Linux-64bit.tar.gz /
-ADD https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_extended_${VERSION}_Linux-64bit.tar.gz /
-ADD https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_${VERSION}_checksums.txt /
-
-# Verify checksums
-RUN grep Linux-64bit.tar.gz hugo_${VERSION}_checksums.txt | sha256sum -c
-
-# Prepare folders
-RUN mkdir -p /hugo-standard/usr/lib/hugo \
- && mkdir -p /hugo-extended/usr/lib/hugo
-
-# Unpack downloaded content
-RUN tar -zxf hugo_${VERSION}_Linux-64bit.tar.gz -C /hugo-standard/usr/lib/hugo \
- && tar -zxf hugo_extended_${VERSION}_Linux-64bit.tar.gz -C /hugo-extended/usr/lib/hugo
-
-# Verify executable
-RUN ["/hugo-standard/usr/lib/hugo/hugo", "version"]
-
-# Create autocompletion script
-RUN mkdir /etc/bash_completion.d  \
- && /hugo-standard/usr/lib/hugo/hugo gen autocomplete > /dev/null \
- && mkdir -p /hugo-standard/etc/bash_completion.d \
- && mkdir -p /hugo-extended/etc/bash_completion.d \
- && cp /etc/bash_completion.d/hugo.sh /hugo-standard/etc/bash_completion.d/hugo.sh \
- && cp /etc/bash_completion.d/hugo.sh /hugo-extended/etc/bash_completion.d/hugo.sh
-
-# Create version file
-RUN echo -n "$VERSION" > /hugo-standard/etc/hugo-release \
- && echo -n "$VERSION" > /hugo-extended/etc/hugo-release
+ADD _script/hugo.sh hugo.sh
+RUN sh hugo.sh
 
 
 
@@ -45,6 +17,7 @@ COPY --from=fetch /hugo-standard /files/hugo-standard
 COPY --from=fetch /hugo-extended /files/hugo-extended
 
 RUN chmod a+x /files/*/bin/* \
+ && rm -rf /files/_script \
  && find /files | sed s:^/files::g | sort
 
 

@@ -1,12 +1,7 @@
-FROM busybox:1.30 AS fetch
+FROM alpine:3.11 AS fetch
 
-ARG PANDOC_VERSION=2.9.2.1
-
-ADD https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-linux-amd64.tar.gz /pandoc.tar.gz
-RUN tar -zxvf pandoc.tar.gz
-RUN mv /pandoc-${PANDOC_VERSION}/bin/pandoc /pandoc
-RUN mv /pandoc-${PANDOC_VERSION}/bin/pandoc-citeproc /pandoc-citeproc
-RUN ["/pandoc", "-v"]
+ADD _script/pandoc.sh pandoc.sh
+RUN sh pandoc.sh
 
 
 

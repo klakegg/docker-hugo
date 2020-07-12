@@ -1,12 +1,7 @@
 FROM alpine:3.11 AS source
 
-ARG GOLANG_VERSION=1.14.4
-
-ADD https://dl.google.com/go/go${GOLANG_VERSION}.linux-amd64.tar.gz /go.tar.gz
-
-RUN mkdir -p /files/usr/local/lib /files/usr/local/bin \
- && tar -xf /go.tar.gz -C /files/usr/local/lib \
- && ln -s /usr/local/lib/go/bin/go /files/usr/local/bin/go
+ADD _script/golang.sh golang.sh
+RUN sh golang.sh
 
 
 

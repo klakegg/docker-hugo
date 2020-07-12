@@ -2,10 +2,6 @@
 
 *Nothing*
 
-<!-- 0.75.0 or later:
-* Tag aliases `ext-nodejs` and `[version]-ext-nodejs` is not longer created as they as simply aliases pointing to `ext-alpine` and `[ver sion]-ext-alpine`.
--->
-
 
 ## :tada: Features
 
@@ -20,7 +16,8 @@
 ## :heartbeat: Updates
 
 * Hugo: `0.73.0` => `NEXT`
-
+* Pandoc: `2.9.2.1` => `2.10`
+* NodeJS: `12.18.0` => `12.18.2`
 
 ## Docker images
 
