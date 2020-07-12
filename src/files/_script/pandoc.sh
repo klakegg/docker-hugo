@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# This file is triggered inside the _base/Dockerfile-base-pandoc file.
+# This file is triggered inside the _base/Dockerfile-base file.
 
 set -e
 set -u
@@ -17,8 +17,10 @@ wget https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${
 tar -zxvf pandoc.tar.gz
 
 # Prepare for image
-mkdir -p /files/bin
-mv /pandoc-${PANDOC_VERSION}/bin/pandoc /files/bin/pandoc-default
-mv /pandoc-${PANDOC_VERSION}/bin/pandoc-citeproc /files/bin/
+mkdir -p /files/pandoc/bin
+mv /pandoc-${PANDOC_VERSION}/bin/pandoc /files/pandoc/bin/pandoc-default
 
-/files/bin/pandoc-default -v
+mkdir -p /files/pandoc-citeproc/bin
+mv /pandoc-${PANDOC_VERSION}/bin/pandoc-citeproc /files/pandoc-citeproc/bin/
+
+/files/pandoc/bin/pandoc-default -v

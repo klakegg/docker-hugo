@@ -1,12 +1,7 @@
 #!/bin/bash
 
-# Base images built before dist images.
+# Base image built before dist images.
 
 # Base
 build "base" - \
   "[version]-base"
-
-build_only "base-certs" ""
-build_only "base-pandoc" ""
-build_only "base-nodejs" ""
-build_only "base-golang" ""

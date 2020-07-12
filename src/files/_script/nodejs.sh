@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# This file is triggered inside the _base/Dockerfile-base-nodejs file.
+# This file is triggered inside the _base/Dockerfile-base file.
 
 set -e
 set -u

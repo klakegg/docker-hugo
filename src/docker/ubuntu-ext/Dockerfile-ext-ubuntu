@@ -1,15 +1,11 @@
 FROM klakegg/hugo:base AS base
 
-FROM klakegg/hugo:base-golang as golang
-
-FROM klakegg/hugo:base-pandoc AS pandoc
-
 
 
 FROM scratch as image
 
 COPY --from=base /hugo-extended /
-COPY --from=pandoc /bin/pandoc-default /bin/pandoc-default
+COPY --from=base /pandoc /
 
 
 
@@ -44,4 +40,4 @@ RUN apt update \
  && mkdir -p /src /target \
  && chmod a+w /src /target
 
-COPY --from=golang / /
+COPY --from=base /golang /

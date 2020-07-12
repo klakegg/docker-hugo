@@ -1,14 +1,12 @@
 FROM klakegg/hugo:base AS base
 
-FROM klakegg/hugo:base-certs as certs
-
 
 
 FROM scratch as image
 
 COPY --from=base /busybox /
 COPY --from=base /hugo-standard /
-COPY --from=certs / /
+COPY --from=base /certs /
 
 
 
