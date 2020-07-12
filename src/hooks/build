@@ -5,6 +5,7 @@
 DPWD=$(pwd)
 PART="sys"
 PATH="$(dirname $(dirname $(realpath $0)))/bin:$PATH"
+TARGET=$(dirname $(dirname $(dirname $(realpath $0))))/target
 
 # tag [intial tag] [extra tag]
 function tag {
@@ -60,6 +61,7 @@ function push {
     # Simple logging in CI environment with debug enabled.
     if [ "${DEBUG:-false}" = "true" ]; then
       echos "       Push: $img (skipped)"
+      echo $img >> ${TARGET}/tags
     fi
   fi
 }
@@ -131,7 +133,12 @@ fi
 echos "CI: $CI"
 echos "DOCKER_REPO: $DOCKER_REPO"
 echos "SOURCE_BRANCH: $SOURCE_BRANCH"
+echos "TARGET: $TARGET"
 echo
+
+# Delete tags file
+mkdir -p $TARGET
+rm -f ${TARGET}/tags
 
 # Build distributions provided
 for dist in ${DISTS:-$(ls $DPWD/docker | grep ^_) $(ls $DPWD/docker | grep ^[^_])}; do

@@ -13,8 +13,12 @@ PANDOC_VERSION="2.10"
 wget https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-linux-${PANDOC_ARCH}.tar.gz \
   -O /pandoc.tar.gz
 
+# Unpack
 tar -zxvf pandoc.tar.gz
-mv /pandoc-${PANDOC_VERSION}/bin/pandoc /pandoc
-mv /pandoc-${PANDOC_VERSION}/bin/pandoc-citeproc /pandoc-citeproc
 
-/pandoc -v
+# Prepare for image
+mkdir -p /files/bin
+mv /pandoc-${PANDOC_VERSION}/bin/pandoc /files/bin/pandoc-default
+mv /pandoc-${PANDOC_VERSION}/bin/pandoc-citeproc /files/bin/
+
+/files/bin/pandoc-default -v

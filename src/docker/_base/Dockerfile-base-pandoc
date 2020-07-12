@@ -7,5 +7,4 @@ RUN sh pandoc.sh
 
 FROM scratch
 
-COPY --from=fetch /pandoc /bin/pandoc-default
-COPY --from=fetch /pandoc-citeproc /bin/pandoc-citeproc
+COPY --from=fetch /files .
