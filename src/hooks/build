@@ -45,7 +45,7 @@ function build_only {
 
   # Perform build
   echos "Build: $1 (Dockerfile-$name)"
-  _docker build -t $DOCKER_REPO:$1 -f Dockerfile-$name ${DPWD}/files
+  _docker buildx build -f Dockerfile-$name -t $DOCKER_REPO:$1 ${DPWD}/files
 }
 
 # push [tag]
@@ -122,9 +122,9 @@ function echos {
 # Make sure only tagged commits triggers logic in hooks files.
 # Building an Alpine image for verification.
 if [ "$SOURCE_BRANCH" = "master" ]; then
-  _docker build -f docker/_base/Dockerfile-base -t $DOCKER_REPO:base ${DPWD}
-  _docker build -f docker/_base/Dockerfile-base-certs -t $DOCKER_REPO:base-certs ${DPWD}
-  _docker build -f docker/alpine/Dockerfile-alpine -t $IMAGE_NAME ${DPWD}
+  _docker buildx build -f docker/_base/Dockerfile-base -t $DOCKER_REPO:base ${DPWD}
+  _docker buildx build -f docker/_base/Dockerfile-base-certs -t $DOCKER_REPO:base-certs ${DPWD}
+  _docker buildx build -f docker/alpine/Dockerfile-alpine -t $IMAGE_NAME ${DPWD}
   exit
 fi
 

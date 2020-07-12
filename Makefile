@@ -28,5 +28,9 @@ edge-push:
 	@docker push klakegg/hugo:edge-ext-debian
 	@docker push klakegg/hugo:edge-ext-ubuntu
 
+release-push:
+	@docker login -u $$DOCKER_USERNAME -p $$DOCKER_TOKEN
+	@for tag in $$(cat target/tags); do docker push $$tag; done
+
 bump:
 	@bump

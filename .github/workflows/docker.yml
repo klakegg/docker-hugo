@@ -26,3 +26,10 @@ jobs:
         DOCKER_USERNAME: klakegg
         DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
       run: make edge-tag edge-push
+
+    - name: Push images
+      if: "startsWith(github.ref, 'refs/tags/')"
+      env:
+        DOCKER_USERNAME: klakegg
+        DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
+      run: make release-push
