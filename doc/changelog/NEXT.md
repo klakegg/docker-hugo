@@ -19,7 +19,7 @@
 
 ## :heartbeat: Updates
 
-* Hugo: `0.74.0` => `NEXT`
+* Hugo: `0.74.1` => `NEXT`
 
 
 ## Docker images
