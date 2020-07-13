@@ -5,7 +5,7 @@
 DPWD=$(pwd)
 PART="sys"
 PATH="$(dirname $(dirname $(realpath $0)))/bin:$PATH"
-TARGET=$(dirname $(dirname $(dirname $(realpath $0))))/target
+TARGET=$(__repo_path)/target
 
 # tag [intial tag] [extra tag]
 function tag {

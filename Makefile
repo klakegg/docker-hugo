@@ -1,10 +1,9 @@
 PATH=$(shell pwd)/src/bin:$(shell echo $$PATH)
-HUGO_VERSION=$(shell cat src/lib/base/Dockerfile-base | grep VERSION | head -1 | cut -d = -f 2)
 
-build-docker:
+build:
 	@cd src && bash hooks/local
 
-build-docker-debug:
+build-debug:
 	@cd src && DEBUG=true bash hooks/local
 
 test-docsy:
@@ -17,20 +16,11 @@ test-docuapi:
 	@git clone --depth 1 https://github.com/bep/docuapi.git target/docuapi
 	@docker run --rm -i -v $$(pwd)/target/docuapi:/src -u $$(id -u) klakegg/hugo:ext-alpine
 
-edge-tag:
-	@docker tag klakegg/hugo:ext-alpine klakegg/hugo:edge-ext-alpine
-	@docker tag klakegg/hugo:ext-debian klakegg/hugo:edge-ext-debian
-	@docker tag klakegg/hugo:ext-ubuntu klakegg/hugo:edge-ext-ubuntu
+push-edge:
+	@push-tag
 
-edge-push:
-	@docker login -u $$DOCKER_USERNAME -p $$DOCKER_TOKEN
-	@docker push klakegg/hugo:edge-ext-alpine
-	@docker push klakegg/hugo:edge-ext-debian
-	@docker push klakegg/hugo:edge-ext-ubuntu
-
-release-push:
-	@docker login -u $$DOCKER_USERNAME -p $$DOCKER_TOKEN
-	@for tag in $$(cat target/tags); do docker push $$tag; done
+push-release:
+	@push-release
 
 bump:
 	@bump

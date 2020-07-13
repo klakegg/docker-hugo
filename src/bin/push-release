@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -e
+set -u
+
+repo_path=$(__repo_path)
+
+docker-login
+
+for tag in $repo/target/tags); do
+    docker push $tag;
+done

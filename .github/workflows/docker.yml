@@ -19,7 +19,12 @@ jobs:
     #    qemu-version: latest
 
     - name: Build
-      run: make build-docker
+      run: make build
+
+    - uses: actions/upload-artifact@v2
+      with:
+        name: target
+        path: target
 
     - name: Test Docsy
       run: make test-docsy
@@ -32,11 +37,11 @@ jobs:
       env:
         DOCKER_USERNAME: klakegg
         DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
-      run: make edge-tag edge-push
+      run: make push-edge
 
     - name: Push images
       if: "startsWith(github.ref, 'refs/tags/')"
       env:
         DOCKER_USERNAME: klakegg
         DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
-      run: make release-push
+      run: make push-release
