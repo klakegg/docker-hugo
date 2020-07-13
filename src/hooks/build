@@ -67,8 +67,9 @@ function push {
     # Simple logging in CI environment with debug enabled.
     if [ "${DEBUG:-false}" = "true" ]; then
       echos "       Push: $img (skipped)"
-      echo $img >> ${TARGET}/tags
     fi
+
+    echo $img >> $TARGET/tags
   fi
 }
 
@@ -132,9 +133,9 @@ echos "SOURCE_BRANCH: $SOURCE_BRANCH"
 echos "TARGET: $TARGET"
 echo
 
-# Delete tags file
+# Prepare tags file
 mkdir -p $TARGET
-rm -f ${TARGET}/tags
+rm -f $TARGET/tags
 
 # Build distributions provided
 for dist in ${DISTS:-$(ls $DPWD/docker | grep ^_) $(ls $DPWD/docker | grep ^[^_])}; do

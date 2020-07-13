@@ -7,6 +7,6 @@ repo_path=$(__repo_path)
 
 docker-login
 
-for tag in $repo/target/tags); do
-    docker push $tag;
+for tag in $(cat ${repo_path}/target/tags); do
+    docker push $tag
 done

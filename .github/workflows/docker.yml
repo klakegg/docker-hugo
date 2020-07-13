@@ -21,7 +21,8 @@ jobs:
     - name: Build
       run: make build
 
-    - uses: actions/upload-artifact@v2
+    - name: Upload target content
+      uses: actions/upload-artifact@v2
       with:
         name: target
         path: target
