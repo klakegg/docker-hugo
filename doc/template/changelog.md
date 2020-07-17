@@ -19,7 +19,7 @@
 
 ## :heartbeat: Updates
 
-* Hugo: `CURRENT` => `NEXT`
+* Hugo: [`CURRENT`](https://github.com/klakegg/docker-hugo/releases/tag/CURRENT) => `NEXT`
 
 
 ## Docker images
