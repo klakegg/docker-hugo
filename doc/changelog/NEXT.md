@@ -6,6 +6,8 @@
 * Tag aliases `ext-nodejs` and `[version]-ext-nodejs` are not longer created as they as simply aliases pointing to `ext-alpine` and `[version]-ext-alpine`.
 -->
 
+* Environment variable `HUGO_VERSION` used to override version of Hugo to use is changed to `HUGO_VERSION_OVERRIDE` to make room for the new `HUGO_VERSION` environment variable containing the version of Hugo bundled in the image.
+
 
 ## :tada: Features
 

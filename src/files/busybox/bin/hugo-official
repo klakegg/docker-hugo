@@ -2,20 +2,20 @@
 
 set -e
 
-if [ "$HUGO_VERSION" != "" ]; then
-    target="/tmp/hugo-${HUGO_VERSION}-${HUGO_EDITION}"
+if [ "$HUGO_VERSION_OVERRIDE" != "" ]; then
+    target="/tmp/hugo-${HUGO_VERSION_OVERRIDE}-${HUGO_EDITION}"
 
     # Download if the requested Hugo version is not available
     if [ ! -e $target ]; then
         # Download standard edition
         if [ "${HUGO_EDITION}" = "standard" ]; then
-            echo "Downloading Hugo ${HUGO_VERSION}..."
-            wget -q "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz" -O $target.tar.gz || true
+            echo "Downloading Hugo ${HUGO_VERSION_OVERRIDE}..."
+            wget -q "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION_OVERRIDE}/hugo_${HUGO_VERSION_OVERRIDE}_Linux-64bit.tar.gz" -O $target.tar.gz || true
 
         # Download extended edition
         elif [ "${HUGO_EDITION}" = "extended" ]; then
-            echo "Downloading Hugo ${HUGO_VERSION}..."
-            wget -q "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_Linux-64bit.tar.gz" -O $target.tar.gz || true
+            echo "Downloading Hugo ${HUGO_VERSION_OVERRIDE}..."
+            wget -q "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION_OVERRIDE}/hugo_extended_${HUGO_VERSION_OVERRIDE}_Linux-64bit.tar.gz" -O $target.tar.gz || true
 
         # Unknown edition
         else
@@ -25,7 +25,7 @@ if [ "$HUGO_VERSION" != "" ]; then
 
         if [ ! -e $target.tar.gz ] || [ "$(stat --printf="%s" $target.tar.gz)" = "0" ]; then
             rm $target.tar.gz
-            echo "Unable to download Hugo ${HUGO_VERSION} ${HUGO_EDITION} edition."
+            echo "Unable to download Hugo ${HUGO_VERSION_OVERRIDE} ${HUGO_EDITION} edition."
             exit 1
         fi
 
