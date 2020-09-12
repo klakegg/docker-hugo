@@ -4,9 +4,12 @@ FROM klakegg/hugo:base AS base
 
 FROM debian:10.4-slim
 
+ARG HUGO_VERSION_ARG=0.0.0
+
 ENV HUGO_BIND="0.0.0.0" \
     HUGO_DESTINATION="public" \
     HUGO_ENV="DEV" \
+    HUGO_VERSION=${HUGO_VERSION_ARG} \
     HOME="/tmp"
 
 RUN apt update \

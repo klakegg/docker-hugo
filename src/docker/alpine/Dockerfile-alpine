@@ -12,10 +12,13 @@ COPY --from=base /certs /
 
 FROM alpine:3.12
 
+ARG HUGO_VERSION_ARG=0.0.0
+
 ENV HUGO_BIND="0.0.0.0" \
     HUGO_DESTINATION="public" \
     HUGO_ENV="DEV" \
     HUGO_EDITION="standard" \
+    HUGO_VERSION=${HUGO_VERSION_ARG} \
     HOME="/tmp"
 
 COPY --from=image / /

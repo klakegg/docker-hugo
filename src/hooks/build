@@ -49,6 +49,7 @@ function build_only {
     --no-cache \
     --output "type=docker" \
     --progress plain \
+    --build-arg HUGO_VERSION_ARG=$(__version) \
     --tag $DOCKER_REPO:$1 \
     --file Dockerfile-$name \
     ${DPWD}/files

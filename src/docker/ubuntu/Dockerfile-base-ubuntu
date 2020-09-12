@@ -4,9 +4,12 @@ FROM klakegg/hugo:base AS base
 
 FROM ubuntu:18.04
 
+ARG HUGO_VERSION_ARG=0.0.0
+
 ENV HUGO_BIND="0.0.0.0" \
     HUGO_DESTINATION="public" \
     HUGO_ENV="DEV" \
+    HUGO_VERSION=${HUGO_VERSION_ARG} \
     HOME="/tmp"
 
 COPY --from=base /debian /

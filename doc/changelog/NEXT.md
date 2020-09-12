@@ -9,7 +9,7 @@
 
 ## :tada: Features
 
-*Nothing*
+* Environment variable `HUGO_VERSION` is added to all images.
 
 
 ## :bug: Fixes

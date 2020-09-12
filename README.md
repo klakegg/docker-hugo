@@ -4,7 +4,7 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/klakegg/hugo.svg)](https://store.docker.com/community/images/klakegg/hugo)
 
 Truly minimal Docker images for [Hugo](http://gohugo.io/) with batteries included.
-These images sets `destination` during build and `bind` when started as server, otherwise no magic.
+These images sets `bind` when started as server, otherwise no magic.
 
 
 ## Latest tags
