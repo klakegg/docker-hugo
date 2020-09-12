@@ -20,6 +20,14 @@
 ## :heartbeat: Updates
 
 * Hugo: [`0.74.3`](https://github.com/klakegg/docker-hugo/releases/tag/0.74.3) => `NEXT`
+* Alpine: `3.11` => `3.12`
+* Busybox: `1.31` => `1.32`
+* Debian: `10.3` => `10.4`
+* Go: `1.14.4` => `1.15.1`
+* NodeJS: `12.18.2` => `12.18.3`
+* Pandoc: `2.10` => `2.10.1`
+<!-- * Ubuntu: `18.04` => `20.04` -->
+* Yarn: `1.22.4` => `1.22.5`
 
 
 ## Docker images

@@ -7,7 +7,7 @@ set -u
 
 # Variables
 GOLANG_ARCH="amd64"
-GOLANG_VERSION="1.14.4"
+GOLANG_VERSION="1.15.1"
 
 # Download
 wget https://dl.google.com/go/go${GOLANG_VERSION}.linux-${GOLANG_ARCH}.tar.gz \

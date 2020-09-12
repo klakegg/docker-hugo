@@ -2,7 +2,7 @@ FROM klakegg/hugo:base AS base
 
 
 
-FROM debian:10.3-slim
+FROM debian:10.4-slim
 
 ENV HUGO_BIND="0.0.0.0" \
     HUGO_DESTINATION="public" \

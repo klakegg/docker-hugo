@@ -10,7 +10,7 @@ COPY --from=base /certs /
 
 
 
-FROM alpine:3.11
+FROM alpine:3.12
 
 ENV HUGO_BIND="0.0.0.0" \
     HUGO_DESTINATION="public" \

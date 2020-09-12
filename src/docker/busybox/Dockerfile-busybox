@@ -10,7 +10,7 @@ COPY --from=base /certs /
 
 
 
-FROM busybox:1.31
+FROM busybox:1.32
 
 ENV HUGO_BIND="0.0.0.0" \
     HUGO_DESTINATION="public" \

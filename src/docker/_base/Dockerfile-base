@@ -1,4 +1,4 @@
-FROM alpine:3.11 AS hugo
+FROM alpine:3.12 AS hugo
 
 ARG VERSION=0.74.3
 
@@ -7,34 +7,34 @@ RUN sh hugo.sh
 
 
 
-FROM alpine:3.11 AS certs
+FROM alpine:3.12 AS certs
 
 RUN apk --no-cache add ca-certificates
 
 
 
-FROM alpine:3.11 AS golang
+FROM alpine:3.12 AS golang
 
 ADD _script/golang.sh golang.sh
 RUN sh golang.sh
 
 
 
-FROM alpine:3.11 AS nodejs
+FROM alpine:3.12 AS nodejs
 
 ADD _script/nodejs.sh nodejs.sh
 RUN sh nodejs.sh
 
 
 
-FROM alpine:3.11 AS pandoc
+FROM alpine:3.12 AS pandoc
 
 ADD _script/pandoc.sh pandoc.sh
 RUN sh pandoc.sh
 
 
 
-FROM alpine:3.11 AS files
+FROM alpine:3.12 AS files
 
 # Copy content of files folder to populate base image
 ADD . /files

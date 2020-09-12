@@ -1,6 +1,6 @@
 FROM klakegg/hugo:base AS base
 
-FROM ubuntu:18.04 AS ubuntu
+FROM ubuntu:20.04 AS ubuntu
 
 
 
@@ -11,11 +11,11 @@ COPY --from=base /hugo-extended /
 COPY --from=base /certs /
 COPY --from=base /nodejs /
 COPY --from=base /golang /
-COPY --from=ubuntu /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25 /usr/lib/libstdc++.so.6
+COPY --from=ubuntu /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28 /usr/lib/libstdc++.so.6
 
 
 
-FROM frolvlad/alpine-glibc:alpine-3.11_glibc-2.30
+FROM frolvlad/alpine-glibc:alpine-3.12_glibc-2.32
 
 ENV HUGO_BIND="0.0.0.0" \
     HUGO_DESTINATION="public" \
@@ -30,7 +30,7 @@ RUN apk add --no-cache libstdc++ busybox-suid bash bash-completion git tzdata ma
 
 COPY --from=image / /
 
-RUN npm install -g yarn@1.22.4 autoprefixer postcss-cli @babel/cli @babel/core  \
+RUN npm install -g yarn@1.22.5 autoprefixer postcss-cli @babel/cli @babel/core  \
  && find /tmp -mindepth 1 -maxdepth 1 | xargs rm -rf \
  && mkdir -p /src /target \
  && chmod a+w /src /target
