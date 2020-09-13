@@ -3,14 +3,17 @@ PATH=$(shell pwd)/src/bin:$(shell echo $$PATH)
 build:
 	@cd src && bash hooks/local
 
+clean:
+	@rm -rf target
+
 build-debug:
 	@cd src && DEBUG=true bash hooks/local
 
 dockerfile-import:
-	@mkdir -p target
+	@mkdir -p target/bundle
 	@docker run --rm -i -v $$(pwd):/work -u $$(id -u) \
 		klakegg/dockerfile-import \
-		src/docker/Dockerfile target/Dockerfile
+		src/docker/Dockerfile target/bundle/Dockerfile
 
 test-docsy:
 	@rm -rf target/docsy

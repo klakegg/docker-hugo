@@ -6,7 +6,7 @@ build "alpine" - \
 
 # Alpine + Hugo + Onbuild
 build "alpine-onbuild" "alpine--onbuild" \
-  "[version]-alpine--onbuild"
+  "[version]-alpine-onbuild"
 
 # Alpine + Hugo + Asciidoctor
 build "asciidoctor" - \
