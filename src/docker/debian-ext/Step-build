@@ -8,8 +8,7 @@ build "ext-debian" - \
   "[version]-ext-debian"
 
 # Debian + Hugo extended + Onbuild
-template onbuild ext-debian-onbuild ext-debian
-build "ext-debian-onbuild" - \
+build "ext-debian-onbuild" "ext-debian--onbuild" \
   "[version]-ext-debian-onbuild" \
   "[version]-ext-onbuild" \
   "ext-onbuild"

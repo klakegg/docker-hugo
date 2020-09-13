@@ -1,9 +1,0 @@
-FROM klakegg/hugo:base AS base
-
-
-
-FROM klakegg/hugo:ext-alpine
-
-ENV HUGO_PANDOC="pandoc-default"
-
-COPY --from=base /pandoc /

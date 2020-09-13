@@ -1,7 +1,3 @@
-FROM klakegg/hugo:base AS base
-
-
-
 FROM ubuntu:18.04
 
 ARG HUGO_VERSION_ARG=0.0.0

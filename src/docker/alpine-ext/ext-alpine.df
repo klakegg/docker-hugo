@@ -1,5 +1,3 @@
-FROM klakegg/hugo:base AS base
-
 FROM ubuntu:20.04 AS ubuntu
 
 
@@ -15,7 +13,7 @@ COPY --from=ubuntu /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28 /usr/lib/libstd
 
 
 
-FROM frolvlad/alpine-glibc:alpine-3.12_glibc-2.32
+FROM frolvlad/alpine-glibc:alpine-3.12_glibc-2.32 AS main
 
 ARG HUGO_VERSION_ARG=0.0.0
 
@@ -43,3 +41,11 @@ EXPOSE 1313
 WORKDIR /src
 
 ENTRYPOINT ["hugo"]
+
+
+
+IMPORT ../_imports/onbuild.df
+
+
+
+FROM main

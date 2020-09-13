@@ -1,7 +1,3 @@
-FROM klakegg/hugo:base AS base
-
-
-
 FROM scratch as image
 
 COPY --from=base /hugo-extended /
@@ -9,7 +5,7 @@ COPY --from=base /pandoc /
 
 
 
-FROM klakegg/hugo:base-debian
+FROM base-debian AS main
 
 ENV HUGO_EDITION="extended" \
     HUGO_CACHEDIR="/tmp" \
@@ -41,3 +37,11 @@ RUN apt update \
  && chmod a+w /src /target
 
 COPY --from=base /golang /
+
+
+
+IMPORT ../_imports/onbuild.df
+
+
+
+FROM main

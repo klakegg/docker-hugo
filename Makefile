@@ -6,6 +6,12 @@ build:
 build-debug:
 	@cd src && DEBUG=true bash hooks/local
 
+dockerfile-import:
+	@mkdir -p target
+	@docker run --rm -i -v $$(pwd):/work -u $$(id -u) \
+		klakegg/dockerfile-import \
+		src/docker/Dockerfile target/Dockerfile
+
 test-docsy:
 	@rm -rf target/docsy
 	@git clone --recurse-submodules --depth 1 https://github.com/google/docsy.git target/docsy

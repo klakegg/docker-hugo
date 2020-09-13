@@ -1,0 +1,5 @@
+IMPORT ext-alpine AS ext-alpine
+
+IMPORT ext-asciidoctor AS ext-asciidoctor
+
+IMPORT ext-pandoc AS ext-pandoc

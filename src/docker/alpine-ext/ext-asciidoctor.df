@@ -1,5 +1,13 @@
-FROM klakegg/hugo:alpine
+FROM ext-alpine AS main
 
 RUN apk --no-cache add asciidoctor \
  && gem install coderay \
  && find /tmp -mindepth 1 -maxdepth 1 | xargs rm -rf
+
+
+
+IMPORT ../_imports/onbuild.df
+
+
+
+FROM main

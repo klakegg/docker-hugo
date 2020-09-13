@@ -5,17 +5,15 @@ build "alpine" - \
   "[version]-alpine"
 
 # Alpine + Hugo + Onbuild
-template onbuild alpine-onbuild alpine
-build "alpine-onbuild" - \
-  "[version]-alpine-onbuild"
+build "alpine-onbuild" "alpine--onbuild" \
+  "[version]-alpine--onbuild"
 
 # Alpine + Hugo + Asciidoctor
 build "asciidoctor" - \
   "[version]-asciidoctor"
 
 # Alpine + Hugo + Asciidoctor + Onbuild
-template onbuild asciidoctor-onbuild asciidoctor
-build "asciidoctor-onbuild" - \
+build "asciidoctor-onbuild" "asciidoctor--onbuild" \
   "[version]-asciidoctor-onbuild"
 
 # Alpine + Hugo + Pandoc
@@ -23,6 +21,5 @@ build "pandoc" - \
   "[version]-pandoc"
 
 # Alpine + Hugo + Pandoc + Onbuild
-template onbuild pandoc-onbuild pandoc
-build "pandoc-onbuild" - \
+build "pandoc-onbuild" "pandoc--onbuild" \
   "[version]-pandoc-onbuild"

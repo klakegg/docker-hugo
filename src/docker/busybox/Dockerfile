@@ -1,16 +1,12 @@
-FROM klakegg/hugo:base AS base
-
-
-
 FROM scratch as image
 
-COPY --from=base /alpine /
+COPY --from=base /busybox /
 COPY --from=base /hugo-standard /
 COPY --from=base /certs /
 
 
 
-FROM alpine:3.12
+FROM busybox:1.32 AS main
 
 ARG HUGO_VERSION_ARG=0.0.0
 
@@ -23,9 +19,7 @@ ENV HUGO_BIND="0.0.0.0" \
 
 COPY --from=image / /
 
-RUN apk --no-cache add busybox-suid bash bash-completion tzdata make \
- && find /tmp -mindepth 1 -maxdepth 1 | xargs rm -rf \
- && mkdir -p /src /target \
+RUN mkdir -p /src /target \
  && chmod a+w /src /target
 
 EXPOSE 1313
@@ -33,3 +27,9 @@ EXPOSE 1313
 WORKDIR /src
 
 ENTRYPOINT ["hugo"]
+
+
+IMPORT ../_imports/onbuild.df
+
+
+FROM main

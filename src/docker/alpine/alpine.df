@@ -1,28 +1,39 @@
-FROM klakegg/hugo:base AS base
+FROM scratch as image
+
+COPY --from=base /alpine /
+COPY --from=base /hugo-standard /
+COPY --from=base /certs /
 
 
 
-FROM debian:10.4-slim
+FROM alpine:3.12 as main
 
 ARG HUGO_VERSION_ARG=0.0.0
 
 ENV HUGO_BIND="0.0.0.0" \
     HUGO_DESTINATION="public" \
     HUGO_ENV="DEV" \
+    HUGO_EDITION="standard" \
     HUGO_VERSION=${HUGO_VERSION_ARG} \
     HOME="/tmp"
 
-RUN apt update \
- && DEBIAN_FRONTEND=noninteractive apt install -y wget bash-completion tzdata make \
- && rm -rf /var/lib/apt/lists/* \
+COPY --from=image / /
+
+RUN apk --no-cache add busybox-suid bash bash-completion tzdata make \
  && find /tmp -mindepth 1 -maxdepth 1 | xargs rm -rf \
  && mkdir -p /src /target \
  && chmod a+w /src /target
-
-COPY --from=base /debian /
 
 EXPOSE 1313
 
 WORKDIR /src
 
 ENTRYPOINT ["hugo"]
+
+
+
+IMPORT ../_imports/onbuild.df
+
+
+
+FROM main

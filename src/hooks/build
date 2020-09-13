@@ -31,27 +31,22 @@ function build {
   done
 }
 
-# build_only [initial tag] [Dockerfile extension]
+# build_only [initial tag] [dockerfile target]
 function build_only {
-  # Detect Dockerfile extension if not set.
   name=$2
-  if [ "$2" = "" ] || [ "$2" = "-" ]; then
-    if [ -e "Dockerfile-gen-$1" ]; then
-      name="gen-$1"
-    else
-      name=$1
-    fi
+  if [ "$name" = "" ] || [ "$name" = "-" ]; then
+    name=$1
   fi
 
   # Perform build
-  echos "Build: $1 (Dockerfile-$name)"
+  echos "Build: $1 ($name)"
   _docker buildx build \
-    --no-cache \
     --output "type=docker" \
     --progress plain \
     --build-arg HUGO_VERSION_ARG=$(__version) \
     --tag $DOCKER_REPO:$1 \
-    --file Dockerfile-$name \
+    --file $TARGET/Dockerfile \
+    --target $name \
     ${DPWD}/files
 }
 
@@ -79,25 +74,17 @@ function real {
   echo $1 | sed -e "s/\[version\]/${SOURCE_BRANCH}/g"
 }
 
-# template [tp] [target] [from]
-function template {
-  cat $DPWD/docker/_template/Dockerfile-$1 \
-  | sed -e "s|\[from\]|${DOCKER_REPO}:${3}|g" \
-  > Dockerfile-gen-$2
-}
-
 # trigger [dir]
 function trigger {
-  # Go to folder
-  cd $DPWD/docker/$1
+  folder=$DPWD/docker/$1
 
-  if [ ! -e ".skip" ]; then
+  if [ ! -e "$folder/.skip" ]; then
     # Trigger steps
     for step in "build" "test"; do
-      if [ -e "Step-$step" ]; then
+      if [ -e "$folder/Step-$step" ]; then
         PART="$1:$step"
 
-        source "Step-$step"
+        source "$folder/Step-$step"
         echo
       fi
     done
@@ -140,5 +127,7 @@ rm -f $TARGET/tags
 
 # Build distributions provided
 for dist in ${DISTS:-$(ls $DPWD/docker | grep ^_) $(ls $DPWD/docker | grep ^[^_])}; do
-  trigger $dist
+  if [ -d $DPWD/docker/$dist ]; then
+    trigger $dist
+  fi
 done

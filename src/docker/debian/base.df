@@ -1,0 +1,24 @@
+FROM debian:10.4-slim
+
+ARG HUGO_VERSION_ARG=0.0.0
+
+ENV HUGO_BIND="0.0.0.0" \
+    HUGO_DESTINATION="public" \
+    HUGO_ENV="DEV" \
+    HUGO_VERSION=${HUGO_VERSION_ARG} \
+    HOME="/tmp"
+
+RUN apt update \
+ && DEBIAN_FRONTEND=noninteractive apt install -y wget bash-completion tzdata make \
+ && rm -rf /var/lib/apt/lists/* \
+ && find /tmp -mindepth 1 -maxdepth 1 | xargs rm -rf \
+ && mkdir -p /src /target \
+ && chmod a+w /src /target
+
+COPY --from=base /debian /
+
+EXPOSE 1313
+
+WORKDIR /src
+
+ENTRYPOINT ["hugo"]

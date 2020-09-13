@@ -1,13 +1,9 @@
 #!/bin/bash
 
-# Ubuntu base
-build_only "base-ubuntu" ""
-
 # Ubuntu + Hugo
 build "ubuntu" - \
   "[version]-ubuntu"
 
 # Ubuntu + Hugo + Onbuild
-template onbuild ubuntu-onbuild ubuntu
-build "ubuntu-onbuild" - \
+build "ubuntu-onbuild" "ubuntu--onbuild" \
   "[version]-ubuntu-onbuild"

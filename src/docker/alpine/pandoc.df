@@ -1,0 +1,13 @@
+FROM alpine AS main
+
+ENV HUGO_PANDOC="pandoc-default"
+
+COPY --from=base /pandoc /
+
+
+
+IMPORT ../_imports/onbuild.df
+
+
+
+FROM main

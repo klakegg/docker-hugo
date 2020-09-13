@@ -1,9 +1,0 @@
-FROM klakegg/hugo:base AS base
-
-
-
-FROM klakegg/hugo:base-ubuntu
-
-ENV HUGO_EDITION="standard"
-
-COPY --from=base /hugo-standard /

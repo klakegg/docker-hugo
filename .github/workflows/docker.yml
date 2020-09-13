@@ -1,6 +1,12 @@
 name: Docker build
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
+  release:
+    types:
+      - released
 
 jobs:
   build:
@@ -17,6 +23,9 @@ jobs:
     #  with:
     #    buildx-version: latest
     #    qemu-version: latest
+
+    - name: Preprocess Dockerfile
+      run: make dockerfile-import
 
     - name: Build
       run: make build

@@ -1,13 +1,10 @@
 #!/bin/bash
 
-# Debian base
-build_only "base-debian" ""
-
 # Debian + Hugo
 build "debian" - \
   "[version]-debian"
 
 # Debian + Hugo + Onbuild
-template onbuild debian-onbuild debian
-build "debian-onbuild" - \
+#template onbuild debian-onbuild debian
+build "debian-onbuild" "debian--onbuild" \
   "[version]-debian-onbuild"

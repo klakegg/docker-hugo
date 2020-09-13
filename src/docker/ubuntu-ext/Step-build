@@ -5,6 +5,5 @@ build "ext-ubuntu" - \
   "[version]-ext-ubuntu"
 
 # Ubuntu + Hugo extended + Onbuild
-template onbuild ext-ubuntu-onbuild ext-ubuntu
-build "ext-ubuntu-onbuild" - \
+build "ext-ubuntu-onbuild" "ext-ubuntu--onbuild" \
   "[version]-ext-ubuntu-onbuild"

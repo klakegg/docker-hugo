@@ -7,8 +7,8 @@ build "busybox" - \
   "[version]-busybox"
 
 # Busybox + Hugo + Onbuild
-template onbuild busybox-onbuild busybox
-build "busybox-onbuild" - \
+#template onbuild busybox-onbuild busybox
+build "busybox-onbuild" "busybox--onbuild" \
   "[version]-busybox-onbuild" \
   "[version]-onbuild" \
   "onbuild"
