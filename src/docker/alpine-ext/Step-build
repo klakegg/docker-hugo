@@ -2,9 +2,7 @@
 
 # Alpine + Hugo extended
 build "ext-alpine" - \
-  "[version]-ext-alpine" \
-  "ext-nodejs" \
-  "[version]-ext-nodejs"
+  "[version]-ext-alpine"
 
 # Alpine + Hugo extended + Onbuild
 build "ext-alpine-onbuild" "ext-alpine--onbuild" \
@@ -23,5 +21,6 @@ build "ext-pandoc" - \
   "[version]-ext-pandoc"
 
 # Alpine + Hugo extended + Pandoc + Onbuild
+build "ext-pandoc-onbuild" "ext-pandoc--onbuild" \
 build "ext-pandoc-onbuild" "ext-pandoc--onbuild" \
   "[version]-ext-pandoc-onbuild"

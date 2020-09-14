@@ -2,16 +2,10 @@
 
 *Nothing*
 
-<!-- 0.75.0 or later:
-* Tag aliases `ext-nodejs` and `[version]-ext-nodejs` are not longer created as they as simply aliases pointing to `ext-alpine` and `[version]-ext-alpine`.
--->
-
-* Environment variable `HUGO_VERSION` used to override version of Hugo to use is changed to `HUGO_VERSION_OVERRIDE` to make room for the new `HUGO_VERSION` environment variable containing the version of Hugo bundled in the image.
-
 
 ## :tada: Features
 
-* Environment variable `HUGO_VERSION` is added to all images.
+*Nothing*
 
 
 ## :bug: Fixes
@@ -21,15 +15,7 @@
 
 ## :heartbeat: Updates
 
-* Hugo: [`0.74.3`](https://github.com/klakegg/docker-hugo/releases/tag/0.74.3) => `NEXT`
-* Alpine: `3.11` => `3.12`
-* Busybox: `1.31` => `1.32`
-* Debian: `10.3` => `10.4`
-* Go: `1.14.4` => `1.15.1`
-* NodeJS: `12.18.2` => `12.18.3`
-* Pandoc: `2.10` => `2.10.1`
-<!-- * Ubuntu: `18.04` => `20.04` -->
-* Yarn: `1.22.4` => `1.22.5`
+* Hugo: [`0.75.0`](https://github.com/klakegg/docker-hugo/releases/tag/0.75.0) => `NEXT`
 
 
 ## Docker images

@@ -1,6 +1,6 @@
 FROM alpine:3.12 AS hugo
 
-ARG VERSION=0.74.3
+ARG VERSION=0.75.0
 
 ADD _script/hugo.sh hugo.sh
 RUN sh hugo.sh
