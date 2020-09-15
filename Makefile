@@ -12,7 +12,7 @@ build-debug:
 dockerfile-import:
 	@mkdir -p target/bundle
 	@docker run --rm -i -v $$(pwd):/work -u $$(id -u) \
-		klakegg/dockerfile-import \
+		klakegg/dockerfile-import:1.0.1 \
 		src/docker/Dockerfile target/bundle/Dockerfile
 
 test-docsy:
