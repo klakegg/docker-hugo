@@ -1,0 +1,21 @@
+name: Ubuntu (standard)
+
+images:
+  # Ubuntu + Hugo
+  ubuntu:
+    target: ubuntu
+    alias:
+      - $(VERSION)-ubuntu
+    tests:
+      - hugo
+
+  # Ubuntu + Hugo + Onbuild
+  ubuntu-onbuild:
+    target: ubuntu--onbuild
+    alias:
+      - $(VERSION)-ubuntu-onbuild
+
+tests:
+  hugo:
+    command: version
+    expected: Hugo

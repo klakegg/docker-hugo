@@ -1,0 +1,21 @@
+name: Debian (standard)
+
+images:
+  # Debian + Hugo
+  debian:
+    target: debian
+    alias:
+      - $(VERSION)-debian
+    tests:
+      - hugo
+
+  # Debian + Hugo + Onbuild
+  debian-onbuild:
+    target: debian--onbuild
+    alias:
+      - $(VERSION)-debian-onbuild
+
+tests:
+  hugo:
+    command: version
+    expected: Hugo

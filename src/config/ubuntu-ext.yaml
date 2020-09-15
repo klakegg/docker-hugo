@@ -1,0 +1,39 @@
+name: Ubuntu (extended)
+
+images:
+  # Ubuntu + Hugo extended
+  ext-ubuntu:
+    target: ext-ubuntu
+    edge: true
+    alias:
+      - $(VERSION)-ext-ubuntu
+    tests:
+      - hugo
+      - node
+      - asciidoctor
+      - pandoc
+
+  # Ubuntu + Hugo extended + Onbuild
+  ext-ubuntu-onbuild:
+    target: ext-ubuntu--onbuild
+    alias:
+      - $(VERSION)-ext-ubuntu-onbuild
+
+tests:
+  hugo:
+    command: version
+    expected: Hugo
+
+  node:
+    entrypoint: node
+    command: --version
+
+  asciidoctor:
+    entrypoint: asciidoctor
+    command: --version
+    expected: Asciidoctor 2
+
+  pandoc:
+    entrypoint: pandoc-default
+    command: version
+    expected: Compiled with pandoc

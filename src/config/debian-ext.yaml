@@ -1,0 +1,44 @@
+name: Debian (extended)
+
+images:
+  # Debian + Hugo extended
+  ext-debian:
+    target: ext-debian
+    edge: true
+    alias:
+      - ext
+      - latest-ext
+      - $(VERSION)-ext
+      - $(VERSION)-ext-debian
+    tests:
+      - hugo
+      - node
+      - asciidoctor
+      - pandoc
+
+  # Debian + Hugo extended + Onbuild
+  ext-debian-onbuild:
+    target: ext-debian--onbuild
+    alias:
+      - $(VERSION)-ext-debian-onbuild
+      - $(VERSION)-ext-onbuild
+      - ext-onbuild
+
+tests:
+  hugo:
+    command: version
+    expected: Hugo
+
+  node:
+    entrypoint: node
+    command: --version
+
+  asciidoctor:
+    entrypoint: asciidoctor
+    command: --version
+    expected: Asciidoctor 2
+
+  pandoc:
+    entrypoint: pandoc-default
+    command: version
+    expected: Compiled with pandoc

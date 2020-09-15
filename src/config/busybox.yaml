@@ -1,0 +1,25 @@
+name: Busybox (standard)
+
+images:
+  # Busybox + Hugo
+  busybox:
+    target: busybox
+    alias:
+      - latest
+      - $(VERSION)
+      - $(VERSION)-busybox
+    tests:
+      - hugo
+
+  # Busybox + Hugo + Onbuild
+  busybox-onbuild:
+    target: busybox--onbuild
+    alias:
+      - $(VERSION)-busybox-onbuild
+      - $(VERSION)-onbuild
+      - onbuild
+
+tests:
+  hugo:
+    command: version
+    expected: Hugo

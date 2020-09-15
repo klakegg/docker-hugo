@@ -1,0 +1,61 @@
+name: Alpine (standard)
+
+images:
+  # Alpine + Hugo
+  alpine:
+    target: alpine
+    alias:
+      - $(VERSION)-alpine
+    tests:
+      - hugo
+
+  # Alpine + Hugo + Onbuild
+  alpine-onbuild:
+    target: alpine--onbuild
+    alias:
+      - $(VERSION)-alpine-onbuild
+
+  # Alpine + Hugo + Asciidoctor
+  asciidoctor:
+    target: asciidoctor
+    alias:
+      - "$(VERSION)-asciidoctor"
+    tests:
+      - hugo
+      - asciidoctor
+
+  # Alpine + Hugo + Asciidoctor + Onbuild
+  asciidoctor-onbuild:
+    target: asciidoctor--onbuild
+    alias:
+      - "$(VERSION)-asciidoctor-onbuild"
+
+  # Alpine + Hugo + Pandoc
+  pandoc:
+    target: pandoc
+    alias:
+      - $(VERSION)-pandoc
+    tests:
+      - hugo
+      - pandoc
+
+  # Alpine + Hugo + Pandoc + Onbuild
+  pandoc-onbuild:
+    target: pandoc--onbuild
+    alias:
+      - $(VERSION)-pandoc-onbuild
+
+tests:
+  hugo:
+    command: version
+    expected: Hugo
+
+  asciidoctor:
+    entrypoint: asciidoctor
+    command: --version
+    expected: Asciidoctor 2
+
+  pandoc:
+    entrypoint: pandoc-default
+    command: version
+    expected: Compiled with pandoc

@@ -1,0 +1,66 @@
+name: Alpine (extended)
+
+images:
+  # Alpine + Hugo extended
+  ext-alpine:
+    target: ext-alpine
+    edge: true
+    alias:
+      - $(VERSION)-ext-alpine
+    tests:
+      - hugo
+
+  # Alpine + Hugo extended + Onbuild
+  ext-alpine-onbuild:
+    target: ext-alpine--onbuild
+    alias:
+      - $(VERSION)-ext-alpine-onbuild
+
+  # Alpine + Hugo extended + Asciidoctor
+  ext-asciidoctor:
+    target: ext-asciidoctor
+    alias:
+      - $(VERSION)-ext-asciidoctor
+    tests:
+      - hugo
+      - asciidoctor
+
+  # Alpine + Hugo extended + Asciidoctor + Onbuild
+  ext-asciidoctor-onbuild:
+    target: ext-asciidoctor--onbuild
+    alias:
+      - $(VERSION)-ext-asciidoctor-onbuild
+
+  # Alpine + Hugo extended + Pandoc
+  ext-pandoc:
+    target: ext-pandoc
+    alias:
+      - $(VERSION)-ext-pandoc
+    tests:
+      - hugo
+      - pandoc
+
+  # Alpine + Hugo extended + Pandoc + Onbuild
+  ext-pandoc-onbuild:
+    target: ext-pandoc--onbuild
+    alias:
+      - $(VERSION)-ext-pandoc-onbuild
+
+tests:
+  hugo:
+    command: version
+    expected: Hugo
+
+  node:
+    entrypoint: node
+    command: --version
+
+  asciidoctor:
+    entrypoint: asciidoctor
+    command: --version
+    expected: Asciidoctor 2
+
+  pandoc:
+    entrypoint: pandoc-default
+    command: version
+    expected: Compiled with pandoc

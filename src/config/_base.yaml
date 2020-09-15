@@ -1,0 +1,7 @@
+name: "Base"
+
+images:
+  base:
+    target: base
+    alias:
+      - $(VERSION)-base
