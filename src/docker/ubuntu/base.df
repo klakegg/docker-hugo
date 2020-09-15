@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-IMPORT ../imports/version_arg
+IMPORT ../_imports/version_arg
 
 ENV HUGO_BIND="0.0.0.0" \
     HUGO_DESTINATION="public" \

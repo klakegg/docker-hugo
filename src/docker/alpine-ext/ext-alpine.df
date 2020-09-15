@@ -15,7 +15,7 @@ COPY --from=ubuntu /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28 /usr/lib/libstd
 
 FROM frolvlad/alpine-glibc:alpine-3.12_glibc-2.32 AS main
 
-IMPORT ../imports/version_arg
+IMPORT ../_imports/version_arg
 
 ENV HUGO_BIND="0.0.0.0" \
     HUGO_DESTINATION="public" \
