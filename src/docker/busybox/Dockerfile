@@ -8,13 +8,12 @@ COPY --from=base /certs /
 
 FROM busybox:1.32 AS main
 
-ARG HUGO_VERSION_ARG=0.0.0
+IMPORT ../imports/version_arg
 
 ENV HUGO_BIND="0.0.0.0" \
     HUGO_DESTINATION="public" \
     HUGO_ENV="DEV" \
     HUGO_EDITION="standard" \
-    HUGO_VERSION=${HUGO_VERSION_ARG} \
     HOME="/tmp"
 
 COPY --from=image / /

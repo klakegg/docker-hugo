@@ -15,14 +15,13 @@ COPY --from=ubuntu /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28 /usr/lib/libstd
 
 FROM frolvlad/alpine-glibc:alpine-3.12_glibc-2.32 AS main
 
-ARG HUGO_VERSION_ARG=0.0.0
+IMPORT ../imports/version_arg
 
 ENV HUGO_BIND="0.0.0.0" \
     HUGO_DESTINATION="public" \
     HUGO_ENV="DEV" \
     HUGO_EDITION="extended" \
     HUGO_CACHEDIR="/tmp" \
-    HUGO_VERSION=${HUGO_VERSION_ARG} \
     NODE_PATH=".:/lib/node_modules" \
     GOROOT="/usr/local/lib/go" \
     HOME="/tmp"
