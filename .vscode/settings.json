@@ -1,5 +1,8 @@
 {
     "files.associations": {
         "*.df": "dockerfile",
+    },
+    "yaml.schemas": {
+        ".vscode/json-schema/config.json": "src/config/*.yaml",
     }
 }
