@@ -3,8 +3,6 @@
 set -e
 set -u
 
-docker-login
-
 docker tag klakegg/hugo:ext-alpine klakegg/hugo:edge-ext-alpine
 docker tag klakegg/hugo:ext-debian klakegg/hugo:edge-ext-debian
 docker tag klakegg/hugo:ext-ubuntu klakegg/hugo:edge-ext-ubuntu

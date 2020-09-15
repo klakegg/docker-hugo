@@ -41,17 +41,17 @@ jobs:
 
     - name: Test DocuAPI
       run: make test-docuapi
-
-    - name: Push egde images
-      if: "!startsWith(github.ref, 'refs/tags/')"
+    
+    - name: Docker login
       env:
         DOCKER_USERNAME: klakegg
         DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
+      run: make docker-login
+
+    - name: Push egde images
+      if: "!startsWith(github.ref, 'refs/tags/')"
       run: make push-edge
 
     - name: Push images
       if: "startsWith(github.ref, 'refs/tags/')"
-      env:
-        DOCKER_USERNAME: klakegg
-        DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
       run: make push-release

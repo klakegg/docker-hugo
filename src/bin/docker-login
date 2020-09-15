@@ -1,6 +1,0 @@
-#!/bin/sh
-
-set -e
-set -u
-
-docker login -u $DOCKER_USERNAME -p $DOCKER_TOKEN > /dev/null

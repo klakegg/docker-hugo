@@ -25,6 +25,9 @@ test-docuapi:
 	@git clone --depth 1 https://github.com/bep/docuapi.git target/docuapi
 	@docker run --rm -i -v $$(pwd)/target/docuapi:/src -u $$(id -u) klakegg/hugo:ext-alpine
 
+docker-login:
+	@docker login -u $$DOCKER_USERNAME -p $$DOCKER_TOKEN
+
 push-edge:
 	@push-tag
 

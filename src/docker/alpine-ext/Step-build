@@ -22,5 +22,4 @@ build "ext-pandoc" - \
 
 # Alpine + Hugo extended + Pandoc + Onbuild
 build "ext-pandoc-onbuild" "ext-pandoc--onbuild" \
-build "ext-pandoc-onbuild" "ext-pandoc--onbuild" \
   "[version]-ext-pandoc-onbuild"
