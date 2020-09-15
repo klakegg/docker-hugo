@@ -4,5 +4,6 @@
     },
     "yaml.schemas": {
         ".vscode/json-schema/config.json": "src/config/*.yaml",
+        ".vscode/json-schema/project.json": "src/project.yaml",
     }
 }
