@@ -57,5 +57,5 @@ tests:
 
   pandoc:
     entrypoint: pandoc-default
-    command: version
+    command: --version
     expected: Compiled with pandoc
