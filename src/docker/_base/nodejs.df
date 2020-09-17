@@ -1,0 +1,4 @@
+FROM alpine:3.12
+
+ADD _script/nodejs.sh nodejs.sh
+RUN sh nodejs.sh

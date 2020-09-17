@@ -1,37 +1,12 @@
-FROM alpine:3.12 AS hugo
+IMPORT hugo AS hugo
 
-ARG VERSION=0.75.1
+IMPORT certs AS certs
 
-ADD _script/hugo.sh hugo.sh
-RUN sh hugo.sh
+IMPORT golang AS golang
 
+IMPORT nodejs AS nodejs
 
-
-FROM alpine:3.12 AS certs
-
-RUN apk --no-cache add ca-certificates
-
-
-
-FROM alpine:3.12 AS golang
-
-ADD _script/golang.sh golang.sh
-RUN sh golang.sh
-
-
-
-FROM alpine:3.12 AS nodejs
-
-ADD _script/nodejs.sh nodejs.sh
-RUN sh nodejs.sh
-
-
-
-FROM alpine:3.12 AS pandoc
-
-ADD _script/pandoc.sh pandoc.sh
-RUN sh pandoc.sh
-
+IMPORT pandoc AS pandoc
 
 
 FROM alpine:3.12 AS files

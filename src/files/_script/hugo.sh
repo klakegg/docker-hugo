@@ -6,8 +6,21 @@ set -e
 set -u
 
 # Variables
-HUGO_ARCH="64bit"
 # HUGO_VERSION is edited in Dockerfile.
+
+# Architecture
+TARGETPLATFORM=${TARGETPLATFORM:-linux/amd64}
+
+if [ "$TARGETPLATFORM" = "linux/amd64" ]; then
+    HUGO_ARCH="64bit"
+elif [ "$TARGETPLATFORM" = "linux/arm64" ]; then
+    HUGO_ARCH="ARM64"
+elif [ "$TARGETPLATFORM" = "linux/arm/v7" ]; then
+    HUGO_ARCH="ARM"
+else
+    echo "Unknown build architecture: $TARGETPLATFORM"
+    exit 2
+fi
 
 # Download binaries from release
 wget https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_${VERSION}_Linux-${HUGO_ARCH}.tar.gz

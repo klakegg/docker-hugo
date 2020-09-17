@@ -6,8 +6,21 @@ set -e
 set -u
 
 # Variables
-NODE_ARCH="x64"
-NODE_VERSION="12.18.3"
+NODE_VERSION="12.18.4"
+
+# Architecture
+TARGETPLATFORM=${TARGETPLATFORM:-linux/amd64}
+
+if [ "$TARGETPLATFORM" = "linux/amd64" ]; then
+    NODE_ARCH="x64"
+elif [ "$TARGETPLATFORM" = "linux/arm64" ]; then
+    NODE_ARCH="arm64"
+elif [ "$TARGETPLATFORM" = "linux/arm/v7" ]; then
+    NODE_ARCH="armv7l"
+else
+    echo "Unknown build architecture: $TARGETPLATFORM"
+    exit 2
+fi
 
 # Download
 wget https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-${NODE_ARCH}.tar.xz \

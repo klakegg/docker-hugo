@@ -6,8 +6,21 @@ set -e
 set -u
 
 # Variables
-GOLANG_ARCH="amd64"
 GOLANG_VERSION="1.15.1"
+
+# Architecture
+TARGETPLATFORM=${TARGETPLATFORM:-linux/amd64}
+
+if [ "$TARGETPLATFORM" = "linux/amd64" ]; then
+    GOLANG_ARCH="amd64"
+elif [ "$TARGETPLATFORM" = "linux/arm64" ]; then
+    GOLANG_ARCH="arm64"
+elif [ "$TARGETPLATFORM" = "linux/arm/v7" ]; then
+    GOLANG_ARCH="armv6l"
+else
+    echo "Unknown build architecture: $TARGETPLATFORM"
+    exit 2
+fi
 
 # Download
 wget https://dl.google.com/go/go${GOLANG_VERSION}.linux-${GOLANG_ARCH}.tar.gz \

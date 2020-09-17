@@ -2,7 +2,7 @@
 # Image: base
 #
 
-IMPORT _base AS base
+IMPORT _base/_main AS base
 
 #
 # Image: alpine

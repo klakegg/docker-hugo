@@ -1,0 +1,4 @@
+FROM alpine:3.12
+
+ADD _script/pandoc.sh pandoc.sh
+RUN sh pandoc.sh

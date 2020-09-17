@@ -1,0 +1,4 @@
+FROM alpine:3.12
+
+ADD _script/golang.sh golang.sh
+RUN sh golang.sh

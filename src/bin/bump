@@ -14,7 +14,7 @@ NEXT=$RELEASE
 echo "$CURRENT => $NEXT"
 
 # Update main Dockerfile
-sed -i "s:$CURRENT:$NEXT:" $PROJECT/docker/_base/Dockerfile
+sed -i "s:$CURRENT:$NEXT:" $PROJECT/docker/_base/hugo.df
 sed -i "s:$CURRENT:$NEXT:" $PROJECT/project.yaml
 
 # Update README.md
