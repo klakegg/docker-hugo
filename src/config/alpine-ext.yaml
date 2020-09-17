@@ -9,6 +9,9 @@ images:
       - $(VERSION)-ext-alpine
     tests:
       - hugo
+      - golang
+      - yarn
+      - postcss
 
   # Alpine + Hugo extended + Onbuild
   ext-alpine-onbuild:
@@ -24,6 +27,9 @@ images:
     tests:
       - hugo
       - asciidoctor
+      - golang
+      - yarn
+      - postcss
 
   # Alpine + Hugo extended + Asciidoctor + Onbuild
   ext-asciidoctor-onbuild:
@@ -39,6 +45,9 @@ images:
     tests:
       - hugo
       - pandoc
+      - golang
+      - yarn
+      - postcss
 
   # Alpine + Hugo extended + Pandoc + Onbuild
   ext-pandoc-onbuild:
@@ -64,3 +73,16 @@ tests:
     entrypoint: pandoc-default
     command: --version
     expected: Compiled with pandoc
+
+  golang:
+    entrypoint: go
+    command: version
+    expected: go version
+
+  yarn:
+    entrypoint: yarn
+    command: --version
+
+  postcss:
+    entrypoint: postcss
+    command: --version

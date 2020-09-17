@@ -30,7 +30,7 @@ RUN apk add --no-cache libstdc++ busybox-suid bash bash-completion git tzdata ma
 
 COPY --from=image / /
 
-RUN npm install -g yarn@1.22.5 autoprefixer postcss-cli @babel/cli @babel/core  \
+RUN npm install -g autoprefixer@9.8.6 postcss@7.0.34 postcss-cli@7.1.2 yarn@1.22.5 @babel/cli @babel/core  \
  && find /tmp -mindepth 1 -maxdepth 1 | xargs rm -rf \
  && mkdir -p /src /target \
  && chmod a+w /src /target
