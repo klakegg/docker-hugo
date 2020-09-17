@@ -18,6 +18,8 @@ images:
       - golang
       - yarn
       - postcss
+    platforms:
+      - linux/amd64
 
   # Debian + Hugo extended + Onbuild
   ext-debian-onbuild:
@@ -26,6 +28,8 @@ images:
       - $(VERSION)-ext-debian-onbuild
       - $(VERSION)-ext-onbuild
       - ext-onbuild
+    platforms:
+      - linux/amd64
 
 tests:
   hugo:

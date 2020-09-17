@@ -15,12 +15,16 @@ images:
       - golang
       - yarn
       - postcss
+    platforms:
+      - linux/amd64
 
   # Ubuntu + Hugo extended + Onbuild
   ext-ubuntu-onbuild:
     target: ext-ubuntu--onbuild
     alias:
       - $(VERSION)-ext-ubuntu-onbuild
+    platforms:
+      - linux/amd64
 
 tests:
   hugo:

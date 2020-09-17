@@ -11,8 +11,6 @@ function tag {
   echos "Tag:   $1 => $(real $2)"
   _docker tag $DOCKER_REPO:$1 $DOCKER_REPO:$(real $2)
 
-  printf "$(real $2): $1\n\t@docker tag \$(IMAGE):$1 \$(IMAGE):$(real $2)\n\n" >> $TARGET/bundle/Makefile
-
   # Push tag
   push $2
 }
@@ -37,19 +35,6 @@ function build_only {
   if [ "$name" = "" ] || [ "$name" = "-" ]; then
     name=$1
   fi
-
-  cat <<EOF | sed 's/  /\t/g' >> $TARGET/bundle/Makefile
-$1:
-  @DOCKER_CLI_EXPERIMENTAL=enabled docker buildx build \\
-    --output "type=docker" \\
-    --progress plain \\
-    --tag \$(IMAGE):$1 \\
-    --file Dockerfile \\
-    --build-arg HUGO_VERSION_ARG=$(__version) \\
-    --target $name \\
-    files
-
-EOF
 
   # Perform build
   echos "Build: $1 ($name)"
@@ -135,10 +120,9 @@ echos "TARGET: $TARGET"
 echo
 
 # Prepare tags file
-rm -rf $TARGET/tags $TARGET/bundle/Makefile $TARGET/bundle/files
+rm -rf $TARGET/tags $TARGET/bundle/files
 mkdir -p $TARGET/bundle
 cp -r $(__repo_path)/src/files $TARGET/bundle/
-printf "# Automatically generated file.\nIMAGE=$DOCKER_REPO\n.DEFAULT_GOAL=all\n\n" > $TARGET/bundle/Makefile
 
 # Build distributions provided
 for dist in ${DISTS:-$(ls $DPWD/docker | grep ^_) $(ls $DPWD/docker | grep ^[^_])}; do
@@ -146,5 +130,3 @@ for dist in ${DISTS:-$(ls $DPWD/docker | grep ^_) $(ls $DPWD/docker | grep ^[^_]
     trigger $dist
   fi
 done
-
-echo "all: $(cat $TARGET/tags | sed "s|$DOCKER_REPO:||" | sed ':a;N;$!ba;s/\n/ /g')" >> $TARGET/bundle/Makefile

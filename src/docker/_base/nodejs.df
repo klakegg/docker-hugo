@@ -1,4 +1,10 @@
-FROM alpine:3.12
+FROM alpine:3.12 AS fetcher
 
 ADD _script/nodejs.sh nodejs.sh
 RUN sh nodejs.sh
+
+
+
+FROM scratch
+
+COPY --from=fetcher /node /nodejs

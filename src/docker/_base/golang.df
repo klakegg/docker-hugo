@@ -1,4 +1,10 @@
-FROM alpine:3.12
+FROM alpine:3.12 AS fetcher
 
 ADD _script/golang.sh golang.sh
 RUN sh golang.sh
+
+
+
+FROM scratch
+
+COPY --from=fetcher /files /golang

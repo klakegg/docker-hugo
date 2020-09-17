@@ -1,6 +1,7 @@
 FROM --platform=$BUILDPLATFORM alpine:3.12
 
-ARG VERSION=0.75.1
+IMPORT ../_imports/version_arg.df
+
 ARG TARGETPLATFORM
 ARG BUILDPLATFORM
 

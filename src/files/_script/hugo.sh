@@ -23,20 +23,20 @@ else
 fi
 
 # Download binaries from release
-wget https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_${VERSION}_Linux-${HUGO_ARCH}.tar.gz
-wget https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_extended_${VERSION}_Linux-${HUGO_ARCH}.tar.gz
-wget https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_${VERSION}_checksums.txt
+wget https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-${HUGO_ARCH}.tar.gz
+wget https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_Linux-${HUGO_ARCH}.tar.gz
+wget https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_checksums.txt
 
 # Verify checksums
-grep Linux-${HUGO_ARCH}.tar.gz hugo_${VERSION}_checksums.txt | sha256sum -c
+grep Linux-${HUGO_ARCH}.tar.gz hugo_${HUGO_VERSION}_checksums.txt | sha256sum -c
 
 # Prepare folders
 mkdir -p /hugo-standard/usr/lib/hugo
 mkdir -p /hugo-extended/usr/lib/hugo
 
 # Unpack downloaded content
-tar -zxf hugo_${VERSION}_Linux-${HUGO_ARCH}.tar.gz -C /hugo-standard/usr/lib/hugo
-tar -zxf hugo_extended_${VERSION}_Linux-${HUGO_ARCH}.tar.gz -C /hugo-extended/usr/lib/hugo
+tar -zxf hugo_${HUGO_VERSION}_Linux-${HUGO_ARCH}.tar.gz -C /hugo-standard/usr/lib/hugo
+tar -zxf hugo_extended_${HUGO_VERSION}_Linux-${HUGO_ARCH}.tar.gz -C /hugo-extended/usr/lib/hugo
 
 # Verify executable
 /hugo-standard/usr/lib/hugo/hugo version
@@ -50,5 +50,5 @@ cp /etc/bash_completion.d/hugo.sh /hugo-standard/etc/bash_completion.d/hugo.sh
 cp /etc/bash_completion.d/hugo.sh /hugo-extended/etc/bash_completion.d/hugo.sh
 
 # Create version file
-echo -n "$VERSION" > /hugo-standard/etc/hugo-release
-echo -n "$VERSION" > /hugo-extended/etc/hugo-release
+echo -n "${HUGO_VERSION}" > /hugo-standard/etc/hugo-release
+echo -n "${HUGO_VERSION}" > /hugo-extended/etc/hugo-release

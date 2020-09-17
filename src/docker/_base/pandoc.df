@@ -1,4 +1,10 @@
-FROM alpine:3.12
+FROM alpine:3.12 AS fetcher
 
 ADD _script/pandoc.sh pandoc.sh
 RUN sh pandoc.sh
+
+
+
+FROM scratch
+
+COPY --from=fetcher /files /

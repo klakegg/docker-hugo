@@ -54,6 +54,18 @@
                     "items": {
                         "type": "string"
                     }
+                },
+                "platforms": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "linux/amd64",
+                            "linux/arm/v6",
+                            "linux/arm/v7",
+                            "linux/arm64"
+                        ]
+                    }
                 }
             }
         },

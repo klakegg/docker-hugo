@@ -8,12 +8,14 @@ IMPORT nodejs AS nodejs
 
 IMPORT pandoc AS pandoc
 
+IMPORT files AS files
 
-FROM alpine:3.12 AS files
+
+
+FROM alpine:3.12 AS combine
 
 # Copy content of files folder to populate base image
-ADD . /files
-RUN rm -rf /files/_script
+COPY --from=files /files /files
 
 # Copy Hugo files
 COPY --from=hugo /hugo-standard /files/hugo-standard
@@ -23,13 +25,13 @@ COPY --from=hugo /hugo-extended /files/hugo-extended
 COPY --from=certs /etc/ssl/certs /files/certs/etc/ssl/certs
 
 # Golang
-COPY --from=golang /files /files/golang
+COPY --from=golang / /files/
 
 # NodeJS
-COPY --from=nodejs /node /files/nodejs
+COPY --from=nodejs / /files/
 
 # Pandoc
-COPY --from=pandoc /files /files
+COPY --from=pandoc / /files/
 
 RUN chmod a+x /files/**/bin/*
 
@@ -40,4 +42,4 @@ RUN ls /files
 FROM scratch
 
 # Copy prepared files to root of base image
-COPY --from=files /files /
+COPY --from=combine /files /

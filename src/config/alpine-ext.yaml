@@ -12,12 +12,16 @@ images:
       - golang
       - yarn
       - postcss
+    platforms:
+      - linux/amd64
 
   # Alpine + Hugo extended + Onbuild
   ext-alpine-onbuild:
     target: ext-alpine--onbuild
     alias:
       - $(VERSION)-ext-alpine-onbuild
+    platforms:
+      - linux/amd64
 
   # Alpine + Hugo extended + Asciidoctor
   ext-asciidoctor:
@@ -30,12 +34,16 @@ images:
       - golang
       - yarn
       - postcss
+    platforms:
+      - linux/amd64
 
   # Alpine + Hugo extended + Asciidoctor + Onbuild
   ext-asciidoctor-onbuild:
     target: ext-asciidoctor--onbuild
     alias:
       - $(VERSION)-ext-asciidoctor-onbuild
+    platforms:
+      - linux/amd64
 
   # Alpine + Hugo extended + Pandoc
   ext-pandoc:
@@ -48,12 +56,16 @@ images:
       - golang
       - yarn
       - postcss
+    platforms:
+      - linux/amd64
 
   # Alpine + Hugo extended + Pandoc + Onbuild
   ext-pandoc-onbuild:
     target: ext-pandoc--onbuild
     alias:
       - $(VERSION)-ext-pandoc-onbuild
+    platforms:
+      - linux/amd64
 
 tests:
   hugo:

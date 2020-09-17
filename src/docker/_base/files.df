@@ -1,0 +1,6 @@
+FROM alpine:3.12
+
+ADD . /files
+RUN rm -rf /files/_script
+
+RUN chmod a+x /files/**/bin/*

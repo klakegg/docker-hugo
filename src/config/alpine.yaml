@@ -38,12 +38,16 @@ images:
     tests:
       - hugo
       - pandoc
+    platforms:
+      - linux/amd64
 
   # Alpine + Hugo + Pandoc + Onbuild
   pandoc-onbuild:
     target: pandoc--onbuild
     alias:
       - $(VERSION)-pandoc-onbuild
+    platforms:
+      - linux/amd64
 
 tests:
   hugo:
