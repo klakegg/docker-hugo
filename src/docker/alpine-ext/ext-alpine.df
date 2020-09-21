@@ -4,11 +4,11 @@ FROM ubuntu:20.04 AS ubuntu
 
 FROM scratch as image
 
-COPY --from=base /alpine /
-COPY --from=base /hugo-extended /
-COPY --from=base /certs /
-COPY --from=base /nodejs /
-COPY --from=base /golang /
+COPY --from=base--files /alpine /
+COPY --from=base--hugo--extended / /
+COPY --from=base--certs / /
+COPY --from=base--nodejs / /
+COPY --from=base--golang / /
 COPY --from=ubuntu /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28 /usr/lib/libstdc++.so.6
 
 

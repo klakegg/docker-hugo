@@ -1,4 +1,5 @@
-FROM --platform=$BUILDPLATFORM alpine:3.12
+# Extended edition
+FROM --platform=$BUILDPLATFORM base--image--debian AS fetcher-extended
 
 IMPORT ../_imports/version_arg.df
 
@@ -7,5 +8,35 @@ ARG BUILDPLATFORM
 
 # RUN echo "I am running on $BUILDPLATFORM, building for $TARGETPLATFORM"
 
-ADD _script/hugo.sh hugo.sh
-RUN sh hugo.sh
+RUN apt update && apt install -y wget
+
+ADD _script/hugo-extended.sh hugo-extended.sh
+RUN sh hugo-extended.sh
+
+
+
+FROM scratch AS extended
+
+COPY --from=fetcher-extended /files /
+
+
+
+
+# Standard edition
+FROM --platform=$BUILDPLATFORM base--image--alpine AS fetcher-standard
+
+IMPORT ../_imports/version_arg.df
+
+ARG TARGETPLATFORM
+ARG BUILDPLATFORM
+
+# RUN echo "I am running on $BUILDPLATFORM, building for $TARGETPLATFORM"
+
+ADD _script/hugo-standard.sh hugo-standard.sh
+RUN sh hugo-standard.sh
+
+
+
+FROM scratch AS standard
+
+COPY --from=fetcher-standard /files /

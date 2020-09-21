@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM base--image--ubuntu
 
 IMPORT ../_imports/version_arg
 
@@ -7,7 +7,7 @@ ENV HUGO_BIND="0.0.0.0" \
     HUGO_ENV="DEV" \
     HOME="/tmp"
 
-COPY --from=base /debian /
+COPY --from=base--files /debian /
 
 RUN apt update \
  && DEBIAN_FRONTEND=noninteractive apt install -y wget bash-completion tzdata make \

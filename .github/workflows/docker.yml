@@ -24,8 +24,8 @@ jobs:
     #    buildx-version: latest
     #    qemu-version: latest
 
-    - name: Preprocess Dockerfile
-      run: make dockerfile-import
+    - name: Prepare
+      run: make prepare
 
     - name: Build
       run: make build

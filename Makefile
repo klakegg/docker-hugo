@@ -9,21 +9,23 @@ clean:
 build-debug:
 	@cd src && DEBUG=true bash hooks/local
 
-dockerfile-import:
+prepare:
+	@rm -rf target/bundle
 	@mkdir -p target/bundle
 	@docker run --rm -i -v $$(pwd):/work -u $$(id -u) \
 		klakegg/dockerfile-import:edge \
 		src/docker/Dockerfile target/bundle/Dockerfile
+	@cp -r src/files target/bundle/
 
 test-docsy:
-	@rm -rf target/docsy
-	@git clone --recurse-submodules --depth 1 https://github.com/google/docsy.git target/docsy
-	@docker run --rm -i -v $$(pwd)/target/docsy:/src -u $$(id -u) klakegg/hugo:ext-alpine
+	@rm -rf target/test/docsy
+	@git clone --recurse-submodules --depth 1 https://github.com/google/docsy.git target/test/docsy
+	@docker run --rm -i -v $$(pwd)/target/test/docsy:/src -u $$(id -u) klakegg/hugo:ext-alpine
 
 test-docuapi:
-	@rm -rf target/docuapi
-	@git clone --depth 1 https://github.com/bep/docuapi.git target/docuapi
-	@docker run --rm -i -v $$(pwd)/target/docuapi:/src -u $$(id -u) klakegg/hugo:ext-alpine
+	@rm -rf target/test/docuapi
+	@git clone --depth 1 https://github.com/bep/docuapi.git target/test/docuapi
+	@docker run --rm -i -v $$(pwd)/target/test/docuapi:/src -u $$(id -u) klakegg/hugo:ext-alpine
 
 docker-login:
 	@docker login -u $$DOCKER_USERNAME -p $$DOCKER_TOKEN

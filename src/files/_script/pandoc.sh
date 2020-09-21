@@ -17,10 +17,7 @@ wget https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${
 tar -zxvf pandoc.tar.gz
 
 # Prepare for image
-mkdir -p /files/pandoc/bin
-mv /pandoc-${PANDOC_VERSION}/bin/pandoc /files/pandoc/bin/pandoc-default
+mkdir -p /files/bin
+mv /pandoc-${PANDOC_VERSION}/bin/pandoc /files/bin/pandoc-default
 
-mkdir -p /files/pandoc-citeproc/bin
-mv /pandoc-${PANDOC_VERSION}/bin/pandoc-citeproc /files/pandoc-citeproc/bin/
-
-/files/pandoc/bin/pandoc-default -v
+/files/bin/pandoc-default -v

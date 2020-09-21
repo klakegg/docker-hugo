@@ -1,3 +1,5 @@
+IMPORT image AS image
+
 IMPORT hugo AS hugo
 
 IMPORT certs AS certs
@@ -15,25 +17,11 @@ IMPORT files AS files
 FROM alpine:3.12 AS combine
 
 # Copy content of files folder to populate base image
-COPY --from=files /files /files
+COPY --from=base--files / /files
 
 # Copy Hugo files
-COPY --from=hugo /hugo-standard /files/hugo-standard
-COPY --from=hugo /hugo-extended /files/hugo-extended
-
-# Copy only TLS certificates
-COPY --from=certs /etc/ssl/certs /files/certs/etc/ssl/certs
-
-# Golang
-COPY --from=golang / /files/
-
-# NodeJS
-COPY --from=nodejs / /files/
-
-# Pandoc
-COPY --from=pandoc / /files/
-
-RUN chmod a+x /files/**/bin/*
+COPY --from=base--hugo--standard / /files/hugo-standard
+COPY --from=base--hugo--extended / /files/hugo-extended
 
 RUN ls /files
 

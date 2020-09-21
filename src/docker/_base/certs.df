@@ -1,3 +1,9 @@
-FROM alpine:3.12
+FROM base--image--alpine AS source
 
 RUN apk --no-cache add ca-certificates
+
+
+
+FROM scratch
+
+COPY --from=source /etc/ssl/certs /etc/ssl/certs

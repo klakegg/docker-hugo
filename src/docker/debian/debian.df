@@ -2,7 +2,7 @@ FROM base-debian AS main
 
 ENV HUGO_EDITION="standard"
 
-COPY --from=base /hugo-standard /
+COPY --from=base--hugo--standard / /
 
 
 

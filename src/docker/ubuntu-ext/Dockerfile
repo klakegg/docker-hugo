@@ -1,7 +1,7 @@
 FROM scratch as image
 
-COPY --from=base /hugo-extended /
-COPY --from=base /pandoc /
+COPY --from=base--hugo--extended / /
+COPY --from=base--pandoc / /
 
 
 
@@ -36,7 +36,7 @@ RUN apt update \
  && mkdir -p /src /target \
  && chmod a+w /src /target
 
-COPY --from=base /golang /
+COPY --from=base--golang / /
 
 
 

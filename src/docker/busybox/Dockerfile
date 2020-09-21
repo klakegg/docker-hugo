@@ -1,12 +1,12 @@
 FROM scratch as image
 
-COPY --from=base /busybox /
-COPY --from=base /hugo-standard /
-COPY --from=base /certs /
+COPY --from=base--files /busybox /
+COPY --from=base--hugo--standard / /
+COPY --from=base--certs / /
 
 
 
-FROM busybox:1.32 AS main
+FROM base--image--busybox AS main
 
 IMPORT ../_imports/version_arg
 

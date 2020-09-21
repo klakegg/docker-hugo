@@ -1,4 +1,4 @@
-FROM alpine:3.12 AS fetcher
+FROM base--image--alpine AS fetcher
 
 ADD _script/pandoc.sh pandoc.sh
 RUN sh pandoc.sh

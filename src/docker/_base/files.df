@@ -1,6 +1,12 @@
-FROM alpine:3.12
+FROM base--image--alpine AS fetcher
 
 ADD . /files
 RUN rm -rf /files/_script
 
 RUN chmod a+x /files/**/bin/*
+
+
+
+FROM scratch
+
+COPY --from=fetcher /files /
