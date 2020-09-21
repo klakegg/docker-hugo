@@ -24,8 +24,11 @@ fi
 
 # Download
 wget https://unofficial-builds.nodejs.org/download/release/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-${NODE_ARCH}-musl.tar.xz \
-  -O /node.tar.gz
+  -O /node.tar.xz
 
 # Unpack
-mkdir -p /files/usr/local
-tar -xJf node.tar.gz -C /files/usr/local --strip-components=1 --no-same-owner
+#mkdir -p /files/usr/local
+#tar -xJf node.tar.xz -C /files/usr/local --strip-components=1 --no-same-owner
+
+mkdir -p /files
+tar -xJf node.tar.xz -C /files --strip-components=1 --no-same-owner

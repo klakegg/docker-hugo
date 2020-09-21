@@ -2,7 +2,7 @@ FROM scratch as image
 
 COPY --from=base--hugo--extended / /
 COPY --from=base--pandoc / /
-COPY --from=base--nodejs--glibc / /
+#COPY --from=base--nodejs--glibc / /
 
 
 
@@ -21,8 +21,8 @@ RUN apt update \
  && DEBIAN_FRONTEND=noninteractive apt install -y curl git gnupg apt-transport-https lsb-release \
  #
  # Install NodeJS and tooling
- #&& curl -sL https://deb.nodesource.com/setup_12.x | bash - \
- #&& apt install -y nodejs \
+ && curl -sL https://deb.nodesource.com/setup_12.x | bash - \
+ && apt install -y nodejs \
  && npm install -g autoprefixer@9.8.6 postcss@7.0.34 postcss-cli@7.1.2 yarn@1.22.5 @babel/cli @babel/core \
  #
  # Install Asciidoctor
