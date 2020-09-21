@@ -24,8 +24,8 @@ fi
 
 # Download
 wget https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-${NODE_ARCH}.tar.xz \
-  -O /node.tar.gz
+  -O /node.tar.xz
 
 # Unpack
-mkdir /node
-tar -xJf "node.tar.gz" -C /node --strip-components=1 --no-same-owner
+mkdir -p /files/usr/local
+tar -xJf node.tar.xz -C /files/usr/local --strip-components=1 --no-same-owner
