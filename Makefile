@@ -1,21 +1,19 @@
 PATH=$(shell pwd)/src/bin:$(shell echo $$PATH)
 
 build:
-	@cd src && bash hooks/local
+	@make -f target/bundle/Makefile
 
 clean:
 	@rm -rf target
 
 build-debug:
-	@cd src && DEBUG=true bash hooks/local
+	@make -f target/bundle/Makefile DEBUG=true
 
 prepare:
 	@rm -rf target/bundle
-	@mkdir -p target/bundle
 	@docker run --rm -i -v $$(pwd):/work -u $$(id -u) \
-		klakegg/dockerfile-import:edge \
-		src/docker/Dockerfile target/bundle/Dockerfile
-	@cp -r src/files target/bundle/
+		klakegg/docker-project-prepare:edge \
+		-t target/bundle
 
 test-docsy:
 	@rm -rf target/test/docsy
@@ -28,10 +26,10 @@ test-docuapi:
 	@docker run --rm -i -v $$(pwd)/target/test/docuapi:/src -u $$(id -u) klakegg/hugo:ext-alpine
 
 push-edge:
-	@push-tag
+	@make -f target/bundle/Makefile push-edge
 
 push-release:
-	@push-release
+	@make -f target/bundle/Makefile push-stable
 
 bump:
 	@bump
