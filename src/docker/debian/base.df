@@ -14,7 +14,7 @@ RUN apt update \
  && mkdir -p /src /target \
  && chmod a+w /src /target
 
-COPY --from=base--files /debian /
+COPY --from=base--files--debian / /
 
 EXPOSE 1313
 

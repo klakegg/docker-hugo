@@ -1,6 +1,6 @@
 FROM scratch as image
 
-COPY --from=base--files /alpine /
+COPY --from=base--files--alpine / /
 COPY --from=base--hugo--standard / /
 COPY --from=base--certs / /
 

@@ -17,7 +17,10 @@ IMPORT files AS files
 FROM alpine:3.12 AS combine
 
 # Copy content of files folder to populate base image
-COPY --from=base--files / /files
+COPY --from=base--files--alpine / /files/alpine
+COPY --from=base--files--busybox / /files/busybox
+COPY --from=base--files--debian / /files/debian
+COPY --from=base--files--ubuntu / /files/ubuntu
 
 # Copy Hugo files
 COPY --from=base--hugo--standard / /files/hugo-standard

@@ -1,6 +1,6 @@
 FROM scratch as image
 
-COPY --from=base--files /busybox /
+COPY --from=base--files--busybox / /
 COPY --from=base--hugo--standard / /
 COPY --from=base--certs / /
 

@@ -7,7 +7,7 @@ ENV HUGO_BIND="0.0.0.0" \
     HUGO_ENV="DEV" \
     HOME="/tmp"
 
-COPY --from=base--files /debian /
+COPY --from=base--files--ubuntu / /
 
 RUN apt update \
  && DEBIAN_FRONTEND=noninteractive apt install -y wget bash-completion tzdata make \

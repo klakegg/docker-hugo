@@ -10,8 +10,8 @@ ARG BUILDPLATFORM
 
 RUN apt update && apt install -y wget
 
-ADD _script/hugo-extended.sh hugo-extended.sh
-RUN sh hugo-extended.sh
+ADD _script/hugo-extended.sh hugo.sh
+RUN sh hugo.sh
 
 
 
@@ -32,8 +32,8 @@ ARG BUILDPLATFORM
 
 # RUN echo "I am running on $BUILDPLATFORM, building for $TARGETPLATFORM"
 
-ADD _script/hugo-standard.sh hugo-standard.sh
-RUN sh hugo-standard.sh
+ADD _script/hugo-standard.sh hugo.sh
+RUN sh hugo.sh
 
 
 
