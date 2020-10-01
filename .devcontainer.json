@@ -1,0 +1,7 @@
+{
+	"extensions": [
+		"ms-azuretools.vscode-docker",
+		"geeebe.duplicate",
+		"redhat.vscode-yaml",
+	],
+}
