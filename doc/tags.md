@@ -3,6 +3,7 @@
 Default minimal image based upon [Busybox](https://hub.docker.com/r/_/busybox/):
 * Aliases: `latest`, `busybox`, `busybox-onbuild`, `onbuild`
 <!-- * Hugo NEXT: `NEXT-busybox`, `NEXT`, `NEXT-busybox-onbuild`, `NEXT-onbuild` -->
+* Hugo 0.76.3: `0.76.3-busybox`, `0.76.3`, `0.76.3-busybox-onbuild`, `0.76.3-onbuild`
 * Hugo 0.76.2: `0.76.2-busybox`, `0.76.2`, `0.76.2-busybox-onbuild`, `0.76.2-onbuild`
 * Hugo 0.76.1: `0.76.1-busybox`, `0.76.1`, `0.76.1-busybox-onbuild`, `0.76.1-onbuild`
 * Hugo 0.76.0: `0.76.0-busybox`, `0.76.0`, `0.76.0-busybox-onbuild`, `0.76.0-onbuild`
@@ -100,6 +101,7 @@ Default minimal image based upon [Busybox](https://hub.docker.com/r/_/busybox/):
 Minimal image based upon [Alpine](https://hub.docker.com/r/_/alpine/):
 * Aliases: `alpine`, `alpine-onbuild`, `ext-alpine`, `ext-alpine-onbuild`, `ext-nodejs`
 <!-- * Hugo NEXT: `NEXT-alpine`, `NEXT-alpine-onbuild`, `NEXT-ext-alpine`, `NEXT-ext-alpine-onbuild` -->
+* Hugo 0.76.3: `0.76.3-alpine`, `0.76.3-alpine-onbuild`, `0.76.3-ext-alpine`, `0.76.3-ext-alpine-onbuild`
 * Hugo 0.76.2: `0.76.2-alpine`, `0.76.2-alpine-onbuild`, `0.76.2-ext-alpine`, `0.76.2-ext-alpine-onbuild`
 * Hugo 0.76.1: `0.76.1-alpine`, `0.76.1-alpine-onbuild`, `0.76.1-ext-alpine`, `0.76.1-ext-alpine-onbuild`
 * Hugo 0.76.0: `0.76.0-alpine`, `0.76.0-alpine-onbuild`, `0.76.0-ext-alpine`, `0.76.0-ext-alpine-onbuild`
@@ -197,6 +199,7 @@ Minimal image based upon [Alpine](https://hub.docker.com/r/_/alpine/):
 Minimal image based upon [Alpine](https://hub.docker.com/r/_/alpine/) with [Asciidoctor](http://asciidoctor.org/) installed:
 * Aliases:  `asciidoctor`, `asciidoctor-onbuild`, `ext-asciidoctor`, `ext-asciidoctor-onbuild`
 <!-- * Hugo NEXT: `NEXT-asciidoctor`, `NEXT-asciidoctor-onbuild`, `NEXT-ext-asciidoctor`, `NEXT-ext-asciidoctor-onbuild` -->
+* Hugo 0.76.3: `0.76.3-asciidoctor`, `0.76.3-asciidoctor-onbuild`, `0.76.3-ext-asciidoctor`, `0.76.3-ext-asciidoctor-onbuild`
 * Hugo 0.76.2: `0.76.2-asciidoctor`, `0.76.2-asciidoctor-onbuild`, `0.76.2-ext-asciidoctor`, `0.76.2-ext-asciidoctor-onbuild`
 * Hugo 0.76.1: `0.76.1-asciidoctor`, `0.76.1-asciidoctor-onbuild`, `0.76.1-ext-asciidoctor`, `0.76.1-ext-asciidoctor-onbuild`
 * Hugo 0.76.0: `0.76.0-asciidoctor`, `0.76.0-asciidoctor-onbuild`, `0.76.0-ext-asciidoctor`, `0.76.0-ext-asciidoctor-onbuild`
@@ -293,6 +296,7 @@ Minimal image based upon [Alpine](https://hub.docker.com/r/_/alpine/) with [Asci
 Minimal image based upon [Alpine](https://hub.docker.com/r/_/alpine/) with [Pandoc](https://pandoc.org/) installed:
 * Aliases: `pandoc`, `pandoc-onbuild`, `ext-pandoc`, `ext-pandoc-onbuild`
 <!-- * Hugo NEXT: `NEXT-pandoc`, `NEXT-pandoc-onbuild`, `NEXT-ext-pandoc`, `NEXT-ext-pandoc-onbuild` -->
+* Hugo 0.76.3: `0.76.3-pandoc`, `0.76.3-pandoc-onbuild`, `0.76.3-ext-pandoc`, `0.76.3-ext-pandoc-onbuild`
 * Hugo 0.76.2: `0.76.2-pandoc`, `0.76.2-pandoc-onbuild`, `0.76.2-ext-pandoc`, `0.76.2-ext-pandoc-onbuild`
 * Hugo 0.76.1: `0.76.1-pandoc`, `0.76.1-pandoc-onbuild`, `0.76.1-ext-pandoc`, `0.76.1-ext-pandoc-onbuild`
 * Hugo 0.76.0: `0.76.0-pandoc`, `0.76.0-pandoc-onbuild`, `0.76.0-ext-pandoc`, `0.76.0-ext-pandoc-onbuild`
@@ -371,6 +375,7 @@ Minimal image based upon [Alpine](https://hub.docker.com/r/_/alpine/) with [Pand
 Image based upon [Debian](https://hub.docker.com/r/_/debian/):
 * Aliases: `debian`, `debian-onbuild`, `ext`, `latest-ext`, `ext-debian`, `ext-debian-onbuild`, `ext-onbuild`
 <!-- * Hugo NEXT: `NEXT-debian`, `NEXT-debian-onbuild`, `NEXT-ext`, `NEXT-ext-debian`, `NEXT-ext-debian-onbuild`, `NEXT-ext-onbuild` -->
+* Hugo 0.76.3: `0.76.3-debian`, `0.76.3-debian-onbuild`, `0.76.3-ext`, `0.76.3-ext-debian`, `0.76.3-ext-debian-onbuild`, `0.76.3-ext-onbuild`
 * Hugo 0.76.2: `0.76.2-debian`, `0.76.2-debian-onbuild`, `0.76.2-ext`, `0.76.2-ext-debian`, `0.76.2-ext-debian-onbuild`, `0.76.2-ext-onbuild`
 * Hugo 0.76.1: `0.76.1-debian`, `0.76.1-debian-onbuild`, `0.76.1-ext`, `0.76.1-ext-debian`, `0.76.1-ext-debian-onbuild`, `0.76.1-ext-onbuild`
 * Hugo 0.76.0: `0.76.0-debian`, `0.76.0-debian-onbuild`, `0.76.0-ext`, `0.76.0-ext-debian`, `0.76.0-ext-debian-onbuild`, `0.76.0-ext-onbuild`
@@ -450,6 +455,7 @@ Image based upon [Debian](https://hub.docker.com/r/_/debian/):
 Image based upon [Ubuntu](https://hub.docker.com/r/_/ubuntu/):
 * Aliases: `ubuntu`, `ubuntu-onbuild`, `ext-ubuntu`, `ext-ubuntu-onbuild`
 <!-- * Hugo NEXT: `NEXT-ubuntu`, `NEXT-ubuntu-onbuild`, `NEXT-ext-ubuntu`, `NEXT-ext-ubuntu-onbuild` -->
+* Hugo 0.76.3: `0.76.3-ubuntu`, `0.76.3-ubuntu-onbuild`, `0.76.3-ext-ubuntu`, `0.76.3-ext-ubuntu-onbuild`
 * Hugo 0.76.2: `0.76.2-ubuntu`, `0.76.2-ubuntu-onbuild`, `0.76.2-ext-ubuntu`, `0.76.2-ext-ubuntu-onbuild`
 * Hugo 0.76.1: `0.76.1-ubuntu`, `0.76.1-ubuntu-onbuild`, `0.76.1-ext-ubuntu`, `0.76.1-ext-ubuntu-onbuild`
 * Hugo 0.76.0: `0.76.0-ubuntu`, `0.76.0-ubuntu-onbuild`, `0.76.0-ext-ubuntu`, `0.76.0-ext-ubuntu-onbuild`
