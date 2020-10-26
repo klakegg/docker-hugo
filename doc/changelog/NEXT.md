@@ -5,7 +5,7 @@
 
 ## :tada: Features
 
-*Nothing*
+* Adding `ci` variants of images with environment variable `HUGO_ENV` to `production` and resetting entrypoint. This is expected to simplify configuration for CI providers like Circle CI.
 
 
 ## :bug: Fixes
