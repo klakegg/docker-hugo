@@ -1,5 +1,7 @@
 PATH=$(shell pwd)/src/bin:$(shell echo $$PATH)
 
+default: clean prepare build
+
 build:
 	@make -f target/bundle/Makefile
 

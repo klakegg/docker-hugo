@@ -18,6 +18,14 @@ images:
     platforms:
       - linux/amd64
 
+  # Ubuntu + Hugo extended + CI
+  ext-ubuntu-ci:
+    target: ext-ubuntu--ci
+    alias:
+      - $(VERSION)-ext-ubuntu-ci
+    platforms:
+      - linux/amd64
+
   # Ubuntu + Hugo extended + Onbuild
   ext-ubuntu-onbuild:
     target: ext-ubuntu--onbuild

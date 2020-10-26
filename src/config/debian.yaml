@@ -9,6 +9,12 @@ images:
     tests:
       - hugo
 
+  # Debian + Hugo + CI
+  debian-ci:
+    target: debian--ci
+    alias:
+      - $(VERSION)-debian-ci
+
   # Debian + Hugo + Onbuild
   debian-onbuild:
     target: debian--onbuild

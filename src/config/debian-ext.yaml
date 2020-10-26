@@ -21,6 +21,16 @@ images:
     platforms:
       - linux/amd64
 
+  # Debian + Hugo extended + CI
+  ext-debian-ci:
+    target: ext-debian--ci
+    alias:
+      - $(VERSION)-ext-debian-ci
+      - $(VERSION)-ext-ci
+      - ext-ci
+    platforms:
+      - linux/amd64
+
   # Debian + Hugo extended + Onbuild
   ext-debian-onbuild:
     target: ext-debian--onbuild

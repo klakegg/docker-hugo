@@ -9,6 +9,12 @@ images:
     tests:
       - hugo
 
+  # Alpine + Hugo + CI
+  alpine-ci:
+    target: alpine--ci
+    alias:
+      - $(VERSION)-alpine-ci
+
   # Alpine + Hugo + Onbuild
   alpine-onbuild:
     target: alpine--onbuild
@@ -24,6 +30,12 @@ images:
       - hugo
       - asciidoctor
 
+  # Alpine + Hugo + Asciidoctor + CI
+  asciidoctor-ci:
+    target: asciidoctor--ci
+    alias:
+      - "$(VERSION)-asciidoctor-ci"
+
   # Alpine + Hugo + Asciidoctor + Onbuild
   asciidoctor-onbuild:
     target: asciidoctor--onbuild
@@ -38,6 +50,14 @@ images:
     tests:
       - hugo
       - pandoc
+    platforms:
+      - linux/amd64
+
+  # Alpine + Hugo + Pandoc + CI
+  pandoc-ci:
+    target: pandoc--ci
+    alias:
+      - $(VERSION)-pandoc-ci
     platforms:
       - linux/amd64
 

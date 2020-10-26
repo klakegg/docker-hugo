@@ -11,6 +11,14 @@ images:
     tests:
       - hugo
 
+  # Busybox + Hugo + CI
+  busybox-ci:
+    target: busybox--ci
+    alias:
+      - $(VERSION)-busybox-ci
+      - $(VERSION)-ci
+      - ci
+
   # Busybox + Hugo + Onbuild
   busybox-onbuild:
     target: busybox--onbuild

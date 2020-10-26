@@ -9,6 +9,12 @@ images:
     tests:
       - hugo
 
+  # Ubuntu + Hugo + CI
+  ubuntu-ci:
+    target: ubuntu--ci
+    alias:
+      - $(VERSION)-ubuntu-ci
+
   # Ubuntu + Hugo + Onbuild
   ubuntu-onbuild:
     target: ubuntu--onbuild
