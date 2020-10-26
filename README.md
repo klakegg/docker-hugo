@@ -214,7 +214,14 @@ Available arguments for `docker build`:
 * HUGO_ENV_ARG - Selecting environment ("DEV"/"production"). Default: `DEV`
 
 
-<!-- ## Using CI image -->
+## Using CI image (NEXT or newer)
+
+The `ci` images are prepared for use in configuration for continuous integration/deployment.
+
+Difference between normal images and non-`ci` images:
+
+* Environment variable `HUGO_ENV`: `production`
+* Entrypoint is empty
 
 
 ## Using Pandoc

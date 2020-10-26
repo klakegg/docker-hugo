@@ -3,3 +3,4 @@ FROM main AS ci
 ENV HUGO_ENV="production"
 
 ENTRYPOINT [ "" ]
+CMD [ "hugo" ]
