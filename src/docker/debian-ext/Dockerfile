@@ -41,6 +41,8 @@ COPY --from=base--golang / /
 
 
 
+IMPORT ../_imports/ci.df
+
 IMPORT ../_imports/onbuild.df
 
 

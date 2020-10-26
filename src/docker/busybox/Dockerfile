@@ -28,7 +28,11 @@ WORKDIR /src
 ENTRYPOINT ["hugo"]
 
 
+
+IMPORT ../_imports/ci.df
+
 IMPORT ../_imports/onbuild.df
+
 
 
 FROM main
