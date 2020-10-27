@@ -1,2 +1,5 @@
 image: klakegg/hugo
 version: 0.76.5
+
+platforms:
+  - linux/amd64

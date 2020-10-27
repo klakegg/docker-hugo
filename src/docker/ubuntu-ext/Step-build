@@ -1,9 +1,0 @@
-#!/bin/bash
-
-# Ubuntu + Hugo extended
-build "ext-ubuntu" - \
-  "[version]-ext-ubuntu"
-
-# Ubuntu + Hugo extended + Onbuild
-build "ext-ubuntu-onbuild" "ext-ubuntu--onbuild" \
-  "[version]-ext-ubuntu-onbuild"

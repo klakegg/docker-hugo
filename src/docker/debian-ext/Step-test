@@ -1,7 +1,0 @@
-#!/bin/bash
-
-test "ext-debian" "" "version" "Hugo"
-
-test "ext-debian" "--entrypoint asciidoctor" "--version" "Asciidoctor 2"
-
-test "ext-debian" "--entrypoint pandoc-default" "--version" "Compiled with pandoc"

@@ -218,7 +218,7 @@ Available arguments for `docker build`:
 
 The `ci` images are prepared for use in configuration for continuous integration/deployment.
 
-Difference between normal images and non-`ci` images:
+Difference between normal images and `ci` images:
 
 * Environment variable `HUGO_ENV`: `production`
 * Entrypoint is empty

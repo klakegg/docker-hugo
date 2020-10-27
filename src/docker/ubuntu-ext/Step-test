@@ -1,7 +1,0 @@
-#!/bin/bash
-
-test "ext-ubuntu" "" "version" "Hugo"
-
-test "ext-ubuntu" "--entrypoint asciidoctor" "--version" "Asciidoctor 2"
-
-test "ext-ubuntu" "--entrypoint pandoc-default" "--version" "Compiled with pandoc"

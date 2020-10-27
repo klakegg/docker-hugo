@@ -1,7 +1,0 @@
-#!/bin/bash
-
-# Base image built before dist images.
-
-# Base
-build "base" - \
-  "[version]-base"

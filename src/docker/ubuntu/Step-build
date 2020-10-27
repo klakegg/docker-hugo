@@ -1,9 +1,0 @@
-#!/bin/bash
-
-# Ubuntu + Hugo
-build "ubuntu" - \
-  "[version]-ubuntu"
-
-# Ubuntu + Hugo + Onbuild
-build "ubuntu-onbuild" "ubuntu--onbuild" \
-  "[version]-ubuntu-onbuild"
