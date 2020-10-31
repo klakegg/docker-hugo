@@ -27,6 +27,7 @@ images:
   # Alpine + Hugo extended + Onbuild
   ext-alpine-onbuild:
     target: ext-alpine--onbuild
+    edge: true
     alias:
       - $(VERSION)-ext-alpine-onbuild
     platforms:
