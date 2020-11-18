@@ -16,6 +16,12 @@
 ## :heartbeat: Updates
 
 * Hugo: [`0.78.2`](https://github.com/klakegg/docker-hugo/releases/tag/0.78.2) => `NEXT`
+* Autoprefixer: `10.0.1` => `10.0.2`
+* Go: `1.15.1` => `1.15.5`
+* NodeJS: `12.18.4` => `14.15.1`
+* Pandoc: `2.10.1` => `2.11.1.1`
+* PostCSS: `8.1.1` => `8.1.7`
+* PostCSS CLI: `8.1.0` => `8.3.0`
 
 
 ## Docker images

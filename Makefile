@@ -17,6 +17,8 @@ prepare:
 		klakegg/docker-project-prepare:edge \
 		-t target/bundle
 
+test: test-docsy test-docuapi
+
 test-docsy:
 	@rm -rf target/test/docsy
 	@git clone --recurse-submodules --depth 1 https://github.com/google/docsy.git target/test/docsy

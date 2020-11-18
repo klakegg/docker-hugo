@@ -21,9 +21,9 @@ RUN apt update \
  && DEBIAN_FRONTEND=noninteractive apt install -y curl git gnupg apt-transport-https lsb-release \
  #
  # Install NodeJS and tooling
- && curl -sL https://deb.nodesource.com/setup_12.x | bash - \
+ && curl -sL https://deb.nodesource.com/setup_14.x | bash - \
  && apt install -y nodejs \
- && npm install -g autoprefixer@10.0.1 postcss@8.1.1 postcss-cli@8.1.0 yarn@1.22.10 @babel/cli @babel/core \
+ && npm install -g autoprefixer@10.0.2 postcss@8.1.7 postcss-cli@8.3.0 yarn@1.22.10 @babel/cli @babel/core \
  #
  # Install Asciidoctor
  && DEBIAN_FRONTEND=noninteractive apt install -y ruby \
