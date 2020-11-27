@@ -1,5 +1,3 @@
 .idea
 *.iml
 target
-Dockerfile-gen-*
-.skip
