@@ -43,6 +43,10 @@ case "$1" in
         exec hugo-official $@
         ;;
 
+    "mod")
+        exec hugo-official $@
+        ;;
+
     "new")
         exec hugo-official $@
         ;;
