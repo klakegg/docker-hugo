@@ -1,0 +1,10 @@
+FROM base--image--alpine AS fetcher
+
+ADD _script/sass-embedded.sh sass-embedded.sh
+RUN sh sass-embedded.sh
+
+
+
+FROM scratch
+
+COPY --from=fetcher /files /

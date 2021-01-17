@@ -10,6 +10,8 @@ IMPORT nodejs AS nodejs
 
 IMPORT pandoc AS pandoc
 
+IMPORT sass-embedded AS sass-embedded
+
 IMPORT files AS files
 
 

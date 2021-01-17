@@ -2,6 +2,7 @@ FROM scratch as image
 
 COPY --from=base--hugo--extended / /
 COPY --from=base--pandoc / /
+COPY --from=base--sass-embedded / /
 #COPY --from=base--nodejs--glibc / /
 
 
