@@ -173,6 +173,7 @@ Table of Hugo extention features and the version when images first support the f
 | Autoprefixer  | 0.57.0 | 0.57.0 | 0.57.0 |
 | Go            | 0.68.0 | 0.68.0 | 0.68.0 |
 | Babel         | 0.71.0 | 0.71.0 | 0.71.0 |
+| rst2html      | NEXT   | NEXT   | NEXT   |
 
 Users of [google/docsy](https://github.com/google/docsy) may use the extended images as of version 0.57.2 to build their site.
 

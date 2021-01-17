@@ -74,6 +74,7 @@ images:
       - golang
       - yarn
       - postcss
+      - rst2html
     platforms:
       - linux/amd64
 
@@ -123,4 +124,8 @@ tests:
 
   postcss:
     entrypoint: postcss
+    command: --version
+
+  rst2html:
+    entrypoint: rst2html.py
     command: --version

@@ -21,12 +21,24 @@ ENV HUGO_BIND="0.0.0.0" \
     GOROOT="/usr/local/lib/go" \
     HOME="/tmp"
 
-RUN apk add --no-cache libc6-compat libstdc++ busybox-suid bash bash-completion git tzdata make
+RUN apk add --no-cache libc6-compat libstdc++ busybox-suid bash bash-completion git tzdata make \
+    # Python 3
+    python3 py-pip py-setuptools
 
 COPY --from=image / /
 
-RUN npm install -g autoprefixer@10.0.2 postcss@8.1.7 postcss-cli@8.3.0 yarn@1.22.10 @babel/cli @babel/core  \
+RUN true \
+ # Install npm packages
+ && npm install -g autoprefixer@10.0.2 postcss@8.1.7 postcss-cli@8.3.0 yarn@1.22.10 @babel/cli @babel/core  \
+ #
+ # Install rst2html
+ && pip install rst2html \
+ #
+ # Cleaning
+ && apk del py-pip py-setuptools \ 
  && find /tmp -mindepth 1 -maxdepth 1 | xargs rm -rf \
+ #
+ # Prepare folders
  && mkdir -p /src /target \
  && chmod a+w /src /target
 

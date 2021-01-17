@@ -5,7 +5,7 @@
 
 ## :tada: Features
 
-*Nothing*
+* Adding support for rst2html in `ext` images.
 
 
 ## :bug: Fixes
