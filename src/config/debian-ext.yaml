@@ -45,7 +45,7 @@ images:
 tests:
   hugo:
     command: version
-    expected: Hugo
+    expected: hugo
 
   node:
     entrypoint: node

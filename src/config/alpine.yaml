@@ -72,7 +72,7 @@ images:
 tests:
   hugo:
     command: version
-    expected: Hugo
+    expected: hugo
 
   asciidoctor:
     entrypoint: asciidoctor
