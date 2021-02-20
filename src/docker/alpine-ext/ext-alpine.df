@@ -29,7 +29,7 @@ COPY --from=image / /
 
 RUN true \
  # Install npm packages
- && npm install -g autoprefixer@10.0.2 postcss@8.1.7 postcss-cli@8.3.0 yarn@1.22.10 @babel/cli @babel/core  \
+ && npm install -g autoprefixer@10.2.4 postcss@8.2.6 postcss-cli@8.3.1 yarn@1.22.10 @babel/cli @babel/core  \
  #
  # Install rst2html
  && pip install rst2html \

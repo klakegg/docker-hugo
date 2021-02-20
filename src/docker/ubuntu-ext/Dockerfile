@@ -30,7 +30,7 @@ RUN true \
  # Install NodeJS and tooling
  && curl -sL https://deb.nodesource.com/setup_14.x | bash - \
  && apt install -y nodejs \
- && npm install -g autoprefixer@10.0.2 postcss@8.1.7 postcss-cli@8.3.0 yarn@1.22.10 @babel/cli @babel/core \
+ && npm install -g autoprefixer@10.2.4 postcss@8.2.6 postcss-cli@8.3.1 yarn@1.22.10 @babel/cli @babel/core \
  #
  # Install Asciidoctor
  && DEBIAN_FRONTEND=noninteractive apt install -y ruby \

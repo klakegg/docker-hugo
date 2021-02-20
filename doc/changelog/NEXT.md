@@ -17,6 +17,11 @@
 
 * Hugo: [`0.80.0`](https://github.com/klakegg/docker-hugo/releases/tag/0.80.0) => `NEXT`
 * Go: `1.15.1` => `1.16`
+* NodeJS: `14.15.1` => `14.15.5`
+* Pandoc: `2.11.1.1` => `2.11.4`
+* autoprefixer: `10.0.2` => `10.2.4`
+* postcss: `8.1.7` => `8.2.6`
+* postcss-cli: `8.3.0` => `8.3.1`
 
 
 ## Docker images
