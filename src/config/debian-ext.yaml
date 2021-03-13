@@ -57,7 +57,7 @@ tests:
     expected: Asciidoctor 2
 
   pandoc:
-    entrypoint: pandoc-default
+    entrypoint: pandoc
     command: --version
     expected: Compiled with pandoc
 
