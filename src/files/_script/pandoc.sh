@@ -7,7 +7,7 @@ set -u
 
 # Variables
 PANDOC_ARCH="amd64"
-PANDOC_VERSION="2.11.4"
+PANDOC_VERSION="2.12"
 
 # Download
 wget https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-linux-${PANDOC_ARCH}.tar.gz \
