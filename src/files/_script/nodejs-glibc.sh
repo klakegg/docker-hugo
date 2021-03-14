@@ -27,5 +27,9 @@ wget https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-${NODE
   -O /node.tar.xz
 
 # Unpack
-mkdir -p /files/usr/local
-tar -xJf node.tar.xz -C /files/usr/local --strip-components=1 --no-same-owner
+mkdir -p /files/usr/local/node
+tar -xJf node.tar.xz -C /files/usr/local/node --strip-components=1 --no-same-owner
+
+# Add Node to $PATH
+mkdir -p /files/etc/profile.d
+echo "export PATH=\$PATH:/usr/local/node/bin" > /files/etc/profile.d/node.sh

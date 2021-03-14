@@ -1,7 +1,5 @@
 FROM ext-alpine AS main
 
-ENV HUGO_PANDOC="pandoc-default"
-
 COPY --from=base--pandoc / /
 
 

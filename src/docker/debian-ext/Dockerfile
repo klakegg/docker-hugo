@@ -3,7 +3,7 @@ FROM scratch as image
 COPY --from=base--hugo--extended / /
 COPY --from=base--pandoc / /
 COPY --from=base--sass-embedded / /
-#COPY --from=base--nodejs--glibc / /
+COPY --from=base--nodejs--glibc / /
 
 
 
@@ -11,9 +11,9 @@ FROM base-debian AS main
 
 ENV HUGO_EDITION="extended" \
     HUGO_CACHEDIR="/tmp" \
-    NODE_PATH=".:/usr/lib/node_modules" \
-    HUGO_PANDOC="pandoc-default"\
-    GOROOT="/usr/local/lib/go"
+    #NODE_PATH=".:/usr/lib/node_modules" \
+    GOROOT="/usr/local/lib/go" \
+    PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/node/bin"
 
 COPY --from=image / /
 
@@ -28,8 +28,8 @@ RUN true \
  && pip install rst2html \
  #
  # Install NodeJS and tooling
- && curl -sL https://deb.nodesource.com/setup_14.x | bash - \
- && apt install -y nodejs \
+ #&& curl -sL https://deb.nodesource.com/setup_14.x | bash - \
+ #&& apt install -y nodejs \
  && npm install -g autoprefixer@10.2.4 postcss@8.2.6 postcss-cli@8.3.1 yarn@1.22.10 @babel/cli @babel/core \
  #
  # Install Asciidoctor

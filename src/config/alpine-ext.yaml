@@ -10,6 +10,7 @@ images:
     tests:
       - hugo
       - golang
+      - node
       - yarn
       - postcss
     platforms:
@@ -42,6 +43,7 @@ images:
       - hugo
       - asciidoctor
       - golang
+      - node
       - yarn
       - postcss
     platforms:
@@ -73,6 +75,7 @@ images:
       - hugo
       - pandoc
       - golang
+      - node
       - yarn
       - postcss
       - rst2html

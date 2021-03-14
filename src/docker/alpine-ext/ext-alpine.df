@@ -19,7 +19,8 @@ ENV HUGO_BIND="0.0.0.0" \
     HUGO_CACHEDIR="/tmp" \
     NODE_PATH=".:/lib/node_modules" \
     GOROOT="/usr/local/lib/go" \
-    HOME="/tmp"
+    HOME="/tmp" \
+    PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/node/bin"
 
 RUN apk add --no-cache libc6-compat libstdc++ busybox-suid bash bash-completion git tzdata make \
     # Python 3
@@ -28,6 +29,7 @@ RUN apk add --no-cache libc6-compat libstdc++ busybox-suid bash bash-completion 
 COPY --from=image / /
 
 RUN true \
+ #
  # Install npm packages
  && npm install -g autoprefixer@10.2.4 postcss@8.2.6 postcss-cli@8.3.1 yarn@1.22.10 @babel/cli @babel/core  \
  #
