@@ -17,10 +17,10 @@ ENV HUGO_BIND="0.0.0.0" \
     HUGO_ENV="DEV" \
     HUGO_EDITION="extended" \
     HUGO_CACHEDIR="/tmp" \
-    NODE_PATH=".:/lib/node_modules" \
+    NODE_PATH=".:/usr/local/node/lib/node_modules" \
+    PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/node/bin" \
     GOROOT="/usr/local/lib/go" \
-    HOME="/tmp" \
-    PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/node/bin"
+    HOME="/tmp"
 
 RUN apk add --no-cache libc6-compat libstdc++ busybox-suid bash bash-completion git tzdata make \
     # Python 3
