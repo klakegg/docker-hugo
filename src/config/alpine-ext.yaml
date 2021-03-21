@@ -68,7 +68,6 @@ images:
   # Alpine + Hugo extended + Pandoc
   ext-pandoc:
     target: ext-pandoc
-    edge: true
     alias:
       - $(VERSION)-ext-pandoc
     tests:
@@ -85,7 +84,6 @@ images:
   # Alpine + Hugo extended + Pandoc + CI
   ext-pandoc-ci:
     target: ext-pandoc--ci
-    edge: true
     alias:
       - $(VERSION)-ext-pandoc-ci
     platforms:
