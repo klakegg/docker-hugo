@@ -10,18 +10,13 @@
 
 ## :bug: Fixes
 
-* Remove `pandoc` alias in favour of a `pandoc` script. [#43](https://github.com/klakegg/docker-hugo/issues/43)
+*Nothing*
 
 
 ## :heartbeat: Updates
 
-* Hugo: [`0.81.0`](https://github.com/klakegg/docker-hugo/releases/tag/0.81.0) => `NEXT`
-* Alpine: `3.12` => `3.13`
-* Busybox: `1.32` => `1.33`
-* Debian: `10.4` => `10.8`
-* NodeJS: `14.15.5` => `14.16.0`
-* Pandoc: `2.11.4` => `2.12`
-* Go: `1.16` => `1.16.2`
+* Hugo: [`0.82.0`](https://github.com/klakegg/docker-hugo/releases/tag/0.82.0) => `NEXT`
+
 
 ## Docker images
 
