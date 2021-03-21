@@ -35,7 +35,7 @@ RUN true \
  #
  # Install Asciidoctor
  && DEBIAN_FRONTEND=noninteractive apt install -y ruby \
- && gem install asciidoctor coderay --no-document \
+ && gem install asciidoctor coderay asciidoctor-rouge --no-document \
  #
  # Cleaning up
  && apt remove -y curl gnupg apt-transport-https lsb-release python-pip python-setuptools python-wheel \
