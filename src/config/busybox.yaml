@@ -4,6 +4,10 @@ images:
   # Busybox + Hugo
   busybox:
     target: busybox
+    edge: true
+    platforms:
+      - linux/amd64
+      - linux/arm64
     alias:
       - latest
       - $(VERSION)
@@ -14,6 +18,9 @@ images:
   # Busybox + Hugo + CI
   busybox-ci:
     target: busybox--ci
+    platforms:
+      - linux/amd64
+      - linux/arm64
     alias:
       - $(VERSION)-busybox-ci
       - $(VERSION)-ci
@@ -22,6 +29,9 @@ images:
   # Busybox + Hugo + Onbuild
   busybox-onbuild:
     target: busybox--onbuild
+    platforms:
+      - linux/amd64
+      - linux/arm64
     alias:
       - $(VERSION)-busybox-onbuild
       - $(VERSION)-onbuild

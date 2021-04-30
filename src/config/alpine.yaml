@@ -4,6 +4,10 @@ images:
   # Alpine + Hugo
   alpine:
     target: alpine
+    edge: true
+    platforms:
+      - linux/amd64
+      - linux/arm64
     alias:
       - $(VERSION)-alpine
     tests:
@@ -12,18 +16,28 @@ images:
   # Alpine + Hugo + CI
   alpine-ci:
     target: alpine--ci
+    platforms:
+      - linux/amd64
+      - linux/arm64
     alias:
       - $(VERSION)-alpine-ci
 
   # Alpine + Hugo + Onbuild
   alpine-onbuild:
     target: alpine--onbuild
+    platforms:
+      - linux/amd64
+      - linux/arm64
     alias:
       - $(VERSION)-alpine-onbuild
 
   # Alpine + Hugo + Asciidoctor
   asciidoctor:
     target: asciidoctor
+    edge: true
+    platforms:
+      - linux/amd64
+      - linux/arm64
     alias:
       - "$(VERSION)-asciidoctor"
     tests:
@@ -33,12 +47,18 @@ images:
   # Alpine + Hugo + Asciidoctor + CI
   asciidoctor-ci:
     target: asciidoctor--ci
+    platforms:
+      - linux/amd64
+      - linux/arm64
     alias:
       - "$(VERSION)-asciidoctor-ci"
 
   # Alpine + Hugo + Asciidoctor + Onbuild
   asciidoctor-onbuild:
     target: asciidoctor--onbuild
+    platforms:
+      - linux/amd64
+      - linux/arm64
     alias:
       - "$(VERSION)-asciidoctor-onbuild"
 
