@@ -6,12 +6,23 @@ set -e
 set -u
 
 # Variables
-PANDOC_ARCH="amd64"
-PANDOC_VERSION="2.12"
+PANDOC_VERSION="2.13"
+
+# Architecture
+TARGETPLATFORM=${TARGETPLATFORM:-linux/amd64}
+
+if [ "$TARGETPLATFORM" = "linux/amd64" ]; then
+    PANDOC_ARCH="amd64"
+elif [ "$TARGETPLATFORM" = "linux/arm64" ]; then
+    PANDOC_ARCH="arm64"
+else
+    echo "Unknown build architecture: $TARGETPLATFORM"
+    exit 2
+fi
 
 # Download
-wget https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-linux-${PANDOC_ARCH}.tar.gz \
-  -O /pandoc.tar.gz
+url=https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-linux-${PANDOC_ARCH}.tar.gz
+wget $url -O /pandoc.tar.gz
 
 # Unpack
 tar -zxvf pandoc.tar.gz

@@ -16,6 +16,7 @@
 ## :heartbeat: Updates
 
 * Hugo: [`0.82.1`](https://github.com/klakegg/docker-hugo/releases/tag/0.82.1) => `NEXT`
+* Pandoc: `2.12` => `2.13`
 
 
 ## Docker images

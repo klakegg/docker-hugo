@@ -4,9 +4,6 @@ FROM --platform=$BUILDPLATFORM base--image--debian AS fetcher-extended
 IMPORT ../_imports/version_arg.df
 
 ARG TARGETPLATFORM
-ARG BUILDPLATFORM
-
-# RUN echo "I am running on $BUILDPLATFORM, building for $TARGETPLATFORM"
 
 RUN apt update && apt install -y wget
 
@@ -29,7 +26,6 @@ FROM --platform=$BUILDPLATFORM base--image--alpine AS fetcher-standard
 IMPORT ../_imports/version_arg.df
 
 ARG TARGETPLATFORM
-ARG BUILDPLATFORM
 
 # RUN echo "I am running on $BUILDPLATFORM, building for $TARGETPLATFORM"
 

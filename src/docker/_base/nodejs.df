@@ -1,5 +1,7 @@
 FROM base--image--alpine AS fetcher-glibc
 
+ARG TARGETPLATFORM
+
 ADD _script/nodejs-glibc.sh nodejs.sh
 RUN sh nodejs.sh
 
@@ -14,6 +16,8 @@ COPY --from=fetcher-glibc /files /
 
 
 FROM base--image--alpine AS fetcher-musl
+
+ARG TARGETPLATFORM
 
 ADD _script/nodejs-musl.sh nodejs.sh
 RUN sh nodejs.sh

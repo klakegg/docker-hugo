@@ -1,5 +1,7 @@
 FROM base--image--alpine AS fetcher
 
+ARG TARGETPLATFORM
+
 ADD _script/golang.sh golang.sh
 #COPY --from=base--files--scripts golang.sh golang.sh
 RUN sh golang.sh

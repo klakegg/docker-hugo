@@ -1,5 +1,7 @@
 FROM base--image--alpine AS fetcher
 
+ARG TARGETPLATFORM
+
 ADD _script/pandoc.sh pandoc.sh
 RUN sh pandoc.sh
 
