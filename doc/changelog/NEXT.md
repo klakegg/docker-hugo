@@ -21,6 +21,9 @@
 
 ## Docker images
 
+<details>
+<summary>Click to see available images</summary>
+
 This release is available from Docker Hub as project `klakegg/hugo` with the following tags:
 
 | Alias tags                   | Version specific tags                      |
@@ -58,3 +61,4 @@ This release is available from Docker Hub as project `klakegg/hugo` with the fol
 | `ext-ubuntu`                 | `NEXT-ext-ubuntu`                        |
 | `ext-ubuntu-ci`              | `NEXT-ext-ubuntu-ci`                     |
 | `ext-ubuntu-onbuild`         | `NEXT-ext-ubuntu-onbuild`                |
+</details>

@@ -19,7 +19,6 @@ images:
   # Alpine + Hugo extended + CI
   ext-alpine-ci:
     target: ext-alpine--ci
-    edge: true
     alias:
       - $(VERSION)-ext-alpine-ci
     platforms:
@@ -28,7 +27,6 @@ images:
   # Alpine + Hugo extended + Onbuild
   ext-alpine-onbuild:
     target: ext-alpine--onbuild
-    edge: true
     alias:
       - $(VERSION)-ext-alpine-onbuild
     platforms:
