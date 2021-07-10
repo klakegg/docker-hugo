@@ -1,5 +1,5 @@
 image: klakegg/hugo
-version: 0.84.4
+version: 0.85.0
 
 platforms:
   - linux/amd64
