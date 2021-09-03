@@ -2,3 +2,4 @@
 *.iml
 target
 .vscode/*.log
+src/bin/buildx

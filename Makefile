@@ -8,14 +8,16 @@ build:
 clean:
 	@rm -rf target
 
-build-debug:
+build-debug: src/bin/buildx
 	@make -f target/bundle/Makefile DEBUG=true
 
-prepare:
+prepare: src/bin/buildx
 	@rm -rf target/bundle
 	@docker run --rm -i -v $$(pwd):/work -u $$(id -u) \
 		klakegg/docker-project-prepare:edge \
 		-t target/bundle
+	@mv target/bundle/Makefile target/bundle/Makefile.original
+	@cat target/bundle/Makefile.original | sed "s:DOCKER_CLI_EXPERIMENTAL=enabled docker buildx:buildx:g" > target/bundle/Makefile
 
 test: test-docsy test-docuapi
 
@@ -37,3 +39,7 @@ push-release:
 
 bump:
 	@bump
+
+src/bin/buildx:
+	@wget -q -O src/bin/buildx https://github.com/docker/buildx/releases/download/v0.6.3/buildx-v0.6.3.linux-amd64
+	@chmod a+x src/bin/buildx
