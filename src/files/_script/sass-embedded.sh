@@ -6,7 +6,7 @@ set -e
 set -u
 
 # Variables
-SASS_EMBEDDED_VERSION="1.0.0-beta.6"
+SASS_EMBEDDED_VERSION="1.0.0-beta.11"
 
 # Download
 wget https://github.com/sass/dart-sass-embedded/releases/download/${SASS_EMBEDDED_VERSION}/sass_embedded-${SASS_EMBEDDED_VERSION}-linux-x64.tar.gz \
