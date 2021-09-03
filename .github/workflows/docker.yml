@@ -32,7 +32,7 @@ jobs:
         run: make prepare
 
       - name: Build
-        run: make build-debug
+        run: make build
 
       - name: Upload target content
         uses: actions/upload-artifact@v2
