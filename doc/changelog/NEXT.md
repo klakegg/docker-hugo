@@ -15,7 +15,7 @@
 
 ## :heartbeat: Updates
 
-* Hugo: [`0.88.1`](https://github.com/klakegg/docker-hugo/releases/tag/0.88.1) => `NEXT`
+* Hugo: [`0.89.0`](https://github.com/klakegg/docker-hugo/releases/tag/0.89.0) => `NEXT`
 
 
 ## Docker images

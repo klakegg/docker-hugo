@@ -38,7 +38,7 @@ push-release:
 	@make -f target/bundle/Makefile push-stable
 
 bump:
-	@bump
+	@RELEASE=$(version) bump
 
 src/bin/buildx:
 	@wget -q -O src/bin/buildx https://github.com/docker/buildx/releases/download/v0.6.3/buildx-v0.6.3.linux-amd64
