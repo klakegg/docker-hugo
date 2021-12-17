@@ -1,21 +1,6 @@
-## :loudspeaker: Breaking changes
-
-*Nothing*
-
-
-## :tada: Features
-
-*Nothing*
-
-
-## :bug: Fixes
-
-*Nothing*
-
-
 ## :heartbeat: Updates
 
-* Hugo: [`0.90.1`](https://github.com/klakegg/docker-hugo/releases/tag/0.90.1) => `NEXT`
+* Hugo: [`0.91.0`](https://github.com/klakegg/docker-hugo/releases/tag/0.91.0) => `NEXT`
 
 
 ## Docker images
