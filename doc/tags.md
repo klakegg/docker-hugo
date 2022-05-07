@@ -3,6 +3,7 @@
 Default minimal image based upon [Busybox](https://hub.docker.com/r/_/busybox/):
 * Aliases: `latest`, `busybox`, `busybox-ci`, `ci`, `busybox-onbuild`, `onbuild`
 <!-- * Hugo NEXT: `NEXT-busybox`, `NEXT`, `NEXT-busybox-ci`, `NEXT-ci`, `NEXT-busybox-onbuild`, `NEXT-onbuild` -->
+* Hugo 0.98.0: `0.98.0-busybox`, `0.98.0`, `0.98.0-busybox-ci`, `0.98.0-ci`, `0.98.0-busybox-onbuild`, `0.98.0-onbuild`
 * Hugo 0.95.0: `0.95.0-busybox`, `0.95.0`, `0.95.0-busybox-ci`, `0.95.0-ci`, `0.95.0-busybox-onbuild`, `0.95.0-onbuild`
 * Hugo 0.94.2: `0.94.2-busybox`, `0.94.2`, `0.94.2-busybox-ci`, `0.94.2-ci`, `0.94.2-busybox-onbuild`, `0.94.2-onbuild`
 * Hugo 0.94.1: `0.94.1-busybox`, `0.94.1`, `0.94.1-busybox-ci`, `0.94.1-ci`, `0.94.1-busybox-onbuild`, `0.94.1-onbuild`
