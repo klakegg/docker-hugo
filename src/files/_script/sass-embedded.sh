@@ -6,10 +6,22 @@ set -e
 set -u
 
 # Variables
-SASS_EMBEDDED_VERSION="1.0.0-beta.11"
+SASS_EMBEDDED_VERSION="1.52.3"
+
+# Architecture
+TARGETPLATFORM=${TARGETPLATFORM:-linux/amd64}
+
+if [ "$TARGETPLATFORM" = "linux/amd64" ]; then
+    ARCH="x64"
+elif [ "$TARGETPLATFORM" = "linux/arm64" ]; then
+    ARCH="arm64"
+else
+    echo "Unknown build architecture: $TARGETPLATFORM"
+    exit 2
+fi
 
 # Download
-wget https://github.com/sass/dart-sass-embedded/releases/download/${SASS_EMBEDDED_VERSION}/sass_embedded-${SASS_EMBEDDED_VERSION}-linux-x64.tar.gz \
+wget https://github.com/sass/dart-sass-embedded/releases/download/${SASS_EMBEDDED_VERSION}/sass_embedded-${SASS_EMBEDDED_VERSION}-linux-${ARCH}.tar.gz \
   -O /sass-embedded.tar.gz
 
 # Unpack
