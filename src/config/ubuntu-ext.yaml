@@ -18,6 +18,7 @@ images:
       - rst2html
     platforms:
       - linux/amd64
+      - linux/arm64
 
   # Ubuntu + Hugo extended + CI
   ext-ubuntu-ci:
@@ -26,6 +27,7 @@ images:
       - $(VERSION)-ext-ubuntu-ci
     platforms:
       - linux/amd64
+      - linux/arm64
 
   # Ubuntu + Hugo extended + Onbuild
   ext-ubuntu-onbuild:
@@ -34,6 +36,7 @@ images:
       - $(VERSION)-ext-ubuntu-onbuild
     platforms:
       - linux/amd64
+      - linux/arm64
 
 tests:
   hugo:

@@ -21,6 +21,7 @@ images:
       - rst2html
     platforms:
       - linux/amd64
+      - linux/arm64
 
   # Debian + Hugo extended + CI
   ext-debian-ci:
@@ -31,6 +32,7 @@ images:
       - ext-ci
     platforms:
       - linux/amd64
+      - linux/arm64
 
   # Debian + Hugo extended + Onbuild
   ext-debian-onbuild:
@@ -41,6 +43,7 @@ images:
       - ext-onbuild
     platforms:
       - linux/amd64
+      - linux/arm64
 
 tests:
   hugo:
