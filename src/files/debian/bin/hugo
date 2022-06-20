@@ -5,76 +5,85 @@
 # Load environment configuration
 . /etc/profile.d/hugo.sh
 
+cmd="hugo-official"
 opts=""
 
 case "$1" in
 
     # Commands from hugo
 
+    "__complete")
+        exec $cmd "$@"
+        ;;
+
     "benchmark")
-        exec hugo-official $@
+        exec $cmd "$@"
+        ;;
+
+    "completion")
+        exec $cmd "$@"
         ;;
 
     "config")
-        exec hugo-official $@
+        exec $cmd "$@"
         ;;
 
     "convert")
-        exec hugo-official $@
+        exec $cmd "$@"
         ;;
 
     "env")
-        exec hugo-official $@
+        exec $cmd "$@"
         ;;
 
     "gen")
-        exec hugo-official $@
+        exec $cmd "$@"
         ;;
 
     "help")
-        exec hugo-official $@
+        exec $cmd "$@"
         ;;
 
     "import")
-        exec hugo-official $@
+        exec $cmd "$@"
         ;;
 
     "list")
-        exec hugo-official $@
+        exec $cmd "$@"
         ;;
 
     "mod")
-        exec hugo-official $@
+        exec $cmd "$@"
         ;;
 
     "new")
-        exec hugo-official $@
+        exec $cmd "$@"
         ;;
 
     "serve")
         # Override bind host as we are running inside a Docker container.
         opts="$opts --bind=${HUGO_BIND}"
 
-        exec hugo-official $@ $opts
+        exec $cmd "$@" $opts
         ;;
 
     "server")
         # Override bind host as we are running inside a Docker container.
         opts="$opts --bind=${HUGO_BIND}"
 
-        exec hugo-official $@ $opts
+        exec $cmd "$@" $opts
         ;;
 
     "undraft")
-        exec hugo-official $@
+        exec $cmd "$@"
         ;;
 
     "version")
-        exec hugo-official $@
+        exec $cmd "$@"
         ;;
 
     "deploy")
-        exec hugo-official $@
+        exec $cmd "$@"
         ;;
 
     # Commands special to docker image
@@ -92,7 +101,7 @@ case "$1" in
         test "$(id -u)" = "0" || opts="$opts --noTimes"
 
         shift
-        exec hugo-official $@ $opts
+        exec $cmd "$@" $opts
         ;;
 
     # Default build command
@@ -105,7 +114,7 @@ case "$1" in
         # https://github.com/gohugoio/hugo/issues/7302
         test "$(id -u)" = "0" || opts="$opts --noTimes"
 
-        exec hugo-official $@ $opts
+        exec $cmd "$@" $opts
         ;;
 
 esac

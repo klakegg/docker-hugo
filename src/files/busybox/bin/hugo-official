@@ -36,8 +36,8 @@ if [ "$HUGO_VERSION_OVERRIDE" != "" ]; then
     fi
 
     # Run the downloaded Hugo version
-    exec $target/hugo $@
+    exec $target/hugo "$@"
 else
     # Run the included Hugo version
-    exec /usr/lib/hugo/hugo $@
+    exec /usr/lib/hugo/hugo "$@"
 fi

@@ -1,16 +1,7 @@
-## :loudspeaker: Breaking changes
-
-*Nothing*
-
-
-## :tada: Features
-
-*Nothing*
-
-
 ## :bug: Fixes
 
-*Nothing*
+* Fixing SSL certificates in Alpine and Busybox images. [#62](https://github.com/klakegg/docker-hugo/issues/62)
+* Fixing broken bash completion. [#66](https://github.com/klakegg/docker-hugo/issues/66)
 
 
 ## :heartbeat: Updates

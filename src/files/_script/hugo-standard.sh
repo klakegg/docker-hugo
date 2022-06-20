@@ -40,7 +40,7 @@ tar -zxf hugo_${HUGO_VERSION}_Linux-${HUGO_ARCH}.tar.gz -C /files/usr/lib/hugo
 
 # Create autocompletion script
 mkdir -p /files/etc/bash_completion.d
-/files/usr/lib/hugo/hugo gen autocomplete > /files/etc/bash_completion.d/hugo.sh
+/files/usr/lib/hugo/hugo completion bash> /files/etc/bash_completion.d/01-hugo.sh
 
 # Create version file
 echo -n "${HUGO_VERSION}" > /files/etc/hugo-release
