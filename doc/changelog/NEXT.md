@@ -8,6 +8,7 @@
 
 * Hugo: [`0.95.0`](https://github.com/klakegg/docker-hugo/releases/tag/0.95.0) => `NEXT`
 * Alpine: `3.14` => `3.16`
+* Node: `16.13.2` => `18.4.0`
 * Pandoc: `2.14.2` => `2.18`
 * sass-embedded: `1.0.0-beta.11` => `1.52.3`
 
