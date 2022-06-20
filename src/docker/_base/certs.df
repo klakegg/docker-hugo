@@ -1,9 +1,10 @@
 FROM base--image--alpine AS source
 
-RUN apk --no-cache add ca-certificates
+RUN apk --no-cache add ca-certificates \
+ && cp -r -L /etc/ssl/certs /certs
 
 
 
 FROM scratch
 
-COPY --from=source /etc/ssl/certs /etc/ssl/certs
+COPY --from=source /certs /etc/ssl/certs
