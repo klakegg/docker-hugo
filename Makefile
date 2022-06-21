@@ -3,7 +3,7 @@ PATH=$(shell pwd)/src/bin:$(shell echo $$PATH)
 default: clean prepare build
 
 build:
-	@make -f target/bundle/Makefile || tail -50 target/bundle/build.log
+	@make -f target/bundle/Makefile || (tail -50 target/bundle/build.log && exit 1)
 
 clean:
 	@rm -rf target

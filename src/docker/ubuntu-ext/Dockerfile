@@ -24,8 +24,8 @@ RUN true \
  && apt update \
  && DEBIAN_FRONTEND=noninteractive apt install -y curl git gnupg apt-transport-https lsb-release \
  #
- # Install Python 2 and rst2html
- && DEBIAN_FRONTEND=noninteractive apt install -y --no-install-recommends python-minimal python-pip python-setuptools python-wheel \
+ # Install Python 3 and rst2html
+ && DEBIAN_FRONTEND=noninteractive apt install -y --no-install-recommends python3-minimal python3-pip python3-setuptools python3-wheel \
  && pip install rst2html \
  #
  # Install NodeJS and tooling
@@ -38,7 +38,7 @@ RUN true \
  && gem install asciidoctor coderay asciidoctor-rouge --no-document \
  #
  # Cleaning up
- && apt remove -y curl gnupg apt-transport-https lsb-release python-pip python-setuptools python-wheel \
+ && apt remove -y curl gnupg apt-transport-https lsb-release python3-pip python3-setuptools python3-wheel \
  && apt autoremove -y \
  && rm -rf /var/lib/apt/lists/* \
  && find /tmp -mindepth 1 -maxdepth 1 | xargs rm -rf \

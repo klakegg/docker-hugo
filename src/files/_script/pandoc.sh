@@ -28,7 +28,7 @@ wget $url -O /pandoc.tar.gz
 tar -zxvf pandoc.tar.gz
 
 # Prepare for image
-mkdir -p /files/bin
-mv /pandoc-${PANDOC_VERSION}/bin/pandoc /files/bin/pandoc-default
+mkdir -p /files/usr/bin
+mv /pandoc-${PANDOC_VERSION}/bin/pandoc /files/usr/bin/pandoc-default
 
-/files/bin/pandoc-default -v
+/files/usr/bin/pandoc-default -v
