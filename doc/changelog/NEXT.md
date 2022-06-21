@@ -1,19 +1,21 @@
+## :loudspeaker: Breaking changes
+
+*Nothing*
+
+
+## :tada: Features
+
+*Nothing*
+
+
 ## :bug: Fixes
 
-* Fixing SSL certificates in Alpine and Busybox images. [#62](https://github.com/klakegg/docker-hugo/issues/62)
-* Fixing broken bash completion. [#66](https://github.com/klakegg/docker-hugo/issues/66)
+*Nothing*
 
 
 ## :heartbeat: Updates
 
-* Hugo: [`0.95.0`](https://github.com/klakegg/docker-hugo/releases/tag/0.95.0) => `NEXT`
-* Alpine: `3.14` => `3.16`
-* Busybox: `1.33` => `1.35`
-* Debian: `11.0` => `11.3`
-* Node: `16.13.2` => `18.4.0`
-* Pandoc: `2.14.2` => `2.18`
-* sass-embedded: `1.0.0-beta.11` => `1.52.3`
-* Ubuntu: `18.04` => `22.04`
+* Hugo: [`0.96.0`](https://github.com/klakegg/docker-hugo/releases/tag/0.96.0) => `NEXT`
 
 
 ## Docker images
