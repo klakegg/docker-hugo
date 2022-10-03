@@ -43,7 +43,10 @@ RUN true \
  && rm -rf /var/lib/apt/lists/* \
  && find /tmp -mindepth 1 -maxdepth 1 | xargs rm -rf \
  && mkdir -p /src /target \
- && chmod a+w /src /target
+ && chmod a+w /src /target \
+ #
+ # add /src to safe.directory
+ && git config --global --add safe.directory /src
 
 COPY --from=base--golang / /
 
