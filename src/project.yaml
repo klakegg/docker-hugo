@@ -1,5 +1,5 @@
 image: klakegg/hugo
-version: 0.102.3
+version: 0.103.0
 
 platforms:
   - linux/amd64

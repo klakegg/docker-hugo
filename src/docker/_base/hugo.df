@@ -21,13 +21,13 @@ COPY --from=fetcher-extended /files /
 
 
 # Standard edition
-FROM --platform=$BUILDPLATFORM base--image--alpine AS fetcher-standard
+FROM --platform=$BUILDPLATFORM base--image--debian AS fetcher-standard
 
 IMPORT ../_imports/version_arg.df
 
 ARG TARGETPLATFORM
 
-# RUN echo "I am running on $BUILDPLATFORM, building for $TARGETPLATFORM"
+RUN apt update && apt install -y wget
 
 #COPY --from=base--files--scripts /hugo-standard.sh hugo.sh
 ADD _script/hugo-standard.sh hugo.sh
