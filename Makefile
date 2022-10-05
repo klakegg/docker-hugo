@@ -41,8 +41,9 @@ bump:
 	@RELEASE=$(version) bump
 
 src/bin/buildx:
-	@wget -q -O src/bin/buildx https://github.com/docker/buildx/releases/download/v0.6.3/buildx-v0.6.3.linux-amd64
+	@wget -q -O src/bin/buildx https://github.com/docker/buildx/releases/download/v0.9.1/buildx-v0.9.1.linux-amd64
 	@chmod a+x src/bin/buildx
+	@docker buildx create --use
 
 enable-qemu:
 	@sudo docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
