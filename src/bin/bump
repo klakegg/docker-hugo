@@ -14,25 +14,9 @@ NEXT=$RELEASE
 echo "$CURRENT => $NEXT"
 
 # Update project version
-sed -i "s:$CURRENT:$NEXT:" $PROJECT/project.yaml
-
-# Update README.md
-{
-    while IFS= read -r line
-    do
-    echo "$line"
-
-    if [ "$(echo $line | grep "^<!--" | wc -l)" = "1" ]; then
-        echo "$line" \
-        | sed "s:<!\-\-\s*::" \
-        | sed "s:\s*\-\->::" \
-        | sed "s:NEXT:${NEXT}:g"
-    fi
-    done < "$REPO/README.md"
-} > $REPO/README.md.tmp
-mv $REPO/README.md.tmp $REPO/README.md
-
-sed -i "s:\:$CURRENT:\:$NEXT:" $REPO/README.md
+cat $REPO/doc/template/README.md \
+  | sed "s:NEXT:$NEXT:g" \
+  > $REPO/README.md
 
 # Update tags.md
 {
