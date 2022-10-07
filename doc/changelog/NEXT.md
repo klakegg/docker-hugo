@@ -1,21 +1,21 @@
-## :loudspeaker: Breaking changes
+<!-- ## :loudspeaker: Breaking changes
 
-*Nothing*
-
-
-## :tada: Features
-
-*Nothing*
+*Nothing* -->
 
 
-## :bug: Fixes
+<!-- ## :tada: Features
 
-*Nothing*
+*Nothing* -->
+
+
+<!-- ## :bug: Fixes
+
+*Nothing* -->
 
 
 ## :heartbeat: Updates
 
-* Hugo: [`0.104.0`](https://github.com/klakegg/docker-hugo/releases/tag/0.104.0) => `NEXT`
+* Hugo: [`0.104.1`](https://github.com/klakegg/docker-hugo/releases/tag/0.104.1) => `NEXT`
 
 
 ## Docker images
