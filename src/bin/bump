@@ -14,6 +14,9 @@ NEXT=$RELEASE
 echo "$CURRENT => $NEXT"
 
 # Update project version
+sed -i "s:$CURRENT:$NEXT:" $PROJECT/project.yaml
+
+# Update README.md
 cat $REPO/doc/template/README.md \
   | sed "s:NEXT:$NEXT:g" \
   > $REPO/README.md

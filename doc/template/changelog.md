@@ -1,16 +1,16 @@
-## :loudspeaker: Breaking changes
+<!-- ## :loudspeaker: Breaking changes
 
-*Nothing*
-
-
-## :tada: Features
-
-*Nothing*
+*Nothing* -->
 
 
-## :bug: Fixes
+<!-- ## :tada: Features
 
-*Nothing*
+*Nothing* -->
+
+
+<!-- ## :bug: Fixes
+
+*Nothing* -->
 
 
 ## :heartbeat: Updates

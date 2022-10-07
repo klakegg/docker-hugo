@@ -5,9 +5,13 @@ on:
     branches:
       - master
       - main
+#    paths-ignore:
+#      - README.md
+#      - doc/**/*
   release:
     types:
       - released
+  workflow_dispatch:
 
 jobs:
   build:
