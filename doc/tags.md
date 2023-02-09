@@ -3,6 +3,7 @@
 Default minimal image based upon [Busybox](https://hub.docker.com/r/_/busybox/):
 * Aliases: `latest`, `busybox`, `busybox-ci`, `ci`, `busybox-onbuild`, `onbuild`
 <!-- * Hugo NEXT: `NEXT-busybox`, `NEXT`, `NEXT-busybox-ci`, `NEXT-ci`, `NEXT-busybox-onbuild`, `NEXT-onbuild` -->
+* Hugo 0.111.3: `0.111.3-busybox`, `0.111.3`, `0.111.3-busybox-ci`, `0.111.3-ci`, `0.111.3-busybox-onbuild`, `0.111.3-onbuild`
 * Hugo 0.107.0: `0.107.0-busybox`, `0.107.0`, `0.107.0-busybox-ci`, `0.107.0-ci`, `0.107.0-busybox-onbuild`, `0.107.0-onbuild`
 * Hugo 0.106.0: `0.106.0-busybox`, `0.106.0`, `0.106.0-busybox-ci`, `0.106.0-ci`, `0.106.0-busybox-onbuild`, `0.106.0-onbuild`
 * Hugo 0.105.0: `0.105.0-busybox`, `0.105.0`, `0.105.0-busybox-ci`, `0.105.0-ci`, `0.105.0-busybox-onbuild`, `0.105.0-onbuild`
@@ -171,6 +172,7 @@ Default minimal image based upon [Busybox](https://hub.docker.com/r/_/busybox/):
 Minimal image based upon [Alpine](https://hub.docker.com/r/_/alpine/):
 * Aliases: `alpine`, `alpine-ci`, `alpine-onbuild`, `ext-alpine`, `ext-alpine-ci`, `ext-alpine-onbuild`
 <!-- * Hugo NEXT: `NEXT-alpine`, `NEXT-alpine-ci`, `NEXT-alpine-onbuild`, `NEXT-ext-alpine`, `NEXT-ext-alpine-ci`, `NEXT-ext-alpine-onbuild` -->
+* Hugo 0.111.3: `0.111.3-alpine`, `0.111.3-alpine-ci`, `0.111.3-alpine-onbuild`, `0.111.3-ext-alpine`, `0.111.3-ext-alpine-ci`, `0.111.3-ext-alpine-onbuild`
 * Hugo 0.107.0: `0.107.0-alpine`, `0.107.0-alpine-ci`, `0.107.0-alpine-onbuild`, `0.107.0-ext-alpine`, `0.107.0-ext-alpine-ci`, `0.107.0-ext-alpine-onbuild`
 * Hugo 0.106.0: `0.106.0-alpine`, `0.106.0-alpine-ci`, `0.106.0-alpine-onbuild`, `0.106.0-ext-alpine`, `0.106.0-ext-alpine-ci`, `0.106.0-ext-alpine-onbuild`
 * Hugo 0.105.0: `0.105.0-alpine`, `0.105.0-alpine-ci`, `0.105.0-alpine-onbuild`, `0.105.0-ext-alpine`, `0.105.0-ext-alpine-ci`, `0.105.0-ext-alpine-onbuild`
@@ -339,6 +341,7 @@ Minimal image based upon [Alpine](https://hub.docker.com/r/_/alpine/):
 Minimal image based upon [Alpine](https://hub.docker.com/r/_/alpine/) with [Asciidoctor](http://asciidoctor.org/) installed:
 * Aliases: `asciidoctor`, `asciidoctor-ci`, `asciidoctor-onbuild`, `ext-asciidoctor`, `ext-asciidoctor-ci`, `ext-asciidoctor-onbuild`
 <!-- * Hugo NEXT: `NEXT-asciidoctor`, `NEXT-asciidoctor-onbuild`, `NEXT-asciidoctor-ci`, `NEXT-ext-asciidoctor`, `NEXT-ext-asciidoctor-ci`, `NEXT-ext-asciidoctor-onbuild` -->
+* Hugo 0.111.3: `0.111.3-asciidoctor`, `0.111.3-asciidoctor-onbuild`, `0.111.3-asciidoctor-ci`, `0.111.3-ext-asciidoctor`, `0.111.3-ext-asciidoctor-ci`, `0.111.3-ext-asciidoctor-onbuild`
 * Hugo 0.107.0: `0.107.0-asciidoctor`, `0.107.0-asciidoctor-onbuild`, `0.107.0-asciidoctor-ci`, `0.107.0-ext-asciidoctor`, `0.107.0-ext-asciidoctor-ci`, `0.107.0-ext-asciidoctor-onbuild`
 * Hugo 0.106.0: `0.106.0-asciidoctor`, `0.106.0-asciidoctor-onbuild`, `0.106.0-asciidoctor-ci`, `0.106.0-ext-asciidoctor`, `0.106.0-ext-asciidoctor-ci`, `0.106.0-ext-asciidoctor-onbuild`
 * Hugo 0.105.0: `0.105.0-asciidoctor`, `0.105.0-asciidoctor-onbuild`, `0.105.0-asciidoctor-ci`, `0.105.0-ext-asciidoctor`, `0.105.0-ext-asciidoctor-ci`, `0.105.0-ext-asciidoctor-onbuild`
@@ -506,6 +509,7 @@ Minimal image based upon [Alpine](https://hub.docker.com/r/_/alpine/) with [Asci
 Minimal image based upon [Alpine](https://hub.docker.com/r/_/alpine/) with [Pandoc](https://pandoc.org/) installed:
 * Aliases: `pandoc`, `pandoc-ci`, `pandoc-onbuild`, `ext-pandoc`, `ext-pandoc-ci`, `ext-pandoc-onbuild`
 <!-- * Hugo NEXT: `NEXT-pandoc`, `NEXT-pandoc-ci`, `NEXT-pandoc-onbuild`, `NEXT-ext-pandoc`, `NEXT-ext-pandoc-ci`, `NEXT-ext-pandoc-onbuild` -->
+* Hugo 0.111.3: `0.111.3-pandoc`, `0.111.3-pandoc-ci`, `0.111.3-pandoc-onbuild`, `0.111.3-ext-pandoc`, `0.111.3-ext-pandoc-ci`, `0.111.3-ext-pandoc-onbuild`
 * Hugo 0.107.0: `0.107.0-pandoc`, `0.107.0-pandoc-ci`, `0.107.0-pandoc-onbuild`, `0.107.0-ext-pandoc`, `0.107.0-ext-pandoc-ci`, `0.107.0-ext-pandoc-onbuild`
 * Hugo 0.106.0: `0.106.0-pandoc`, `0.106.0-pandoc-ci`, `0.106.0-pandoc-onbuild`, `0.106.0-ext-pandoc`, `0.106.0-ext-pandoc-ci`, `0.106.0-ext-pandoc-onbuild`
 * Hugo 0.105.0: `0.105.0-pandoc`, `0.105.0-pandoc-ci`, `0.105.0-pandoc-onbuild`, `0.105.0-ext-pandoc`, `0.105.0-ext-pandoc-ci`, `0.105.0-ext-pandoc-onbuild`
@@ -655,6 +659,7 @@ Minimal image based upon [Alpine](https://hub.docker.com/r/_/alpine/) with [Pand
 Image based upon [Debian](https://hub.docker.com/r/_/debian/):
 * Aliases: `debian`, `debian-ci`, `debian-onbuild`, `ext`, `latest-ext`, `ext-debian`, `ext-debian-ci`, `ext-ci`, `ext-debian-onbuild`, `ext-onbuild`
 <!-- * Hugo NEXT: `NEXT-debian`, `NEXT-debian-ci`, `NEXT-debian-onbuild`, `NEXT-ext`, `NEXT-ext-debian`, `NEXT-ext-debian-ci`, `NEXT-ext-ci`, `NEXT-ext-debian-onbuild`, `NEXT-ext-onbuild` -->
+* Hugo 0.111.3: `0.111.3-debian`, `0.111.3-debian-ci`, `0.111.3-debian-onbuild`, `0.111.3-ext`, `0.111.3-ext-debian`, `0.111.3-ext-debian-ci`, `0.111.3-ext-ci`, `0.111.3-ext-debian-onbuild`, `0.111.3-ext-onbuild`
 * Hugo 0.107.0: `0.107.0-debian`, `0.107.0-debian-ci`, `0.107.0-debian-onbuild`, `0.107.0-ext`, `0.107.0-ext-debian`, `0.107.0-ext-debian-ci`, `0.107.0-ext-ci`, `0.107.0-ext-debian-onbuild`, `0.107.0-ext-onbuild`
 * Hugo 0.106.0: `0.106.0-debian`, `0.106.0-debian-ci`, `0.106.0-debian-onbuild`, `0.106.0-ext`, `0.106.0-ext-debian`, `0.106.0-ext-debian-ci`, `0.106.0-ext-ci`, `0.106.0-ext-debian-onbuild`, `0.106.0-ext-onbuild`
 * Hugo 0.105.0: `0.105.0-debian`, `0.105.0-debian-ci`, `0.105.0-debian-onbuild`, `0.105.0-ext`, `0.105.0-ext-debian`, `0.105.0-ext-debian-ci`, `0.105.0-ext-ci`, `0.105.0-ext-debian-onbuild`, `0.105.0-ext-onbuild`
@@ -805,6 +810,7 @@ Image based upon [Debian](https://hub.docker.com/r/_/debian/):
 Image based upon [Ubuntu](https://hub.docker.com/r/_/ubuntu/):
 * Aliases: `ubuntu`, `ubuntu-ci`, `ubuntu-onbuild`, `ext-ubuntu`, `ext-ubuntu-ci`, `ext-ubuntu-onbuild`
 <!-- * Hugo NEXT: `NEXT-ubuntu`, `NEXT-ubuntu-ci`, `NEXT-ubuntu-onbuild`, `NEXT-ext-ubuntu`, `NEXT-ext-ubuntu-ci`, `NEXT-ext-ubuntu-onbuild` -->
+* Hugo 0.111.3: `0.111.3-ubuntu`, `0.111.3-ubuntu-ci`, `0.111.3-ubuntu-onbuild`, `0.111.3-ext-ubuntu`, `0.111.3-ext-ubuntu-ci`, `0.111.3-ext-ubuntu-onbuild`
 * Hugo 0.107.0: `0.107.0-ubuntu`, `0.107.0-ubuntu-ci`, `0.107.0-ubuntu-onbuild`, `0.107.0-ext-ubuntu`, `0.107.0-ext-ubuntu-ci`, `0.107.0-ext-ubuntu-onbuild`
 * Hugo 0.106.0: `0.106.0-ubuntu`, `0.106.0-ubuntu-ci`, `0.106.0-ubuntu-onbuild`, `0.106.0-ext-ubuntu`, `0.106.0-ext-ubuntu-ci`, `0.106.0-ext-ubuntu-onbuild`
 * Hugo 0.105.0: `0.105.0-ubuntu`, `0.105.0-ubuntu-ci`, `0.105.0-ubuntu-onbuild`, `0.105.0-ext-ubuntu`, `0.105.0-ext-ubuntu-ci`, `0.105.0-ext-ubuntu-onbuild`
