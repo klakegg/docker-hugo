@@ -29,9 +29,9 @@ RUN true \
  && pip install rst2html \
  #
  # Install NodeJS and tooling
- && curl -sL https://deb.nodesource.com/setup_18.x | bash - \
+ && curl -sL https://deb.nodesource.com/setup_20.x | bash - \
  && apt install -y nodejs \
- && npm install -g autoprefixer@10.2.4 postcss@8.2.6 postcss-cli@8.3.1 yarn@1.22.10 @babel/cli @babel/core \
+ && npm install -g autoprefixer@10.4.14 postcss@8.4.24 postcss-cli@10.1.0 yarn@1.22.19 @babel/cli @babel/core \
  #
  # Install Asciidoctor
  && DEBIAN_FRONTEND=noninteractive apt install -y ruby \
