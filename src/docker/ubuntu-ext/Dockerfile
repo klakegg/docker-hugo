@@ -26,7 +26,7 @@ RUN true \
  #
  # Install Python 3 and rst2html
  && DEBIAN_FRONTEND=noninteractive apt install -y --no-install-recommends python3-minimal python3-pip python3-setuptools python3-wheel \
- && pip install rst2html \
+ && pip install --break-system-packages rst2html \
  #
  # Install NodeJS and tooling
  && curl -sL https://deb.nodesource.com/setup_20.x | bash - \
