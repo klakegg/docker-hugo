@@ -244,10 +244,10 @@ In docker-compose using `entrypoint`:
 
 | Software | Version |
 | -------- | ------- |
-| Go       | 1.16.2  |
-| NodeJS   | 18.x    |
+| Go       | 1.19.9  |
+| NodeJS   | 20.x    |
 | Pandoc   | 2.12    |
-| Yarn     | 1.22.10 |
+| Yarn     | 1.22.19 |
 
 
 ## Configuration
