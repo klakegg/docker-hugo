@@ -15,18 +15,7 @@
 
 ## :heartbeat: Updates
 
-* Hugo: [`0.107.0`](https://github.com/klakegg/docker-hugo/releases/tag/0.107.0) => `NEXT`
-* Alpine: `3.16` => `3.18`
-* Busybox: `1.35` => `1.36`
-* Debian: `11.3` => `11.7`
-* Ubuntu: `22.04` => `23.04`
-* NodeJS: `18.x` => `20.x`
-* Golang: `1.17` => `1.19.9`
-* Sass Embedded: `1.52.3` => `1.56.1`
-* autoprefixer: `10.2.4` => `10.4.14`
-* postcss: `8.2.6` => `8.4.24`
-* postcss-cli: `8.3.1` => `10.1.0`
-* yarn: `1.22.10` => `1.22.19`
+* Hugo: [`0.108.0`](https://github.com/klakegg/docker-hugo/releases/tag/0.108.0) => `NEXT`
 
 
 ## Docker images
