@@ -22,7 +22,7 @@ ENV HUGO_BIND="0.0.0.0" \
     GOROOT="/usr/local/lib/go" \
     HOME="/tmp"
 
-RUN apk add --no-cache libc6-compat libstdc++ busybox-suid bash bash-completion git tzdata make \
+RUN apk add --no-cache libc6-compat gcompat libstdc++ openssl ncurses-libs busybox-suid bash bash-completion git tzdata make \
     # Python 3
     python3 py-pip py-setuptools
 
