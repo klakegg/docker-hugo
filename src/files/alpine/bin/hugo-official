@@ -7,15 +7,21 @@ if [ "$HUGO_VERSION_OVERRIDE" != "" ]; then
 
     # Download if the requested Hugo version is not available
     if [ ! -e $target ]; then
+        # Determine architecture
+        arch=Linux-64bit
+        if [ "$(uname -m)" = "aarch64" ]; then
+            arch=linux-arm64
+        fi
+
         # Download standard edition
         if [ "${HUGO_EDITION}" = "standard" ]; then
             echo "Downloading Hugo ${HUGO_VERSION_OVERRIDE}..."
-            wget -q "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION_OVERRIDE}/hugo_${HUGO_VERSION_OVERRIDE}_Linux-64bit.tar.gz" -O $target.tar.gz || true
+            wget -q "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION_OVERRIDE}/hugo_${HUGO_VERSION_OVERRIDE}_${arch}.tar.gz" -O $target.tar.gz || true
 
         # Download extended edition
         elif [ "${HUGO_EDITION}" = "extended" ]; then
             echo "Downloading Hugo ${HUGO_VERSION_OVERRIDE}..."
-            wget -q "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION_OVERRIDE}/hugo_extended_${HUGO_VERSION_OVERRIDE}_Linux-64bit.tar.gz" -O $target.tar.gz || true
+            wget -q "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION_OVERRIDE}/hugo_extended_${HUGO_VERSION_OVERRIDE}_${arch}.tar.gz" -O $target.tar.gz || true
 
         # Unknown edition
         else
